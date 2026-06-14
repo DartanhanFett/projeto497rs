@@ -1,0 +1,16 @@
+---
+codigo: "4306429"
+nome: "Dois Irmãos das Missões"
+microrregiao: "Frederico Westphalen"
+mesorregiao: "Noroeste Rio-grandense"
+status: pendente
+resumo: ""
+capa: ""
+fotos: []
+reels: []
+curiosidades: []
+populacao: null
+areaKm2: 65.152
+---
+
+<!-- Escreva aqui as curiosidades, histórias e relatos da visita a Dois Irmãos das Missões. -->

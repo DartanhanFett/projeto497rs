@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────────────────────
+   Projeto 497 RS — Design tokens
+   Paleta "Pampa Quente" (light mode)
+
+   Inspiração: papel envelhecido + pampa ao sol + serra gaúcha.
+   Fundo creme quente em vez de branco puro pra dar sensação de
+   revista de viagem e fazer as fotos brilharem.
+   ──────────────────────────────────────────────────────────── */
+
+@theme {
+  /* Backgrounds (claros, quentes) */
+  --color-bg: #FAF7F0;             /* creme — papel envelhecido */
+  --color-surface: #FFFFFF;        /* cards: branco puro pra contraste */
+  --color-surface-2: #F2EDE3;      /* superfícies secundárias */
+
+  /* Brand */
+  --color-primary: #B8421F;        /* vermelho-tijolo, mais escuro p/ contraste em fundo claro */
+  --color-primary-hover: #9C351A;
+  --color-accent: #2D7A4F;         /* verde-mata escurecido — visitadas */
+  --color-accent-hover: #1F5B3A;
+  --color-highlight: #C99124;      /* mostarda profundo — em progresso */
+  --color-highlight-hover: #A8761A;
+  --color-pending: #C9C0AF;        /* bege-cinza — não visitadas */
+
+  /* Text (escuro, com toque quente) */
+  --color-text: #1F1611;           /* marrom muito escuro, não preto puro */
+  --color-text-muted: #6B5F52;     /* marrom médio */
+  --color-text-faint: #9A8F80;     /* marrom claro */
+
+  /* Borders */
+  --color-border: #E5DCC9;         /* bege médio */
+  --color-border-strong: #C9C0AF;
+
+  /* Typography */
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Base resets / global feel */
+html {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-height: 100dvh;
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+  font-feature-settings: "ss01", "ss02";
+  letter-spacing: -0.01em;
+}
+
+/* Status pills — used everywhere */
+.status-visitada {
+  background: color-mix(in oklab, var(--color-accent) 12%, white);
+  color: var(--color-accent-hover);
+  border: 1px solid color-mix(in oklab, var(--color-accent) 35%, transparent);
+}
+.status-progresso {
+  background: color-mix(in oklab, var(--color-highlight) 14%, white);
+  color: var(--color-highlight-hover);
+  border: 1px solid color-mix(in oklab, var(--color-highlight) 40%, transparent);
+}
+.status-pendente {
+  background: var(--color-surface-2);
+  color: var(--color-text-muted);
+  border: 1px solid var(--color-border);
+}

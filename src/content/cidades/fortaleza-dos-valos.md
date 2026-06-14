@@ -1,0 +1,16 @@
+---
+codigo: "4308458"
+nome: "Fortaleza dos Valos"
+microrregiao: "Cruz Alta"
+mesorregiao: "Noroeste Rio-grandense"
+status: pendente
+resumo: ""
+capa: ""
+fotos: []
+reels: []
+curiosidades: []
+populacao: null
+areaKm2: 650.512
+---
+
+<!-- Escreva aqui as curiosidades, histórias e relatos da visita a Fortaleza dos Valos. -->

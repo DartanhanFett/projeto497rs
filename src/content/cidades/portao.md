@@ -1,0 +1,18 @@
+---
+codigo: "4314803"
+nome: "Portão"
+microrregiao: "Montenegro"
+mesorregiao: "Metropolitana de Porto Alegre"
+status: visitada
+resumo: ""
+capa: ""
+fotos: []
+reels: []
+curiosidades: []
+populacao: null
+areaKm2: 160.386
+dataVisita: 2020-05-26
+padroeiro: "São João Batista"
+---
+
+<!-- Escreva aqui as curiosidades, histórias e relatos da visita a Portão. -->

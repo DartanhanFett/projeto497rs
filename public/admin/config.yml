@@ -1,0 +1,216 @@
+# ────────────────────────────────────────────────────────────────────────
+# Decap CMS — Projeto 497 RS
+#
+# Painel de edição pensado pra ser simples (especialmente para usuários
+# 60+). Os campos identificadores (código IBGE, nome, regiões) são
+# read-only ou ocultos — vêm do IBGE e não devem ser alterados.
+#
+# As 497 cidades já existem em src/content/cidades/ — só EDIÇÃO permitida.
+# As curiosidades são livres (criar/editar/apagar).
+# ────────────────────────────────────────────────────────────────────────
+
+backend:
+  name: git-gateway
+  branch: main
+  commit_messages:
+    create: 'Adiciona conteúdo de "{{slug}}"'
+    update: 'Atualiza "{{slug}}"'
+    delete: 'Remove "{{slug}}"'
+    uploadMedia: 'Adiciona mídia "{{path}}"'
+    deleteMedia: 'Remove mídia "{{path}}"'
+
+# Local backend: quando rodar `npm run cms` em paralelo ao `npm run dev`,
+# o /admin conecta via proxy direto no filesystem — sem login, sem GitHub.
+# Em produção (Netlify) este flag é ignorado e cai no git-gateway acima.
+local_backend:
+  url: http://localhost:8081/api/v1
+  allowed_hosts: ['localhost', '127.0.0.1']
+
+# Localização da UI (PT-BR)
+locale: pt
+
+# Mídia: quando o usuário arrasta uma foto, ela vai pra public/uploads/
+media_folder: public/uploads
+public_folder: /uploads
+
+publish_mode: simple
+site_url: https://projeto497rs.com.br
+display_url: https://projeto497rs.com.br
+logo_url: /favicon.svg
+
+collections:
+  # ────────────────────────────────────────────────────────────────────
+  # Cidades — 497 arquivos pré-existentes em src/content/cidades/
+  # ────────────────────────────────────────────────────────────────────
+  - name: cidades
+    label: 'Cidades'
+    label_singular: 'Cidade'
+    folder: src/content/cidades
+    extension: md
+    format: frontmatter
+    create: false       # não permite criar novas (já temos os 497)
+    delete: false       # não permite apagar
+    slug: '{{slug}}'
+    identifier_field: nome
+    summary: '{{nome}} — {{status}} · {{padroeiro}}'
+    sortable_fields: ['nome', 'dataVisita', 'status', 'padroeiro']
+    view_filters:
+      - { label: 'Visitadas', field: status, pattern: visitada }
+      - { label: 'Em progresso', field: status, pattern: em-progresso }
+      - { label: 'Pendentes', field: status, pattern: pendente }
+    view_groups:
+      - { label: 'Por região', field: mesorregiao }
+      - { label: 'Por status', field: status }
+
+    fields:
+      # ── Identificadores (não alterar) ──
+      - { label: 'Nome', name: nome, widget: string, required: true }
+      - { label: 'Código IBGE', name: codigo, widget: string, required: true, hint: 'Não altere. Vem do IBGE.' }
+      - { label: 'Microrregião', name: microrregiao, widget: string, required: false }
+      - { label: 'Mesorregião', name: mesorregiao, widget: string, required: false }
+
+      # ── Visita (campo principal) ──
+      - label: 'Situação da visita'
+        name: status
+        widget: select
+        default: pendente
+        required: true
+        options:
+          - { label: '○ Pendente — ainda não visitamos', value: pendente }
+          - { label: '● Em progresso — passamos mas não documentamos', value: em-progresso }
+          - { label: '✓ Visitada — documentada', value: visitada }
+
+      - { label: 'Data da visita', name: dataVisita, widget: datetime, required: false, date_format: 'DD/MM/YYYY', time_format: false, picker_utc: false, hint: 'Quando vocês estiveram lá.' }
+
+      - { label: 'Padroeiro / Igreja matriz', name: padroeiro, widget: string, required: false, hint: 'Eixo cultural do projeto. Ex: "São José", "Nossa Senhora da Conceição".' }
+
+      # ── Sobre a cidade (auto-populado, mas editável) ──
+      - { label: 'Resumo histórico', name: historiaResumo, widget: text, required: false, hint: 'Texto auto-preenchido pela Wikipedia. Pode ajustar.' }
+      - { label: 'Data de fundação', name: fundacao, widget: datetime, required: false, date_format: 'DD/MM/YYYY', time_format: false, picker_utc: false }
+      - { label: 'Aniversário (dia/mês)', name: aniversario, widget: string, required: false, hint: 'Ex: "20 de setembro"' }
+      - { label: 'Origem do nome (toponímia)', name: toponimia, widget: text, required: false }
+      - { label: 'Gentílico', name: gentilico, widget: string, required: false, hint: 'Ex: "porto-alegrense"' }
+      - { label: 'Site oficial da prefeitura', name: siteOficial, widget: string, required: false, pattern: ['^https?://.+', 'Deve começar com http:// ou https://'] }
+
+      # ── O que vimos ──
+      - label: 'Atrações / pontos turísticos'
+        name: atracoes
+        widget: list
+        required: false
+        field: { label: 'Atração', name: texto, widget: string }
+        hint: 'Ex: "Igreja Matriz", "Mirante do Vale", "Praça Central".'
+
+      - label: 'Onde comer'
+        name: ondeComer
+        widget: list
+        required: false
+        field: { label: 'Local', name: texto, widget: string }
+
+      - label: 'Onde dormir'
+        name: ondeDormir
+        widget: list
+        required: false
+        field: { label: 'Local', name: texto, widget: string }
+
+      - label: 'Festas tradicionais'
+        name: festas
+        widget: list
+        required: false
+        field: { label: 'Festa', name: texto, widget: string }
+        hint: 'Ex: "Festa do Pinhão (junho)", "Kerb da igreja em janeiro".'
+
+      # ── Secretaria de Turismo ──
+      - label: 'Secretaria de Turismo'
+        name: secretariaTurismo
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - { label: 'Endereço', name: endereco, widget: string, required: false }
+          - { label: 'Telefone', name: telefone, widget: string, required: false }
+          - { label: 'Email', name: email, widget: string, required: false }
+          - { label: 'Site', name: site, widget: string, required: false }
+
+      # ── Dados de referência (planilha) ──
+      - { label: 'População (estimativa)', name: populacao, widget: number, required: false, value_type: int }
+      - { label: 'Área (km²)', name: areaKm2, widget: number, required: false, value_type: float, step: 0.001 }
+
+      # ── Editorial (foto, resumo, galeria) ──
+      - label: 'Resumo curto'
+        name: resumo
+        widget: text
+        required: false
+        hint: 'Frase curta no topo da página. Ex: "Capital do chimarrão, conhecida por…"'
+        pattern: ['^.{0,280}$', 'Máximo de 280 caracteres']
+
+      - { label: 'Foto de capa', name: capa, widget: image, required: false, media_library: { config: { multiple: false } }, hint: 'Foto principal no topo da página.' }
+      - label: 'Galeria de fotos'
+        name: fotos
+        widget: list
+        required: false
+        field: { label: 'Foto', name: url, widget: image }
+        hint: 'Arraste suas fotos — formato vertical (9:16) fica melhor.'
+
+      - label: 'Reels do Instagram'
+        name: reels
+        widget: list
+        required: false
+        field: { label: 'URL do Reel', name: url, widget: string, hint: 'Ex: https://www.instagram.com/reel/ABC123/' }
+
+      - label: 'Curiosidades rápidas (bullets)'
+        name: curiosidades
+        widget: list
+        required: false
+        field: { label: 'Curiosidade', name: texto, widget: string }
+        hint: 'Fatos rápidos — aparecem no topo da página em lista.'
+
+      - label: 'História e relatos (texto livre)'
+        name: body
+        widget: markdown
+        required: false
+        hint: 'O que vocês fizeram, comeram, lugares marcantes. Editor visual.'
+
+  # ────────────────────────────────────────────────────────────────────
+  # Curiosidades — coleção livre (criar/editar/apagar)
+  # ────────────────────────────────────────────────────────────────────
+  - name: curiosidades
+    label: 'Curiosidades'
+    label_singular: 'Curiosidade'
+    folder: src/content/curiosidades
+    extension: md
+    format: frontmatter
+    create: true
+    delete: true
+    slug: '{{slug}}'
+    identifier_field: titulo
+    summary: '{{titulo}}'
+    sortable_fields: ['data', 'titulo']
+
+    fields:
+      - { label: 'Título', name: titulo, widget: string, required: true, hint: 'Ex: "São José é o padroeiro mais comum no RS"' }
+      - { label: 'Data', name: data, widget: datetime, required: false, date_format: 'DD/MM/YYYY', time_format: false, picker_utc: false, hint: 'Quando essa curiosidade foi descoberta/registrada.' }
+
+      - label: 'Tags'
+        name: tags
+        widget: select
+        multiple: true
+        required: false
+        options:
+          - { label: 'Padroeiros', value: padroeiros }
+          - { label: 'Religião', value: religiao }
+          - { label: 'História', value: historia }
+          - { label: 'Geografia', value: geografia }
+          - { label: 'Natureza', value: natureza }
+
+      - { label: 'Foto de capa (opcional)', name: capa, widget: image, required: false, media_library: { config: { multiple: false } } }
+
+      - label: 'Cidades relacionadas (slugs)'
+        name: cidades
+        widget: list
+        required: false
+        field: { label: 'Slug', name: slug, widget: string, hint: 'Ex: "porto-alegre", "gramado". Veja o final da URL da cidade.' }
+        hint: 'Liste os slugs das cidades relacionadas — aparecem como links na curiosidade.'
+
+      - { label: 'Destaque na home?', name: destaque, widget: boolean, default: false, required: false, hint: 'Se marcado, aparece no card de destaque da home.' }
+
+      - { label: 'Texto da curiosidade', name: body, widget: markdown, required: true }

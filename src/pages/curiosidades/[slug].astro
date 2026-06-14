@@ -1,0 +1,92 @@
+---
+import { getCollection, getEntry, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const todas = await getCollection("curiosidades");
+  return todas.map((c) => ({
+    params: { slug: c.id },
+    props: { curiosidade: c },
+  }));
+}
+
+const TAG_LABELS: Record<string, string> = {
+  padroeiros: "Padroeiros",
+  religiao: "Religião",
+  historia: "História",
+  geografia: "Geografia",
+  natureza: "Natureza",
+};
+
+const { curiosidade } = Astro.props;
+const { Content } = await render(curiosidade);
+const d = curiosidade.data;
+
+// Resolver cidades relacionadas
+const cidadesRelacionadas: { slug: string; nome: string }[] = [];
+for (const slug of d.cidades) {
+  const c = await getEntry("cidades", slug);
+  if (c) cidadesRelacionadas.push({ slug, nome: c.data.nome });
+}
+---
+
+<BaseLayout
+  title={`${d.titulo} — Projeto 497 RS`}
+  description={`Curiosidade do Rio Grande do Sul: ${d.titulo}`}
+  image={d.capa || `/og/curiosidades/${curiosidade.id}.png`}
+>
+  <main class="min-h-dvh max-w-3xl mx-auto px-6 py-10">
+    <a
+      href="/curiosidades/"
+      class="inline-flex items-center gap-1.5 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors mb-8"
+    >
+      ← Todas as curiosidades
+    </a>
+
+    <header class="mb-8">
+      <div class="flex flex-wrap gap-1.5 mb-3">
+        {d.tags.map((t) => (
+          <span class="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-[var(--color-surface-2)] text-[var(--color-text-muted)] border border-[var(--color-border)]">
+            {TAG_LABELS[t] ?? t}
+          </span>
+        ))}
+      </div>
+      <h1 class="text-4xl md:text-5xl font-display font-semibold leading-tight mb-3">
+        {d.titulo}
+      </h1>
+      {d.data && (
+        <time class="text-sm text-[var(--color-text-faint)]">
+          {d.data.toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" })}
+        </time>
+      )}
+    </header>
+
+    {d.capa && (
+      <figure class="mb-10 rounded-2xl overflow-hidden border border-[var(--color-border)]">
+        <img src={d.capa} alt="" class="w-full h-auto" loading="eager" />
+      </figure>
+    )}
+
+    <article class="prose max-w-none mb-10 text-[var(--color-text)]">
+      <Content />
+    </article>
+
+    {cidadesRelacionadas.length > 0 && (
+      <section class="border-t border-[var(--color-border)] pt-6">
+        <h2 class="text-sm uppercase tracking-wider text-[var(--color-text-faint)] mb-3">
+          Cidades relacionadas
+        </h2>
+        <div class="flex flex-wrap gap-2">
+          {cidadesRelacionadas.map((cd) => (
+            <a
+              href={`/cidades/${cd.slug}/`}
+              class="px-3 py-1.5 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] text-sm hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors"
+            >
+              {cd.nome}
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+  </main>
+</BaseLayout>

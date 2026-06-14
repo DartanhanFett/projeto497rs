@@ -1,0 +1,355 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+export async function getStaticPaths() {
+  const cidades = await getCollection("cidades");
+  return cidades.map((c) => ({
+    params: { slug: c.id },
+    props: { cidade: c },
+  }));
+}
+
+const { cidade } = Astro.props;
+const { Content } = await render(cidade);
+const d = cidade.data;
+
+const statusLabel = {
+  visitada: "✓ Visitada",
+  "em-progresso": "● Em progresso",
+  pendente: "○ Pendente",
+}[d.status];
+
+const statusClass = {
+  visitada: "status-visitada",
+  "em-progresso": "status-progresso",
+  pendente: "status-pendente",
+}[d.status];
+
+const dataVisitaFmt = d.dataVisita?.toLocaleDateString("pt-BR", {
+  day: "2-digit",
+  month: "long",
+  year: "numeric",
+});
+
+/** Extrai o ID de um Reel do Instagram (aceita URL completa ou só o código). */
+function reelEmbedUrl(url: string) {
+  const m = url.match(/\/reel\/([^/?]+)/) || url.match(/\/p\/([^/?]+)/);
+  const id = m?.[1] ?? url;
+  return `https://www.instagram.com/reel/${id}/embed/`;
+}
+---
+
+<BaseLayout
+  title={`${d.nome} — Projeto 497 RS`}
+  description={d.resumo || `${d.nome}, ${d.mesorregiao || "Rio Grande do Sul"} — uma das 497 cidades do RS documentadas pelo Projeto 497.`}
+  image={d.capa || `/og/cidades/${cidade.id}.png`}
+>
+  <main class="min-h-dvh max-w-4xl mx-auto px-6 py-10">
+    <!-- Voltar -->
+    <a
+      href="/"
+      class="inline-flex items-center gap-1.5 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors mb-8"
+    >
+      ← Voltar ao mapa
+    </a>
+
+    <!-- Header -->
+    <header class="mb-8">
+      <div class="flex items-center gap-3 mb-3">
+        <span class={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium ${statusClass}`}>
+          {statusLabel}
+        </span>
+        {dataVisitaFmt && (
+          <time class="text-sm text-[var(--color-text-faint)]">{dataVisitaFmt}</time>
+        )}
+      </div>
+      <h1 class="text-5xl md:text-6xl font-display font-semibold leading-tight mb-3">
+        {d.nome}
+      </h1>
+      {d.mesorregiao && (
+        <p class="text-[var(--color-text-muted)]">
+          {d.microrregiao && <span>{d.microrregiao} · </span>}
+          {d.mesorregiao}
+        </p>
+      )}
+      {d.resumo && (
+        <p class="text-lg text-[var(--color-text)] mt-5 leading-relaxed max-w-2xl">
+          {d.resumo}
+        </p>
+      )}
+    </header>
+
+    <!-- Ficha rápida (padroeiro + população + área) -->
+    {(d.padroeiro || d.populacao || d.areaKm2) && (
+      <section class="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-10">
+        {d.padroeiro && (
+          <div class="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4 shadow-sm">
+            <div class="text-xs uppercase tracking-wider text-[var(--color-text-faint)] mb-1">
+              Padroeiro
+            </div>
+            <div class="font-display text-lg leading-snug">
+              ✟ {d.padroeiro}
+            </div>
+          </div>
+        )}
+        {d.populacao && (
+          <div class="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4 shadow-sm">
+            <div class="text-xs uppercase tracking-wider text-[var(--color-text-faint)] mb-1">
+              População
+            </div>
+            <div class="font-display text-lg">
+              {d.populacao.toLocaleString("pt-BR")} hab.
+            </div>
+          </div>
+        )}
+        {d.areaKm2 && (
+          <div class="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4 shadow-sm">
+            <div class="text-xs uppercase tracking-wider text-[var(--color-text-faint)] mb-1">
+              Área
+            </div>
+            <div class="font-display text-lg">
+              {d.areaKm2.toLocaleString("pt-BR", { maximumFractionDigits: 1 })} km²
+            </div>
+          </div>
+        )}
+      </section>
+    )}
+
+    <!-- Capa -->
+    {d.capa && (
+      <figure class="mb-10 rounded-2xl overflow-hidden border border-[var(--color-border)]">
+        <img
+          src={d.capa}
+          alt={`Foto de capa — ${d.nome}`}
+          class="w-full h-auto"
+          loading="eager"
+        />
+      </figure>
+    )}
+
+    <!-- Sobre a cidade (auto-populado / editorial) -->
+    {(d.fundacao || d.aniversario || d.toponimia || d.gentilico || d.historiaResumo || d.siteOficial) && (
+      <section class="mb-12">
+        <h2 class="text-2xl font-display font-semibold mb-4">Sobre a cidade</h2>
+        <div class="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 shadow-sm space-y-4">
+          {d.historiaResumo && (
+            <p class="text-[var(--color-text)] leading-relaxed">{d.historiaResumo}</p>
+          )}
+
+          <dl class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-sm">
+            {d.fundacao && (
+              <div>
+                <dt class="text-xs uppercase tracking-wider text-[var(--color-text-faint)]">Fundação</dt>
+                <dd class="mt-0.5">
+                  {d.fundacao.toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" })}
+                </dd>
+              </div>
+            )}
+            {d.aniversario && !d.fundacao && (
+              <div>
+                <dt class="text-xs uppercase tracking-wider text-[var(--color-text-faint)]">Aniversário</dt>
+                <dd class="mt-0.5">{d.aniversario}</dd>
+              </div>
+            )}
+            {d.gentilico && (
+              <div>
+                <dt class="text-xs uppercase tracking-wider text-[var(--color-text-faint)]">Gentílico</dt>
+                <dd class="mt-0.5">{d.gentilico}</dd>
+              </div>
+            )}
+            {d.toponimia && (
+              <div class="sm:col-span-2">
+                <dt class="text-xs uppercase tracking-wider text-[var(--color-text-faint)]">Origem do nome</dt>
+                <dd class="mt-0.5">{d.toponimia}</dd>
+              </div>
+            )}
+            {d.siteOficial && (
+              <div class="sm:col-span-2">
+                <dt class="text-xs uppercase tracking-wider text-[var(--color-text-faint)]">Site oficial</dt>
+                <dd class="mt-0.5">
+                  <a href={d.siteOficial} target="_blank" rel="noopener" class="text-[var(--color-primary)] hover:underline">
+                    {d.siteOficial.replace(/^https?:\/\//, "")} ↗
+                  </a>
+                </dd>
+              </div>
+            )}
+          </dl>
+        </div>
+      </section>
+    )}
+
+    <!-- O que vimos (experiência preenchida manualmente) -->
+    {(d.atracoes.length > 0 || d.ondeComer.length > 0 || d.ondeDormir.length > 0 || d.festas.length > 0) && (
+      <section class="mb-12">
+        <h2 class="text-2xl font-display font-semibold mb-4">O que vimos</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {d.atracoes.length > 0 && (
+            <div class="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 shadow-sm">
+              <h3 class="text-xs uppercase tracking-wider text-[var(--color-text-faint)] mb-2">Atrações</h3>
+              <ul class="space-y-1.5 text-sm">
+                {d.atracoes.map((a) => <li class="flex gap-2"><span class="text-[var(--color-primary)]">•</span><span>{a}</span></li>)}
+              </ul>
+            </div>
+          )}
+          {d.ondeComer.length > 0 && (
+            <div class="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 shadow-sm">
+              <h3 class="text-xs uppercase tracking-wider text-[var(--color-text-faint)] mb-2">Onde comer</h3>
+              <ul class="space-y-1.5 text-sm">
+                {d.ondeComer.map((a) => <li class="flex gap-2"><span class="text-[var(--color-primary)]">•</span><span>{a}</span></li>)}
+              </ul>
+            </div>
+          )}
+          {d.ondeDormir.length > 0 && (
+            <div class="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 shadow-sm">
+              <h3 class="text-xs uppercase tracking-wider text-[var(--color-text-faint)] mb-2">Onde dormir</h3>
+              <ul class="space-y-1.5 text-sm">
+                {d.ondeDormir.map((a) => <li class="flex gap-2"><span class="text-[var(--color-primary)]">•</span><span>{a}</span></li>)}
+              </ul>
+            </div>
+          )}
+          {d.festas.length > 0 && (
+            <div class="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 shadow-sm">
+              <h3 class="text-xs uppercase tracking-wider text-[var(--color-text-faint)] mb-2">Festas tradicionais</h3>
+              <ul class="space-y-1.5 text-sm">
+                {d.festas.map((a) => <li class="flex gap-2"><span class="text-[var(--color-primary)]">•</span><span>{a}</span></li>)}
+              </ul>
+            </div>
+          )}
+        </div>
+      </section>
+    )}
+
+    <!-- Secretaria de Turismo -->
+    {d.secretariaTurismo && (d.secretariaTurismo.endereco || d.secretariaTurismo.telefone || d.secretariaTurismo.email || d.secretariaTurismo.site) && (
+      <section class="mb-12">
+        <h2 class="text-2xl font-display font-semibold mb-4">Secretaria de Turismo</h2>
+        <div class="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 shadow-sm">
+          <dl class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-3 text-sm">
+            {d.secretariaTurismo.endereco && (
+              <div class="sm:col-span-2">
+                <dt class="text-xs uppercase tracking-wider text-[var(--color-text-faint)]">Endereço</dt>
+                <dd class="mt-0.5">{d.secretariaTurismo.endereco}</dd>
+              </div>
+            )}
+            {d.secretariaTurismo.telefone && (
+              <div>
+                <dt class="text-xs uppercase tracking-wider text-[var(--color-text-faint)]">Telefone</dt>
+                <dd class="mt-0.5">
+                  <a href={`tel:${d.secretariaTurismo.telefone}`} class="text-[var(--color-primary)] hover:underline">
+                    {d.secretariaTurismo.telefone}
+                  </a>
+                </dd>
+              </div>
+            )}
+            {d.secretariaTurismo.email && (
+              <div>
+                <dt class="text-xs uppercase tracking-wider text-[var(--color-text-faint)]">Email</dt>
+                <dd class="mt-0.5">
+                  <a href={`mailto:${d.secretariaTurismo.email}`} class="text-[var(--color-primary)] hover:underline">
+                    {d.secretariaTurismo.email}
+                  </a>
+                </dd>
+              </div>
+            )}
+            {d.secretariaTurismo.site && (
+              <div class="sm:col-span-2">
+                <dt class="text-xs uppercase tracking-wider text-[var(--color-text-faint)]">Site</dt>
+                <dd class="mt-0.5">
+                  <a href={d.secretariaTurismo.site} target="_blank" rel="noopener" class="text-[var(--color-primary)] hover:underline">
+                    {d.secretariaTurismo.site.replace(/^https?:\/\//, "")} ↗
+                  </a>
+                </dd>
+              </div>
+            )}
+          </dl>
+        </div>
+      </section>
+    )}
+
+    <!-- Curiosidades em bullets -->
+    {d.curiosidades.length > 0 && (
+      <section class="mb-10">
+        <h2 class="text-2xl font-display font-semibold mb-4">Você sabia?</h2>
+        <ul class="space-y-2">
+          {d.curiosidades.map((c) => (
+            <li class="pl-5 relative text-[var(--color-text)] leading-relaxed before:content-['•'] before:absolute before:left-0 before:text-[var(--color-primary)]">
+              {c}
+            </li>
+          ))}
+        </ul>
+      </section>
+    )}
+
+    <!-- Conteúdo livre (markdown) -->
+    <article class="prose max-w-none mb-12 text-[var(--color-text)]">
+      <Content />
+    </article>
+
+    <!-- Galeria vertical (formato Stories) -->
+    {d.fotos.length > 0 && (
+      <section class="mb-12">
+        <h2 class="text-2xl font-display font-semibold mb-4">Galeria</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          {d.fotos.map((f, i) => (
+            <a
+              href={f}
+              target="_blank"
+              rel="noopener"
+              class="aspect-[9/16] rounded-xl overflow-hidden border border-[var(--color-border)] hover:border-[var(--color-primary)] transition-colors block bg-[var(--color-surface)]"
+            >
+              <img
+                src={f}
+                alt={`${d.nome} — foto ${i + 1}`}
+                loading="lazy"
+                class="w-full h-full object-cover"
+              />
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Reels do Instagram embedados -->
+    {d.reels.length > 0 && (
+      <section class="mb-12">
+        <h2 class="text-2xl font-display font-semibold mb-4">Reels</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {d.reels.map((r) => (
+            <div class="aspect-[9/16] rounded-xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)]">
+              <iframe
+                src={reelEmbedUrl(r)}
+                class="w-full h-full"
+                frameborder="0"
+                scrolling="no"
+                allowtransparency="true"
+              ></iframe>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Footer da cidade -->
+    <footer class="border-t border-[var(--color-border)] pt-6 mt-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-sm text-[var(--color-text-muted)]">
+      <div>
+        <span>Código IBGE: {d.codigo}</span>
+        <span class="block text-[var(--color-text-faint)] mt-1">
+          Parte de
+          <a
+            href="https://conhecendoobrasil.com.br"
+            class="hover:text-[var(--color-primary)] transition-colors underline decoration-dotted underline-offset-2"
+          >Conhecendo o Brasil</a>
+        </span>
+      </div>
+      <a
+        href="https://instagram.com/projeto497rs"
+        target="_blank"
+        rel="noopener"
+        class="hover:text-[var(--color-primary)] transition-colors"
+      >
+        Acompanhe no Instagram →
+      </a>
+    </footer>
+  </main>
+</BaseLayout>

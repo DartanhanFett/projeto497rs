@@ -1,0 +1,34 @@
+# build output
+dist/
+# generated types
+.astro/
+
+# dependencies
+node_modules/
+
+# logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+
+# environment variables
+.env
+.env.production
+
+# macOS-specific files
+.DS_Store
+
+# jetbrains setting folder
+.idea/
+
+# Netlify
+.netlify/
+
+# Claude Code (assistant local settings)
+.claude/
+
+# uploads via Decap em dev local (no deploy ficam no repo)
+# (mantenho versionado por padrão — descomente se quiser ignorar)
+# public/uploads/

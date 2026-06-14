@@ -1,0 +1,3481 @@
+[
+  {
+    "codigo": "4300034",
+    "nome": "Aceguá",
+    "slug": "acegua",
+    "microrregiao": "Campanha Meridional",
+    "mesorregiao": "Sudoeste Rio-grandense"
+  },
+  {
+    "codigo": "4300059",
+    "nome": "Água Santa",
+    "slug": "agua-santa",
+    "microrregiao": "Passo Fundo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4300109",
+    "nome": "Agudo",
+    "slug": "agudo",
+    "microrregiao": "Restinga Seca",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4300208",
+    "nome": "Ajuricaba",
+    "slug": "ajuricaba",
+    "microrregiao": "Ijuí",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4300307",
+    "nome": "Alecrim",
+    "slug": "alecrim",
+    "microrregiao": "Santa Rosa",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4300406",
+    "nome": "Alegrete",
+    "slug": "alegrete",
+    "microrregiao": "Campanha Ocidental",
+    "mesorregiao": "Sudoeste Rio-grandense"
+  },
+  {
+    "codigo": "4300455",
+    "nome": "Alegria",
+    "slug": "alegria",
+    "microrregiao": "Ijuí",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4300471",
+    "nome": "Almirante Tamandaré do Sul",
+    "slug": "almirante-tamandare-do-sul",
+    "microrregiao": "Carazinho",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4300505",
+    "nome": "Alpestre",
+    "slug": "alpestre",
+    "microrregiao": "Frederico Westphalen",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4300554",
+    "nome": "Alto Alegre",
+    "slug": "alto-alegre",
+    "microrregiao": "Cruz Alta",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4300570",
+    "nome": "Alto Feliz",
+    "slug": "alto-feliz",
+    "microrregiao": "Montenegro",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4300604",
+    "nome": "Alvorada",
+    "slug": "alvorada",
+    "microrregiao": "Porto Alegre",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4300638",
+    "nome": "Amaral Ferrador",
+    "slug": "amaral-ferrador",
+    "microrregiao": "Serras de Sudeste",
+    "mesorregiao": "Sudeste Rio-grandense"
+  },
+  {
+    "codigo": "4300646",
+    "nome": "Ametista do Sul",
+    "slug": "ametista-do-sul",
+    "microrregiao": "Frederico Westphalen",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4300661",
+    "nome": "André da Rocha",
+    "slug": "andre-da-rocha",
+    "microrregiao": "Guaporé",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4300703",
+    "nome": "Anta Gorda",
+    "slug": "anta-gorda",
+    "microrregiao": "Guaporé",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4300802",
+    "nome": "Antônio Prado",
+    "slug": "antonio-prado",
+    "microrregiao": "Caxias do Sul",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4300851",
+    "nome": "Arambaré",
+    "slug": "arambare",
+    "microrregiao": "Camaquã",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4300877",
+    "nome": "Araricá",
+    "slug": "ararica",
+    "microrregiao": "Porto Alegre",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4300901",
+    "nome": "Aratiba",
+    "slug": "aratiba",
+    "microrregiao": "Erechim",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4301008",
+    "nome": "Arroio do Meio",
+    "slug": "arroio-do-meio",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4301073",
+    "nome": "Arroio do Padre",
+    "slug": "arroio-do-padre",
+    "microrregiao": "Pelotas",
+    "mesorregiao": "Sudeste Rio-grandense"
+  },
+  {
+    "codigo": "4301057",
+    "nome": "Arroio do Sal",
+    "slug": "arroio-do-sal",
+    "microrregiao": "Osório",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4301206",
+    "nome": "Arroio do Tigre",
+    "slug": "arroio-do-tigre",
+    "microrregiao": "Santa Cruz do Sul",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4301107",
+    "nome": "Arroio dos Ratos",
+    "slug": "arroio-dos-ratos",
+    "microrregiao": "São Jerônimo",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4301305",
+    "nome": "Arroio Grande",
+    "slug": "arroio-grande",
+    "microrregiao": "Jaguarão",
+    "mesorregiao": "Sudeste Rio-grandense"
+  },
+  {
+    "codigo": "4301404",
+    "nome": "Arvorezinha",
+    "slug": "arvorezinha",
+    "microrregiao": "Guaporé",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4301503",
+    "nome": "Augusto Pestana",
+    "slug": "augusto-pestana",
+    "microrregiao": "Ijuí",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4301552",
+    "nome": "Áurea",
+    "slug": "aurea",
+    "microrregiao": "Erechim",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4301602",
+    "nome": "Bagé",
+    "slug": "bage",
+    "microrregiao": "Campanha Meridional",
+    "mesorregiao": "Sudoeste Rio-grandense"
+  },
+  {
+    "codigo": "4301636",
+    "nome": "Balneário Pinhal",
+    "slug": "balneario-pinhal",
+    "microrregiao": "Osório",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4301651",
+    "nome": "Barão",
+    "slug": "barao",
+    "microrregiao": "Montenegro",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4301701",
+    "nome": "Barão de Cotegipe",
+    "slug": "barao-de-cotegipe",
+    "microrregiao": "Erechim",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4301750",
+    "nome": "Barão do Triunfo",
+    "slug": "barao-do-triunfo",
+    "microrregiao": "São Jerônimo",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4301859",
+    "nome": "Barra do Guarita",
+    "slug": "barra-do-guarita",
+    "microrregiao": "Três Passos",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4301875",
+    "nome": "Barra do Quaraí",
+    "slug": "barra-do-quarai",
+    "microrregiao": "Campanha Ocidental",
+    "mesorregiao": "Sudoeste Rio-grandense"
+  },
+  {
+    "codigo": "4301909",
+    "nome": "Barra do Ribeiro",
+    "slug": "barra-do-ribeiro",
+    "microrregiao": "Camaquã",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4301925",
+    "nome": "Barra do Rio Azul",
+    "slug": "barra-do-rio-azul",
+    "microrregiao": "Erechim",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4301958",
+    "nome": "Barra Funda",
+    "slug": "barra-funda",
+    "microrregiao": "Carazinho",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4301800",
+    "nome": "Barracão",
+    "slug": "barracao",
+    "microrregiao": "Sananduva",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4302006",
+    "nome": "Barros Cassal",
+    "slug": "barros-cassal",
+    "microrregiao": "Soledade",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4302055",
+    "nome": "Benjamin Constant do Sul",
+    "slug": "benjamin-constant-do-sul",
+    "microrregiao": "Erechim",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4302105",
+    "nome": "Bento Gonçalves",
+    "slug": "bento-goncalves",
+    "microrregiao": "Caxias do Sul",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4302154",
+    "nome": "Boa Vista das Missões",
+    "slug": "boa-vista-das-missoes",
+    "microrregiao": "Carazinho",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4302204",
+    "nome": "Boa Vista do Buricá",
+    "slug": "boa-vista-do-burica",
+    "microrregiao": "Três Passos",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4302220",
+    "nome": "Boa Vista do Cadeado",
+    "slug": "boa-vista-do-cadeado",
+    "microrregiao": "Cruz Alta",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4302238",
+    "nome": "Boa Vista do Incra",
+    "slug": "boa-vista-do-incra",
+    "microrregiao": "Cruz Alta",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4302253",
+    "nome": "Boa Vista do Sul",
+    "slug": "boa-vista-do-sul",
+    "microrregiao": "Caxias do Sul",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4302303",
+    "nome": "Bom Jesus",
+    "slug": "bom-jesus",
+    "microrregiao": "Vacaria",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4302352",
+    "nome": "Bom Princípio",
+    "slug": "bom-principio",
+    "microrregiao": "Montenegro",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4302378",
+    "nome": "Bom Progresso",
+    "slug": "bom-progresso",
+    "microrregiao": "Três Passos",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4302402",
+    "nome": "Bom Retiro do Sul",
+    "slug": "bom-retiro-do-sul",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4302451",
+    "nome": "Boqueirão do Leão",
+    "slug": "boqueirao-do-leao",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4302501",
+    "nome": "Bossoroca",
+    "slug": "bossoroca",
+    "microrregiao": "Santo Ângelo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4302584",
+    "nome": "Bozano",
+    "slug": "bozano",
+    "microrregiao": "Ijuí",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4302600",
+    "nome": "Braga",
+    "slug": "braga",
+    "microrregiao": "Três Passos",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4302659",
+    "nome": "Brochier",
+    "slug": "brochier",
+    "microrregiao": "Montenegro",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4302709",
+    "nome": "Butiá",
+    "slug": "butia",
+    "microrregiao": "São Jerônimo",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4302808",
+    "nome": "Caçapava do Sul",
+    "slug": "cacapava-do-sul",
+    "microrregiao": "Serras de Sudeste",
+    "mesorregiao": "Sudeste Rio-grandense"
+  },
+  {
+    "codigo": "4302907",
+    "nome": "Cacequi",
+    "slug": "cacequi",
+    "microrregiao": "Santa Maria",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4303004",
+    "nome": "Cachoeira do Sul",
+    "slug": "cachoeira-do-sul",
+    "microrregiao": "Cachoeira do Sul",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4303103",
+    "nome": "Cachoeirinha",
+    "slug": "cachoeirinha",
+    "microrregiao": "Porto Alegre",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4303202",
+    "nome": "Cacique Doble",
+    "slug": "cacique-doble",
+    "microrregiao": "Sananduva",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4303301",
+    "nome": "Caibaté",
+    "slug": "caibate",
+    "microrregiao": "Cerro Largo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4303400",
+    "nome": "Caiçara",
+    "slug": "caicara",
+    "microrregiao": "Frederico Westphalen",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4303509",
+    "nome": "Camaquã",
+    "slug": "camaqua",
+    "microrregiao": "Camaquã",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4303558",
+    "nome": "Camargo",
+    "slug": "camargo",
+    "microrregiao": "Passo Fundo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4303608",
+    "nome": "Cambará do Sul",
+    "slug": "cambara-do-sul",
+    "microrregiao": "Vacaria",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4303673",
+    "nome": "Campestre da Serra",
+    "slug": "campestre-da-serra",
+    "microrregiao": "Vacaria",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4303707",
+    "nome": "Campina das Missões",
+    "slug": "campina-das-missoes",
+    "microrregiao": "Cerro Largo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4303806",
+    "nome": "Campinas do Sul",
+    "slug": "campinas-do-sul",
+    "microrregiao": "Erechim",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4303905",
+    "nome": "Campo Bom",
+    "slug": "campo-bom",
+    "microrregiao": "Porto Alegre",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4304002",
+    "nome": "Campo Novo",
+    "slug": "campo-novo",
+    "microrregiao": "Três Passos",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4304101",
+    "nome": "Campos Borges",
+    "slug": "campos-borges",
+    "microrregiao": "Cruz Alta",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4304200",
+    "nome": "Candelária",
+    "slug": "candelaria",
+    "microrregiao": "Santa Cruz do Sul",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4304309",
+    "nome": "Cândido Godói",
+    "slug": "candido-godoi",
+    "microrregiao": "Santa Rosa",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4304358",
+    "nome": "Candiota",
+    "slug": "candiota",
+    "microrregiao": "Serras de Sudeste",
+    "mesorregiao": "Sudeste Rio-grandense"
+  },
+  {
+    "codigo": "4304408",
+    "nome": "Canela",
+    "slug": "canela",
+    "microrregiao": "Gramado-Canela",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4304507",
+    "nome": "Canguçu",
+    "slug": "cangucu",
+    "microrregiao": "Pelotas",
+    "mesorregiao": "Sudeste Rio-grandense"
+  },
+  {
+    "codigo": "4304606",
+    "nome": "Canoas",
+    "slug": "canoas",
+    "microrregiao": "Porto Alegre",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4304614",
+    "nome": "Canudos do Vale",
+    "slug": "canudos-do-vale",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4304622",
+    "nome": "Capão Bonito do Sul",
+    "slug": "capao-bonito-do-sul",
+    "microrregiao": "Vacaria",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4304630",
+    "nome": "Capão da Canoa",
+    "slug": "capao-da-canoa",
+    "microrregiao": "Osório",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4304655",
+    "nome": "Capão do Cipó",
+    "slug": "capao-do-cipo",
+    "microrregiao": "Santiago",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4304663",
+    "nome": "Capão do Leão",
+    "slug": "capao-do-leao",
+    "microrregiao": "Pelotas",
+    "mesorregiao": "Sudeste Rio-grandense"
+  },
+  {
+    "codigo": "4304689",
+    "nome": "Capela de Santana",
+    "slug": "capela-de-santana",
+    "microrregiao": "Montenegro",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4304697",
+    "nome": "Capitão",
+    "slug": "capitao",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4304671",
+    "nome": "Capivari do Sul",
+    "slug": "capivari-do-sul",
+    "microrregiao": "Osório",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4304713",
+    "nome": "Caraá",
+    "slug": "caraa",
+    "microrregiao": "Osório",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4304705",
+    "nome": "Carazinho",
+    "slug": "carazinho",
+    "microrregiao": "Carazinho",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4304804",
+    "nome": "Carlos Barbosa",
+    "slug": "carlos-barbosa",
+    "microrregiao": "Caxias do Sul",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4304853",
+    "nome": "Carlos Gomes",
+    "slug": "carlos-gomes",
+    "microrregiao": "Erechim",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4304903",
+    "nome": "Casca",
+    "slug": "casca",
+    "microrregiao": "Passo Fundo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4304952",
+    "nome": "Caseiros",
+    "slug": "caseiros",
+    "microrregiao": "Passo Fundo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4305009",
+    "nome": "Catuípe",
+    "slug": "catuipe",
+    "microrregiao": "Santo Ângelo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4305108",
+    "nome": "Caxias do Sul",
+    "slug": "caxias-do-sul",
+    "microrregiao": "Caxias do Sul",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4305116",
+    "nome": "Centenário",
+    "slug": "centenario",
+    "microrregiao": "Erechim",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4305124",
+    "nome": "Cerrito",
+    "slug": "cerrito",
+    "microrregiao": "Pelotas",
+    "mesorregiao": "Sudeste Rio-grandense"
+  },
+  {
+    "codigo": "4305132",
+    "nome": "Cerro Branco",
+    "slug": "cerro-branco",
+    "microrregiao": "Cachoeira do Sul",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4305157",
+    "nome": "Cerro Grande",
+    "slug": "cerro-grande",
+    "microrregiao": "Carazinho",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4305173",
+    "nome": "Cerro Grande do Sul",
+    "slug": "cerro-grande-do-sul",
+    "microrregiao": "Camaquã",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4305207",
+    "nome": "Cerro Largo",
+    "slug": "cerro-largo",
+    "microrregiao": "Cerro Largo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4305306",
+    "nome": "Chapada",
+    "slug": "chapada",
+    "microrregiao": "Carazinho",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4305355",
+    "nome": "Charqueadas",
+    "slug": "charqueadas",
+    "microrregiao": "São Jerônimo",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4305371",
+    "nome": "Charrua",
+    "slug": "charrua",
+    "microrregiao": "Passo Fundo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4305405",
+    "nome": "Chiapetta",
+    "slug": "chiapetta",
+    "microrregiao": "Ijuí",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4305439",
+    "nome": "Chuí",
+    "slug": "chui",
+    "microrregiao": "Litoral Lagunar",
+    "mesorregiao": "Sudeste Rio-grandense"
+  },
+  {
+    "codigo": "4305447",
+    "nome": "Chuvisca",
+    "slug": "chuvisca",
+    "microrregiao": "Camaquã",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4305454",
+    "nome": "Cidreira",
+    "slug": "cidreira",
+    "microrregiao": "Osório",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4305504",
+    "nome": "Ciríaco",
+    "slug": "ciriaco",
+    "microrregiao": "Passo Fundo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4305587",
+    "nome": "Colinas",
+    "slug": "colinas",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4305603",
+    "nome": "Colorado",
+    "slug": "colorado",
+    "microrregiao": "Não-Me-Toque",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4305702",
+    "nome": "Condor",
+    "slug": "condor",
+    "microrregiao": "Ijuí",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4305801",
+    "nome": "Constantina",
+    "slug": "constantina",
+    "microrregiao": "Frederico Westphalen",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4305835",
+    "nome": "Coqueiro Baixo",
+    "slug": "coqueiro-baixo",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4305850",
+    "nome": "Coqueiros do Sul",
+    "slug": "coqueiros-do-sul",
+    "microrregiao": "Carazinho",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4305871",
+    "nome": "Coronel Barros",
+    "slug": "coronel-barros",
+    "microrregiao": "Ijuí",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4305900",
+    "nome": "Coronel Bicaco",
+    "slug": "coronel-bicaco",
+    "microrregiao": "Ijuí",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4305934",
+    "nome": "Coronel Pilar",
+    "slug": "coronel-pilar",
+    "microrregiao": "Caxias do Sul",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4305959",
+    "nome": "Cotiporã",
+    "slug": "cotipora",
+    "microrregiao": "Caxias do Sul",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4305975",
+    "nome": "Coxilha",
+    "slug": "coxilha",
+    "microrregiao": "Passo Fundo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4306007",
+    "nome": "Crissiumal",
+    "slug": "crissiumal",
+    "microrregiao": "Três Passos",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4306056",
+    "nome": "Cristal",
+    "slug": "cristal",
+    "microrregiao": "Pelotas",
+    "mesorregiao": "Sudeste Rio-grandense"
+  },
+  {
+    "codigo": "4306072",
+    "nome": "Cristal do Sul",
+    "slug": "cristal-do-sul",
+    "microrregiao": "Frederico Westphalen",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4306106",
+    "nome": "Cruz Alta",
+    "slug": "cruz-alta",
+    "microrregiao": "Cruz Alta",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4306130",
+    "nome": "Cruzaltense",
+    "slug": "cruzaltense",
+    "microrregiao": "Erechim",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4306205",
+    "nome": "Cruzeiro do Sul",
+    "slug": "cruzeiro-do-sul",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4306304",
+    "nome": "David Canabarro",
+    "slug": "david-canabarro",
+    "microrregiao": "Passo Fundo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4306320",
+    "nome": "Derrubadas",
+    "slug": "derrubadas",
+    "microrregiao": "Três Passos",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4306353",
+    "nome": "Dezesseis de Novembro",
+    "slug": "dezesseis-de-novembro",
+    "microrregiao": "Santo Ângelo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4306379",
+    "nome": "Dilermando de Aguiar",
+    "slug": "dilermando-de-aguiar",
+    "microrregiao": "Santa Maria",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4306403",
+    "nome": "Dois Irmãos",
+    "slug": "dois-irmaos",
+    "microrregiao": "Gramado-Canela",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4306429",
+    "nome": "Dois Irmãos das Missões",
+    "slug": "dois-irmaos-das-missoes",
+    "microrregiao": "Frederico Westphalen",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4306452",
+    "nome": "Dois Lajeados",
+    "slug": "dois-lajeados",
+    "microrregiao": "Guaporé",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4306502",
+    "nome": "Dom Feliciano",
+    "slug": "dom-feliciano",
+    "microrregiao": "Camaquã",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4306601",
+    "nome": "Dom Pedrito",
+    "slug": "dom-pedrito",
+    "microrregiao": "Campanha Meridional",
+    "mesorregiao": "Sudoeste Rio-grandense"
+  },
+  {
+    "codigo": "4306551",
+    "nome": "Dom Pedro de Alcântara",
+    "slug": "dom-pedro-de-alcantara",
+    "microrregiao": "Osório",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4306700",
+    "nome": "Dona Francisca",
+    "slug": "dona-francisca",
+    "microrregiao": "Restinga Seca",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4306734",
+    "nome": "Doutor Maurício Cardoso",
+    "slug": "doutor-mauricio-cardoso",
+    "microrregiao": "Três Passos",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4306759",
+    "nome": "Doutor Ricardo",
+    "slug": "doutor-ricardo",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4306767",
+    "nome": "Eldorado do Sul",
+    "slug": "eldorado-do-sul",
+    "microrregiao": "Porto Alegre",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4306809",
+    "nome": "Encantado",
+    "slug": "encantado",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4306908",
+    "nome": "Encruzilhada do Sul",
+    "slug": "encruzilhada-do-sul",
+    "microrregiao": "Serras de Sudeste",
+    "mesorregiao": "Sudeste Rio-grandense"
+  },
+  {
+    "codigo": "4306924",
+    "nome": "Engenho Velho",
+    "slug": "engenho-velho",
+    "microrregiao": "Frederico Westphalen",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4306957",
+    "nome": "Entre Rios do Sul",
+    "slug": "entre-rios-do-sul",
+    "microrregiao": "Erechim",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4306932",
+    "nome": "Entre-Ijuís",
+    "slug": "entre-ijuis",
+    "microrregiao": "Santo Ângelo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4306973",
+    "nome": "Erebango",
+    "slug": "erebango",
+    "microrregiao": "Erechim",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4307005",
+    "nome": "Erechim",
+    "slug": "erechim",
+    "microrregiao": "Erechim",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4307054",
+    "nome": "Ernestina",
+    "slug": "ernestina",
+    "microrregiao": "Passo Fundo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4307203",
+    "nome": "Erval Grande",
+    "slug": "erval-grande",
+    "microrregiao": "Erechim",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4307302",
+    "nome": "Erval Seco",
+    "slug": "erval-seco",
+    "microrregiao": "Frederico Westphalen",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4307401",
+    "nome": "Esmeralda",
+    "slug": "esmeralda",
+    "microrregiao": "Vacaria",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4307450",
+    "nome": "Esperança do Sul",
+    "slug": "esperanca-do-sul",
+    "microrregiao": "Três Passos",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4307500",
+    "nome": "Espumoso",
+    "slug": "espumoso",
+    "microrregiao": "Cruz Alta",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4307559",
+    "nome": "Estação",
+    "slug": "estacao",
+    "microrregiao": "Erechim",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4307609",
+    "nome": "Estância Velha",
+    "slug": "estancia-velha",
+    "microrregiao": "Porto Alegre",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4307708",
+    "nome": "Esteio",
+    "slug": "esteio",
+    "microrregiao": "Porto Alegre",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4307807",
+    "nome": "Estrela",
+    "slug": "estrela",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4307815",
+    "nome": "Estrela Velha",
+    "slug": "estrela-velha",
+    "microrregiao": "Santa Cruz do Sul",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4307831",
+    "nome": "Eugênio de Castro",
+    "slug": "eugenio-de-castro",
+    "microrregiao": "Santo Ângelo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4307864",
+    "nome": "Fagundes Varela",
+    "slug": "fagundes-varela",
+    "microrregiao": "Caxias do Sul",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4307906",
+    "nome": "Farroupilha",
+    "slug": "farroupilha",
+    "microrregiao": "Caxias do Sul",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4308003",
+    "nome": "Faxinal do Soturno",
+    "slug": "faxinal-do-soturno",
+    "microrregiao": "Restinga Seca",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4308052",
+    "nome": "Faxinalzinho",
+    "slug": "faxinalzinho",
+    "microrregiao": "Erechim",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4308078",
+    "nome": "Fazenda Vilanova",
+    "slug": "fazenda-vilanova",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4308102",
+    "nome": "Feliz",
+    "slug": "feliz",
+    "microrregiao": "Montenegro",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4308201",
+    "nome": "Flores da Cunha",
+    "slug": "flores-da-cunha",
+    "microrregiao": "Caxias do Sul",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4308250",
+    "nome": "Floriano Peixoto",
+    "slug": "floriano-peixoto",
+    "microrregiao": "Erechim",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4308300",
+    "nome": "Fontoura Xavier",
+    "slug": "fontoura-xavier",
+    "microrregiao": "Soledade",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4308409",
+    "nome": "Formigueiro",
+    "slug": "formigueiro",
+    "microrregiao": "Restinga Seca",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4308433",
+    "nome": "Forquetinha",
+    "slug": "forquetinha",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4308458",
+    "nome": "Fortaleza dos Valos",
+    "slug": "fortaleza-dos-valos",
+    "microrregiao": "Cruz Alta",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4308508",
+    "nome": "Frederico Westphalen",
+    "slug": "frederico-westphalen",
+    "microrregiao": "Frederico Westphalen",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4308607",
+    "nome": "Garibaldi",
+    "slug": "garibaldi",
+    "microrregiao": "Caxias do Sul",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4308656",
+    "nome": "Garruchos",
+    "slug": "garruchos",
+    "microrregiao": "Campanha Ocidental",
+    "mesorregiao": "Sudoeste Rio-grandense"
+  },
+  {
+    "codigo": "4308706",
+    "nome": "Gaurama",
+    "slug": "gaurama",
+    "microrregiao": "Erechim",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4308805",
+    "nome": "General Câmara",
+    "slug": "general-camara",
+    "microrregiao": "São Jerônimo",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4308854",
+    "nome": "Gentil",
+    "slug": "gentil",
+    "microrregiao": "Passo Fundo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4308904",
+    "nome": "Getúlio Vargas",
+    "slug": "getulio-vargas",
+    "microrregiao": "Erechim",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4309001",
+    "nome": "Giruá",
+    "slug": "girua",
+    "microrregiao": "Santo Ângelo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4309050",
+    "nome": "Glorinha",
+    "slug": "glorinha",
+    "microrregiao": "Porto Alegre",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4309100",
+    "nome": "Gramado",
+    "slug": "gramado",
+    "microrregiao": "Gramado-Canela",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4309126",
+    "nome": "Gramado dos Loureiros",
+    "slug": "gramado-dos-loureiros",
+    "microrregiao": "Frederico Westphalen",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4309159",
+    "nome": "Gramado Xavier",
+    "slug": "gramado-xavier",
+    "microrregiao": "Santa Cruz do Sul",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4309209",
+    "nome": "Gravataí",
+    "slug": "gravatai",
+    "microrregiao": "Porto Alegre",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4309258",
+    "nome": "Guabiju",
+    "slug": "guabiju",
+    "microrregiao": "Guaporé",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4309308",
+    "nome": "Guaíba",
+    "slug": "guaiba",
+    "microrregiao": "Porto Alegre",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4309407",
+    "nome": "Guaporé",
+    "slug": "guapore",
+    "microrregiao": "Guaporé",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4309506",
+    "nome": "Guarani das Missões",
+    "slug": "guarani-das-missoes",
+    "microrregiao": "Cerro Largo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4309555",
+    "nome": "Harmonia",
+    "slug": "harmonia",
+    "microrregiao": "Montenegro",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4307104",
+    "nome": "Herval",
+    "slug": "herval",
+    "microrregiao": "Jaguarão",
+    "mesorregiao": "Sudeste Rio-grandense"
+  },
+  {
+    "codigo": "4309571",
+    "nome": "Herveiras",
+    "slug": "herveiras",
+    "microrregiao": "Santa Cruz do Sul",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4309605",
+    "nome": "Horizontina",
+    "slug": "horizontina",
+    "microrregiao": "Três Passos",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4309654",
+    "nome": "Hulha Negra",
+    "slug": "hulha-negra",
+    "microrregiao": "Campanha Meridional",
+    "mesorregiao": "Sudoeste Rio-grandense"
+  },
+  {
+    "codigo": "4309704",
+    "nome": "Humaitá",
+    "slug": "humaita",
+    "microrregiao": "Três Passos",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4309753",
+    "nome": "Ibarama",
+    "slug": "ibarama",
+    "microrregiao": "Santa Cruz do Sul",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4309803",
+    "nome": "Ibiaçá",
+    "slug": "ibiaca",
+    "microrregiao": "Sananduva",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4309902",
+    "nome": "Ibiraiaras",
+    "slug": "ibiraiaras",
+    "microrregiao": "Passo Fundo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4309951",
+    "nome": "Ibirapuitã",
+    "slug": "ibirapuita",
+    "microrregiao": "Soledade",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4310009",
+    "nome": "Ibirubá",
+    "slug": "ibiruba",
+    "microrregiao": "Cruz Alta",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4310108",
+    "nome": "Igrejinha",
+    "slug": "igrejinha",
+    "microrregiao": "Gramado-Canela",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4310207",
+    "nome": "Ijuí",
+    "slug": "ijui",
+    "microrregiao": "Ijuí",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4310306",
+    "nome": "Ilópolis",
+    "slug": "ilopolis",
+    "microrregiao": "Guaporé",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4310330",
+    "nome": "Imbé",
+    "slug": "imbe",
+    "microrregiao": "Osório",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4310363",
+    "nome": "Imigrante",
+    "slug": "imigrante",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4310405",
+    "nome": "Independência",
+    "slug": "independencia",
+    "microrregiao": "Santa Rosa",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4310413",
+    "nome": "Inhacorá",
+    "slug": "inhacora",
+    "microrregiao": "Ijuí",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4310439",
+    "nome": "Ipê",
+    "slug": "ipe",
+    "microrregiao": "Vacaria",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4310462",
+    "nome": "Ipiranga do Sul",
+    "slug": "ipiranga-do-sul",
+    "microrregiao": "Erechim",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4310504",
+    "nome": "Iraí",
+    "slug": "irai",
+    "microrregiao": "Frederico Westphalen",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4310538",
+    "nome": "Itaara",
+    "slug": "itaara",
+    "microrregiao": "Santa Maria",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4310553",
+    "nome": "Itacurubi",
+    "slug": "itacurubi",
+    "microrregiao": "Santiago",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4310579",
+    "nome": "Itapuca",
+    "slug": "itapuca",
+    "microrregiao": "Guaporé",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4310603",
+    "nome": "Itaqui",
+    "slug": "itaqui",
+    "microrregiao": "Campanha Ocidental",
+    "mesorregiao": "Sudoeste Rio-grandense"
+  },
+  {
+    "codigo": "4310652",
+    "nome": "Itati",
+    "slug": "itati",
+    "microrregiao": "Osório",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4310702",
+    "nome": "Itatiba do Sul",
+    "slug": "itatiba-do-sul",
+    "microrregiao": "Erechim",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4310751",
+    "nome": "Ivorá",
+    "slug": "ivora",
+    "microrregiao": "Restinga Seca",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4310801",
+    "nome": "Ivoti",
+    "slug": "ivoti",
+    "microrregiao": "Gramado-Canela",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4310850",
+    "nome": "Jaboticaba",
+    "slug": "jaboticaba",
+    "microrregiao": "Carazinho",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4310876",
+    "nome": "Jacuizinho",
+    "slug": "jacuizinho",
+    "microrregiao": "Cruz Alta",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4310900",
+    "nome": "Jacutinga",
+    "slug": "jacutinga",
+    "microrregiao": "Erechim",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4311007",
+    "nome": "Jaguarão",
+    "slug": "jaguarao",
+    "microrregiao": "Jaguarão",
+    "mesorregiao": "Sudeste Rio-grandense"
+  },
+  {
+    "codigo": "4311106",
+    "nome": "Jaguari",
+    "slug": "jaguari",
+    "microrregiao": "Santa Maria",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4311122",
+    "nome": "Jaquirana",
+    "slug": "jaquirana",
+    "microrregiao": "Vacaria",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4311130",
+    "nome": "Jari",
+    "slug": "jari",
+    "microrregiao": "Santiago",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4311155",
+    "nome": "Jóia",
+    "slug": "joia",
+    "microrregiao": "Cruz Alta",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4311205",
+    "nome": "Júlio de Castilhos",
+    "slug": "julio-de-castilhos",
+    "microrregiao": "Santiago",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4311239",
+    "nome": "Lagoa Bonita do Sul",
+    "slug": "lagoa-bonita-do-sul",
+    "microrregiao": "Santa Cruz do Sul",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4311270",
+    "nome": "Lagoa dos Três Cantos",
+    "slug": "lagoa-dos-tres-cantos",
+    "microrregiao": "Não-Me-Toque",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4311304",
+    "nome": "Lagoa Vermelha",
+    "slug": "lagoa-vermelha",
+    "microrregiao": "Vacaria",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4311254",
+    "nome": "Lagoão",
+    "slug": "lagoao",
+    "microrregiao": "Soledade",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4311403",
+    "nome": "Lajeado",
+    "slug": "lajeado",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4311429",
+    "nome": "Lajeado do Bugre",
+    "slug": "lajeado-do-bugre",
+    "microrregiao": "Carazinho",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4311502",
+    "nome": "Lavras do Sul",
+    "slug": "lavras-do-sul",
+    "microrregiao": "Campanha Meridional",
+    "mesorregiao": "Sudoeste Rio-grandense"
+  },
+  {
+    "codigo": "4311601",
+    "nome": "Liberato Salzano",
+    "slug": "liberato-salzano",
+    "microrregiao": "Frederico Westphalen",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4311627",
+    "nome": "Lindolfo Collor",
+    "slug": "lindolfo-collor",
+    "microrregiao": "Gramado-Canela",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4311643",
+    "nome": "Linha Nova",
+    "slug": "linha-nova",
+    "microrregiao": "Montenegro",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4311718",
+    "nome": "Maçambará",
+    "slug": "macambara",
+    "microrregiao": "Campanha Ocidental",
+    "mesorregiao": "Sudoeste Rio-grandense"
+  },
+  {
+    "codigo": "4311700",
+    "nome": "Machadinho",
+    "slug": "machadinho",
+    "microrregiao": "Sananduva",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4311734",
+    "nome": "Mampituba",
+    "slug": "mampituba",
+    "microrregiao": "Osório",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4311759",
+    "nome": "Manoel Viana",
+    "slug": "manoel-viana",
+    "microrregiao": "Campanha Ocidental",
+    "mesorregiao": "Sudoeste Rio-grandense"
+  },
+  {
+    "codigo": "4311775",
+    "nome": "Maquiné",
+    "slug": "maquine",
+    "microrregiao": "Osório",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4311791",
+    "nome": "Maratá",
+    "slug": "marata",
+    "microrregiao": "Montenegro",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4311809",
+    "nome": "Marau",
+    "slug": "marau",
+    "microrregiao": "Passo Fundo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4311908",
+    "nome": "Marcelino Ramos",
+    "slug": "marcelino-ramos",
+    "microrregiao": "Erechim",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4311981",
+    "nome": "Mariana Pimentel",
+    "slug": "mariana-pimentel",
+    "microrregiao": "Porto Alegre",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4312005",
+    "nome": "Mariano Moro",
+    "slug": "mariano-moro",
+    "microrregiao": "Erechim",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4312054",
+    "nome": "Marques de Souza",
+    "slug": "marques-de-souza",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4312104",
+    "nome": "Mata",
+    "slug": "mata",
+    "microrregiao": "Santa Maria",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4312138",
+    "nome": "Mato Castelhano",
+    "slug": "mato-castelhano",
+    "microrregiao": "Passo Fundo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4312153",
+    "nome": "Mato Leitão",
+    "slug": "mato-leitao",
+    "microrregiao": "Santa Cruz do Sul",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4312179",
+    "nome": "Mato Queimado",
+    "slug": "mato-queimado",
+    "microrregiao": "Cerro Largo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4312203",
+    "nome": "Maximiliano de Almeida",
+    "slug": "maximiliano-de-almeida",
+    "microrregiao": "Sananduva",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4312252",
+    "nome": "Minas do Leão",
+    "slug": "minas-do-leao",
+    "microrregiao": "São Jerônimo",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4312302",
+    "nome": "Miraguaí",
+    "slug": "miraguai",
+    "microrregiao": "Três Passos",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4312351",
+    "nome": "Montauri",
+    "slug": "montauri",
+    "microrregiao": "Guaporé",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4312377",
+    "nome": "Monte Alegre dos Campos",
+    "slug": "monte-alegre-dos-campos",
+    "microrregiao": "Vacaria",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4312385",
+    "nome": "Monte Belo do Sul",
+    "slug": "monte-belo-do-sul",
+    "microrregiao": "Caxias do Sul",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4312401",
+    "nome": "Montenegro",
+    "slug": "montenegro",
+    "microrregiao": "Montenegro",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4312427",
+    "nome": "Mormaço",
+    "slug": "mormaco",
+    "microrregiao": "Soledade",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4312443",
+    "nome": "Morrinhos do Sul",
+    "slug": "morrinhos-do-sul",
+    "microrregiao": "Osório",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4312450",
+    "nome": "Morro Redondo",
+    "slug": "morro-redondo",
+    "microrregiao": "Pelotas",
+    "mesorregiao": "Sudeste Rio-grandense"
+  },
+  {
+    "codigo": "4312476",
+    "nome": "Morro Reuter",
+    "slug": "morro-reuter",
+    "microrregiao": "Gramado-Canela",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4312500",
+    "nome": "Mostardas",
+    "slug": "mostardas",
+    "microrregiao": "Osório",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4312609",
+    "nome": "Muçum",
+    "slug": "mucum",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4312617",
+    "nome": "Muitos Capões",
+    "slug": "muitos-capoes",
+    "microrregiao": "Vacaria",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4312625",
+    "nome": "Muliterno",
+    "slug": "muliterno",
+    "microrregiao": "Passo Fundo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4312658",
+    "nome": "Não-Me-Toque",
+    "slug": "nao-me-toque",
+    "microrregiao": "Não-Me-Toque",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4312674",
+    "nome": "Nicolau Vergueiro",
+    "slug": "nicolau-vergueiro",
+    "microrregiao": "Passo Fundo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4312708",
+    "nome": "Nonoai",
+    "slug": "nonoai",
+    "microrregiao": "Frederico Westphalen",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4312757",
+    "nome": "Nova Alvorada",
+    "slug": "nova-alvorada",
+    "microrregiao": "Guaporé",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4312807",
+    "nome": "Nova Araçá",
+    "slug": "nova-araca",
+    "microrregiao": "Guaporé",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4312906",
+    "nome": "Nova Bassano",
+    "slug": "nova-bassano",
+    "microrregiao": "Guaporé",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4312955",
+    "nome": "Nova Boa Vista",
+    "slug": "nova-boa-vista",
+    "microrregiao": "Carazinho",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4313003",
+    "nome": "Nova Bréscia",
+    "slug": "nova-brescia",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4313011",
+    "nome": "Nova Candelária",
+    "slug": "nova-candelaria",
+    "microrregiao": "Três Passos",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4313037",
+    "nome": "Nova Esperança do Sul",
+    "slug": "nova-esperanca-do-sul",
+    "microrregiao": "Santa Maria",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4313060",
+    "nome": "Nova Hartz",
+    "slug": "nova-hartz",
+    "microrregiao": "Porto Alegre",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4313086",
+    "nome": "Nova Pádua",
+    "slug": "nova-padua",
+    "microrregiao": "Caxias do Sul",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4313102",
+    "nome": "Nova Palma",
+    "slug": "nova-palma",
+    "microrregiao": "Restinga Seca",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4313201",
+    "nome": "Nova Petrópolis",
+    "slug": "nova-petropolis",
+    "microrregiao": "Gramado-Canela",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4313300",
+    "nome": "Nova Prata",
+    "slug": "nova-prata",
+    "microrregiao": "Guaporé",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4313334",
+    "nome": "Nova Ramada",
+    "slug": "nova-ramada",
+    "microrregiao": "Ijuí",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4313359",
+    "nome": "Nova Roma do Sul",
+    "slug": "nova-roma-do-sul",
+    "microrregiao": "Caxias do Sul",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4313375",
+    "nome": "Nova Santa Rita",
+    "slug": "nova-santa-rita",
+    "microrregiao": "Porto Alegre",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4313490",
+    "nome": "Novo Barreiro",
+    "slug": "novo-barreiro",
+    "microrregiao": "Carazinho",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4313391",
+    "nome": "Novo Cabrais",
+    "slug": "novo-cabrais",
+    "microrregiao": "Cachoeira do Sul",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4313409",
+    "nome": "Novo Hamburgo",
+    "slug": "novo-hamburgo",
+    "microrregiao": "Porto Alegre",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4313425",
+    "nome": "Novo Machado",
+    "slug": "novo-machado",
+    "microrregiao": "Santa Rosa",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4313441",
+    "nome": "Novo Tiradentes",
+    "slug": "novo-tiradentes",
+    "microrregiao": "Frederico Westphalen",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4313466",
+    "nome": "Novo Xingu",
+    "slug": "novo-xingu",
+    "microrregiao": "Frederico Westphalen",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4313508",
+    "nome": "Osório",
+    "slug": "osorio",
+    "microrregiao": "Osório",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4313607",
+    "nome": "Paim Filho",
+    "slug": "paim-filho",
+    "microrregiao": "Sananduva",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4313656",
+    "nome": "Palmares do Sul",
+    "slug": "palmares-do-sul",
+    "microrregiao": "Osório",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4313706",
+    "nome": "Palmeira das Missões",
+    "slug": "palmeira-das-missoes",
+    "microrregiao": "Carazinho",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4313805",
+    "nome": "Palmitinho",
+    "slug": "palmitinho",
+    "microrregiao": "Frederico Westphalen",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4313904",
+    "nome": "Panambi",
+    "slug": "panambi",
+    "microrregiao": "Ijuí",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4313953",
+    "nome": "Pantano Grande",
+    "slug": "pantano-grande",
+    "microrregiao": "Cachoeira do Sul",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4314001",
+    "nome": "Paraí",
+    "slug": "parai",
+    "microrregiao": "Guaporé",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4314027",
+    "nome": "Paraíso do Sul",
+    "slug": "paraiso-do-sul",
+    "microrregiao": "Cachoeira do Sul",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4314035",
+    "nome": "Pareci Novo",
+    "slug": "pareci-novo",
+    "microrregiao": "Montenegro",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4314050",
+    "nome": "Parobé",
+    "slug": "parobe",
+    "microrregiao": "Porto Alegre",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4314068",
+    "nome": "Passa Sete",
+    "slug": "passa-sete",
+    "microrregiao": "Santa Cruz do Sul",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4314076",
+    "nome": "Passo do Sobrado",
+    "slug": "passo-do-sobrado",
+    "microrregiao": "Cachoeira do Sul",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4314100",
+    "nome": "Passo Fundo",
+    "slug": "passo-fundo",
+    "microrregiao": "Passo Fundo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4314134",
+    "nome": "Paulo Bento",
+    "slug": "paulo-bento",
+    "microrregiao": "Erechim",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4314159",
+    "nome": "Paverama",
+    "slug": "paverama",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4314175",
+    "nome": "Pedras Altas",
+    "slug": "pedras-altas",
+    "microrregiao": "Serras de Sudeste",
+    "mesorregiao": "Sudeste Rio-grandense"
+  },
+  {
+    "codigo": "4314209",
+    "nome": "Pedro Osório",
+    "slug": "pedro-osorio",
+    "microrregiao": "Pelotas",
+    "mesorregiao": "Sudeste Rio-grandense"
+  },
+  {
+    "codigo": "4314308",
+    "nome": "Pejuçara",
+    "slug": "pejucara",
+    "microrregiao": "Ijuí",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4314407",
+    "nome": "Pelotas",
+    "slug": "pelotas",
+    "microrregiao": "Pelotas",
+    "mesorregiao": "Sudeste Rio-grandense"
+  },
+  {
+    "codigo": "4314423",
+    "nome": "Picada Café",
+    "slug": "picada-cafe",
+    "microrregiao": "Gramado-Canela",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4314456",
+    "nome": "Pinhal",
+    "slug": "pinhal",
+    "microrregiao": "Carazinho",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4314464",
+    "nome": "Pinhal da Serra",
+    "slug": "pinhal-da-serra",
+    "microrregiao": "Vacaria",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4314472",
+    "nome": "Pinhal Grande",
+    "slug": "pinhal-grande",
+    "microrregiao": "Santiago",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4314498",
+    "nome": "Pinheirinho do Vale",
+    "slug": "pinheirinho-do-vale",
+    "microrregiao": "Frederico Westphalen",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4314506",
+    "nome": "Pinheiro Machado",
+    "slug": "pinheiro-machado",
+    "microrregiao": "Serras de Sudeste",
+    "mesorregiao": "Sudeste Rio-grandense"
+  },
+  {
+    "codigo": "4314548",
+    "nome": "Pinto Bandeira",
+    "slug": "pinto-bandeira",
+    "microrregiao": "Caxias do Sul",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4314555",
+    "nome": "Pirapó",
+    "slug": "pirapo",
+    "microrregiao": "Santo Ângelo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4314605",
+    "nome": "Piratini",
+    "slug": "piratini",
+    "microrregiao": "Serras de Sudeste",
+    "mesorregiao": "Sudeste Rio-grandense"
+  },
+  {
+    "codigo": "4314704",
+    "nome": "Planalto",
+    "slug": "planalto",
+    "microrregiao": "Frederico Westphalen",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4314753",
+    "nome": "Poço das Antas",
+    "slug": "poco-das-antas",
+    "microrregiao": "Montenegro",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4314779",
+    "nome": "Pontão",
+    "slug": "pontao",
+    "microrregiao": "Passo Fundo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4314787",
+    "nome": "Ponte Preta",
+    "slug": "ponte-preta",
+    "microrregiao": "Erechim",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4314803",
+    "nome": "Portão",
+    "slug": "portao",
+    "microrregiao": "Montenegro",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4314902",
+    "nome": "Porto Alegre",
+    "slug": "porto-alegre",
+    "microrregiao": "Porto Alegre",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4315008",
+    "nome": "Porto Lucena",
+    "slug": "porto-lucena",
+    "microrregiao": "Santa Rosa",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4315057",
+    "nome": "Porto Mauá",
+    "slug": "porto-maua",
+    "microrregiao": "Santa Rosa",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4315073",
+    "nome": "Porto Vera Cruz",
+    "slug": "porto-vera-cruz",
+    "microrregiao": "Santa Rosa",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4315107",
+    "nome": "Porto Xavier",
+    "slug": "porto-xavier",
+    "microrregiao": "Cerro Largo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4315131",
+    "nome": "Pouso Novo",
+    "slug": "pouso-novo",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4315149",
+    "nome": "Presidente Lucena",
+    "slug": "presidente-lucena",
+    "microrregiao": "Gramado-Canela",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4315156",
+    "nome": "Progresso",
+    "slug": "progresso",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4315172",
+    "nome": "Protásio Alves",
+    "slug": "protasio-alves",
+    "microrregiao": "Guaporé",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4315206",
+    "nome": "Putinga",
+    "slug": "putinga",
+    "microrregiao": "Guaporé",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4315305",
+    "nome": "Quaraí",
+    "slug": "quarai",
+    "microrregiao": "Campanha Ocidental",
+    "mesorregiao": "Sudoeste Rio-grandense"
+  },
+  {
+    "codigo": "4315313",
+    "nome": "Quatro Irmãos",
+    "slug": "quatro-irmaos",
+    "microrregiao": "Erechim",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4315321",
+    "nome": "Quevedos",
+    "slug": "quevedos",
+    "microrregiao": "Santiago",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4315354",
+    "nome": "Quinze de Novembro",
+    "slug": "quinze-de-novembro",
+    "microrregiao": "Cruz Alta",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4315404",
+    "nome": "Redentora",
+    "slug": "redentora",
+    "microrregiao": "Três Passos",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4315453",
+    "nome": "Relvado",
+    "slug": "relvado",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4315503",
+    "nome": "Restinga Sêca",
+    "slug": "restinga-seca",
+    "microrregiao": "Restinga Seca",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4315552",
+    "nome": "Rio dos Índios",
+    "slug": "rio-dos-indios",
+    "microrregiao": "Frederico Westphalen",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4315602",
+    "nome": "Rio Grande",
+    "slug": "rio-grande",
+    "microrregiao": "Litoral Lagunar",
+    "mesorregiao": "Sudeste Rio-grandense"
+  },
+  {
+    "codigo": "4315701",
+    "nome": "Rio Pardo",
+    "slug": "rio-pardo",
+    "microrregiao": "Cachoeira do Sul",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4315750",
+    "nome": "Riozinho",
+    "slug": "riozinho",
+    "microrregiao": "Gramado-Canela",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4315800",
+    "nome": "Roca Sales",
+    "slug": "roca-sales",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4315909",
+    "nome": "Rodeio Bonito",
+    "slug": "rodeio-bonito",
+    "microrregiao": "Frederico Westphalen",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4315958",
+    "nome": "Rolador",
+    "slug": "rolador",
+    "microrregiao": "Santo Ângelo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4316006",
+    "nome": "Rolante",
+    "slug": "rolante",
+    "microrregiao": "Gramado-Canela",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4316105",
+    "nome": "Ronda Alta",
+    "slug": "ronda-alta",
+    "microrregiao": "Passo Fundo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4316204",
+    "nome": "Rondinha",
+    "slug": "rondinha",
+    "microrregiao": "Frederico Westphalen",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4316303",
+    "nome": "Roque Gonzales",
+    "slug": "roque-gonzales",
+    "microrregiao": "Cerro Largo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4316402",
+    "nome": "Rosário do Sul",
+    "slug": "rosario-do-sul",
+    "microrregiao": "Campanha Central",
+    "mesorregiao": "Sudoeste Rio-grandense"
+  },
+  {
+    "codigo": "4316428",
+    "nome": "Sagrada Família",
+    "slug": "sagrada-familia",
+    "microrregiao": "Carazinho",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4316436",
+    "nome": "Saldanha Marinho",
+    "slug": "saldanha-marinho",
+    "microrregiao": "Cruz Alta",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4316451",
+    "nome": "Salto do Jacuí",
+    "slug": "salto-do-jacui",
+    "microrregiao": "Cruz Alta",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4316477",
+    "nome": "Salvador das Missões",
+    "slug": "salvador-das-missoes",
+    "microrregiao": "Cerro Largo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4316501",
+    "nome": "Salvador do Sul",
+    "slug": "salvador-do-sul",
+    "microrregiao": "Montenegro",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4316600",
+    "nome": "Sananduva",
+    "slug": "sananduva",
+    "microrregiao": "Sananduva",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4317103",
+    "nome": "Sant'Ana do Livramento",
+    "slug": "sant-ana-do-livramento",
+    "microrregiao": "Campanha Central",
+    "mesorregiao": "Sudoeste Rio-grandense"
+  },
+  {
+    "codigo": "4316709",
+    "nome": "Santa Bárbara do Sul",
+    "slug": "santa-barbara-do-sul",
+    "microrregiao": "Cruz Alta",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4316733",
+    "nome": "Santa Cecília do Sul",
+    "slug": "santa-cecilia-do-sul",
+    "microrregiao": "Passo Fundo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4316758",
+    "nome": "Santa Clara do Sul",
+    "slug": "santa-clara-do-sul",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4316808",
+    "nome": "Santa Cruz do Sul",
+    "slug": "santa-cruz-do-sul",
+    "microrregiao": "Santa Cruz do Sul",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4316972",
+    "nome": "Santa Margarida do Sul",
+    "slug": "santa-margarida-do-sul",
+    "microrregiao": "Campanha Central",
+    "mesorregiao": "Sudoeste Rio-grandense"
+  },
+  {
+    "codigo": "4316907",
+    "nome": "Santa Maria",
+    "slug": "santa-maria",
+    "microrregiao": "Santa Maria",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4316956",
+    "nome": "Santa Maria do Herval",
+    "slug": "santa-maria-do-herval",
+    "microrregiao": "Gramado-Canela",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4317202",
+    "nome": "Santa Rosa",
+    "slug": "santa-rosa",
+    "microrregiao": "Santa Rosa",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4317251",
+    "nome": "Santa Tereza",
+    "slug": "santa-tereza",
+    "microrregiao": "Caxias do Sul",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4317301",
+    "nome": "Santa Vitória do Palmar",
+    "slug": "santa-vitoria-do-palmar",
+    "microrregiao": "Litoral Lagunar",
+    "mesorregiao": "Sudeste Rio-grandense"
+  },
+  {
+    "codigo": "4317004",
+    "nome": "Santana da Boa Vista",
+    "slug": "santana-da-boa-vista",
+    "microrregiao": "Serras de Sudeste",
+    "mesorregiao": "Sudeste Rio-grandense"
+  },
+  {
+    "codigo": "4317400",
+    "nome": "Santiago",
+    "slug": "santiago",
+    "microrregiao": "Santiago",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4317509",
+    "nome": "Santo Ângelo",
+    "slug": "santo-angelo",
+    "microrregiao": "Santo Ângelo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4317608",
+    "nome": "Santo Antônio da Patrulha",
+    "slug": "santo-antonio-da-patrulha",
+    "microrregiao": "Osório",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4317707",
+    "nome": "Santo Antônio das Missões",
+    "slug": "santo-antonio-das-missoes",
+    "microrregiao": "Santo Ângelo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4317558",
+    "nome": "Santo Antônio do Palma",
+    "slug": "santo-antonio-do-palma",
+    "microrregiao": "Passo Fundo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4317756",
+    "nome": "Santo Antônio do Planalto",
+    "slug": "santo-antonio-do-planalto",
+    "microrregiao": "Carazinho",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4317806",
+    "nome": "Santo Augusto",
+    "slug": "santo-augusto",
+    "microrregiao": "Ijuí",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4317905",
+    "nome": "Santo Cristo",
+    "slug": "santo-cristo",
+    "microrregiao": "Santa Rosa",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4317954",
+    "nome": "Santo Expedito do Sul",
+    "slug": "santo-expedito-do-sul",
+    "microrregiao": "Sananduva",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4318002",
+    "nome": "São Borja",
+    "slug": "sao-borja",
+    "microrregiao": "Campanha Ocidental",
+    "mesorregiao": "Sudoeste Rio-grandense"
+  },
+  {
+    "codigo": "4318051",
+    "nome": "São Domingos do Sul",
+    "slug": "sao-domingos-do-sul",
+    "microrregiao": "Passo Fundo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4318101",
+    "nome": "São Francisco de Assis",
+    "slug": "sao-francisco-de-assis",
+    "microrregiao": "Campanha Ocidental",
+    "mesorregiao": "Sudoeste Rio-grandense"
+  },
+  {
+    "codigo": "4318200",
+    "nome": "São Francisco de Paula",
+    "slug": "sao-francisco-de-paula",
+    "microrregiao": "Vacaria",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4318309",
+    "nome": "São Gabriel",
+    "slug": "sao-gabriel",
+    "microrregiao": "Campanha Central",
+    "mesorregiao": "Sudoeste Rio-grandense"
+  },
+  {
+    "codigo": "4318408",
+    "nome": "São Jerônimo",
+    "slug": "sao-jeronimo",
+    "microrregiao": "São Jerônimo",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4318424",
+    "nome": "São João da Urtiga",
+    "slug": "sao-joao-da-urtiga",
+    "microrregiao": "Sananduva",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4318432",
+    "nome": "São João do Polêsine",
+    "slug": "sao-joao-do-polesine",
+    "microrregiao": "Restinga Seca",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4318440",
+    "nome": "São Jorge",
+    "slug": "sao-jorge",
+    "microrregiao": "Guaporé",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4318457",
+    "nome": "São José das Missões",
+    "slug": "sao-jose-das-missoes",
+    "microrregiao": "Carazinho",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4318465",
+    "nome": "São José do Herval",
+    "slug": "sao-jose-do-herval",
+    "microrregiao": "Soledade",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4318481",
+    "nome": "São José do Hortêncio",
+    "slug": "sao-jose-do-hortencio",
+    "microrregiao": "Montenegro",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4318499",
+    "nome": "São José do Inhacorá",
+    "slug": "sao-jose-do-inhacora",
+    "microrregiao": "Santa Rosa",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4318507",
+    "nome": "São José do Norte",
+    "slug": "sao-jose-do-norte",
+    "microrregiao": "Litoral Lagunar",
+    "mesorregiao": "Sudeste Rio-grandense"
+  },
+  {
+    "codigo": "4318606",
+    "nome": "São José do Ouro",
+    "slug": "sao-jose-do-ouro",
+    "microrregiao": "Sananduva",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4318614",
+    "nome": "São José do Sul",
+    "slug": "sao-jose-do-sul",
+    "microrregiao": "Montenegro",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4318622",
+    "nome": "São José dos Ausentes",
+    "slug": "sao-jose-dos-ausentes",
+    "microrregiao": "Vacaria",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4318705",
+    "nome": "São Leopoldo",
+    "slug": "sao-leopoldo",
+    "microrregiao": "Porto Alegre",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4318804",
+    "nome": "São Lourenço do Sul",
+    "slug": "sao-lourenco-do-sul",
+    "microrregiao": "Pelotas",
+    "mesorregiao": "Sudeste Rio-grandense"
+  },
+  {
+    "codigo": "4318903",
+    "nome": "São Luiz Gonzaga",
+    "slug": "sao-luiz-gonzaga",
+    "microrregiao": "Santo Ângelo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4319000",
+    "nome": "São Marcos",
+    "slug": "sao-marcos",
+    "microrregiao": "Caxias do Sul",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4319109",
+    "nome": "São Martinho",
+    "slug": "sao-martinho",
+    "microrregiao": "Três Passos",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4319125",
+    "nome": "São Martinho da Serra",
+    "slug": "sao-martinho-da-serra",
+    "microrregiao": "Santa Maria",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4319158",
+    "nome": "São Miguel das Missões",
+    "slug": "sao-miguel-das-missoes",
+    "microrregiao": "Santo Ângelo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4319208",
+    "nome": "São Nicolau",
+    "slug": "sao-nicolau",
+    "microrregiao": "Santo Ângelo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4319307",
+    "nome": "São Paulo das Missões",
+    "slug": "sao-paulo-das-missoes",
+    "microrregiao": "Cerro Largo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4319356",
+    "nome": "São Pedro da Serra",
+    "slug": "sao-pedro-da-serra",
+    "microrregiao": "Montenegro",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4319364",
+    "nome": "São Pedro das Missões",
+    "slug": "sao-pedro-das-missoes",
+    "microrregiao": "Carazinho",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4319372",
+    "nome": "São Pedro do Butiá",
+    "slug": "sao-pedro-do-butia",
+    "microrregiao": "Cerro Largo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4319406",
+    "nome": "São Pedro do Sul",
+    "slug": "sao-pedro-do-sul",
+    "microrregiao": "Santa Maria",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4319505",
+    "nome": "São Sebastião do Caí",
+    "slug": "sao-sebastiao-do-cai",
+    "microrregiao": "Montenegro",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4319604",
+    "nome": "São Sepé",
+    "slug": "sao-sepe",
+    "microrregiao": "Santa Maria",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4319703",
+    "nome": "São Valentim",
+    "slug": "sao-valentim",
+    "microrregiao": "Erechim",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4319711",
+    "nome": "São Valentim do Sul",
+    "slug": "sao-valentim-do-sul",
+    "microrregiao": "Guaporé",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4319737",
+    "nome": "São Valério do Sul",
+    "slug": "sao-valerio-do-sul",
+    "microrregiao": "Ijuí",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4319752",
+    "nome": "São Vendelino",
+    "slug": "sao-vendelino",
+    "microrregiao": "Montenegro",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4319802",
+    "nome": "São Vicente do Sul",
+    "slug": "sao-vicente-do-sul",
+    "microrregiao": "Santa Maria",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4319901",
+    "nome": "Sapiranga",
+    "slug": "sapiranga",
+    "microrregiao": "Porto Alegre",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4320008",
+    "nome": "Sapucaia do Sul",
+    "slug": "sapucaia-do-sul",
+    "microrregiao": "Porto Alegre",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4320107",
+    "nome": "Sarandi",
+    "slug": "sarandi",
+    "microrregiao": "Carazinho",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4320206",
+    "nome": "Seberi",
+    "slug": "seberi",
+    "microrregiao": "Frederico Westphalen",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4320230",
+    "nome": "Sede Nova",
+    "slug": "sede-nova",
+    "microrregiao": "Três Passos",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4320263",
+    "nome": "Segredo",
+    "slug": "segredo",
+    "microrregiao": "Santa Cruz do Sul",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4320305",
+    "nome": "Selbach",
+    "slug": "selbach",
+    "microrregiao": "Não-Me-Toque",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4320321",
+    "nome": "Senador Salgado Filho",
+    "slug": "senador-salgado-filho",
+    "microrregiao": "Santo Ângelo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4320354",
+    "nome": "Sentinela do Sul",
+    "slug": "sentinela-do-sul",
+    "microrregiao": "Camaquã",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4320404",
+    "nome": "Serafina Corrêa",
+    "slug": "serafina-correa",
+    "microrregiao": "Guaporé",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4320453",
+    "nome": "Sério",
+    "slug": "serio",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4320503",
+    "nome": "Sertão",
+    "slug": "sertao",
+    "microrregiao": "Passo Fundo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4320552",
+    "nome": "Sertão Santana",
+    "slug": "sertao-santana",
+    "microrregiao": "Porto Alegre",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4320578",
+    "nome": "Sete de Setembro",
+    "slug": "sete-de-setembro",
+    "microrregiao": "Cerro Largo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4320602",
+    "nome": "Severiano de Almeida",
+    "slug": "severiano-de-almeida",
+    "microrregiao": "Erechim",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4320651",
+    "nome": "Silveira Martins",
+    "slug": "silveira-martins",
+    "microrregiao": "Restinga Seca",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4320677",
+    "nome": "Sinimbu",
+    "slug": "sinimbu",
+    "microrregiao": "Santa Cruz do Sul",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4320701",
+    "nome": "Sobradinho",
+    "slug": "sobradinho",
+    "microrregiao": "Santa Cruz do Sul",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4320800",
+    "nome": "Soledade",
+    "slug": "soledade",
+    "microrregiao": "Soledade",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4320859",
+    "nome": "Tabaí",
+    "slug": "tabai",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4320909",
+    "nome": "Tapejara",
+    "slug": "tapejara",
+    "microrregiao": "Passo Fundo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4321006",
+    "nome": "Tapera",
+    "slug": "tapera",
+    "microrregiao": "Não-Me-Toque",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4321105",
+    "nome": "Tapes",
+    "slug": "tapes",
+    "microrregiao": "Camaquã",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4321204",
+    "nome": "Taquara",
+    "slug": "taquara",
+    "microrregiao": "Gramado-Canela",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4321303",
+    "nome": "Taquari",
+    "slug": "taquari",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4321329",
+    "nome": "Taquaruçu do Sul",
+    "slug": "taquarucu-do-sul",
+    "microrregiao": "Frederico Westphalen",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4321352",
+    "nome": "Tavares",
+    "slug": "tavares",
+    "microrregiao": "Osório",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4321402",
+    "nome": "Tenente Portela",
+    "slug": "tenente-portela",
+    "microrregiao": "Três Passos",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4321436",
+    "nome": "Terra de Areia",
+    "slug": "terra-de-areia",
+    "microrregiao": "Osório",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4321451",
+    "nome": "Teutônia",
+    "slug": "teutonia",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4321469",
+    "nome": "Tio Hugo",
+    "slug": "tio-hugo",
+    "microrregiao": "Não-Me-Toque",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4321477",
+    "nome": "Tiradentes do Sul",
+    "slug": "tiradentes-do-sul",
+    "microrregiao": "Três Passos",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4321493",
+    "nome": "Toropi",
+    "slug": "toropi",
+    "microrregiao": "Santa Maria",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4321501",
+    "nome": "Torres",
+    "slug": "torres",
+    "microrregiao": "Osório",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4321600",
+    "nome": "Tramandaí",
+    "slug": "tramandai",
+    "microrregiao": "Osório",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4321626",
+    "nome": "Travesseiro",
+    "slug": "travesseiro",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4321634",
+    "nome": "Três Arroios",
+    "slug": "tres-arroios",
+    "microrregiao": "Erechim",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4321667",
+    "nome": "Três Cachoeiras",
+    "slug": "tres-cachoeiras",
+    "microrregiao": "Osório",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4321709",
+    "nome": "Três Coroas",
+    "slug": "tres-coroas",
+    "microrregiao": "Gramado-Canela",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4321808",
+    "nome": "Três de Maio",
+    "slug": "tres-de-maio",
+    "microrregiao": "Santa Rosa",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4321832",
+    "nome": "Três Forquilhas",
+    "slug": "tres-forquilhas",
+    "microrregiao": "Osório",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4321857",
+    "nome": "Três Palmeiras",
+    "slug": "tres-palmeiras",
+    "microrregiao": "Frederico Westphalen",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4321907",
+    "nome": "Três Passos",
+    "slug": "tres-passos",
+    "microrregiao": "Três Passos",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4321956",
+    "nome": "Trindade do Sul",
+    "slug": "trindade-do-sul",
+    "microrregiao": "Frederico Westphalen",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4322004",
+    "nome": "Triunfo",
+    "slug": "triunfo",
+    "microrregiao": "São Jerônimo",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4322103",
+    "nome": "Tucunduva",
+    "slug": "tucunduva",
+    "microrregiao": "Santa Rosa",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4322152",
+    "nome": "Tunas",
+    "slug": "tunas",
+    "microrregiao": "Soledade",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4322186",
+    "nome": "Tupanci do Sul",
+    "slug": "tupanci-do-sul",
+    "microrregiao": "Sananduva",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4322202",
+    "nome": "Tupanciretã",
+    "slug": "tupancireta",
+    "microrregiao": "Santiago",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4322251",
+    "nome": "Tupandi",
+    "slug": "tupandi",
+    "microrregiao": "Montenegro",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4322301",
+    "nome": "Tuparendi",
+    "slug": "tuparendi",
+    "microrregiao": "Santa Rosa",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4322327",
+    "nome": "Turuçu",
+    "slug": "turucu",
+    "microrregiao": "Pelotas",
+    "mesorregiao": "Sudeste Rio-grandense"
+  },
+  {
+    "codigo": "4322343",
+    "nome": "Ubiretama",
+    "slug": "ubiretama",
+    "microrregiao": "Santo Ângelo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4322350",
+    "nome": "União da Serra",
+    "slug": "uniao-da-serra",
+    "microrregiao": "Guaporé",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4322376",
+    "nome": "Unistalda",
+    "slug": "unistalda",
+    "microrregiao": "Santiago",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4322400",
+    "nome": "Uruguaiana",
+    "slug": "uruguaiana",
+    "microrregiao": "Campanha Ocidental",
+    "mesorregiao": "Sudoeste Rio-grandense"
+  },
+  {
+    "codigo": "4322509",
+    "nome": "Vacaria",
+    "slug": "vacaria",
+    "microrregiao": "Vacaria",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4322533",
+    "nome": "Vale do Sol",
+    "slug": "vale-do-sol",
+    "microrregiao": "Santa Cruz do Sul",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4322541",
+    "nome": "Vale Real",
+    "slug": "vale-real",
+    "microrregiao": "Montenegro",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4322525",
+    "nome": "Vale Verde",
+    "slug": "vale-verde",
+    "microrregiao": "São Jerônimo",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4322558",
+    "nome": "Vanini",
+    "slug": "vanini",
+    "microrregiao": "Passo Fundo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4322608",
+    "nome": "Venâncio Aires",
+    "slug": "venancio-aires",
+    "microrregiao": "Santa Cruz do Sul",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4322707",
+    "nome": "Vera Cruz",
+    "slug": "vera-cruz",
+    "microrregiao": "Santa Cruz do Sul",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4322806",
+    "nome": "Veranópolis",
+    "slug": "veranopolis",
+    "microrregiao": "Caxias do Sul",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4322855",
+    "nome": "Vespasiano Corrêa",
+    "slug": "vespasiano-correa",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4322905",
+    "nome": "Viadutos",
+    "slug": "viadutos",
+    "microrregiao": "Erechim",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4323002",
+    "nome": "Viamão",
+    "slug": "viamao",
+    "microrregiao": "Porto Alegre",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  },
+  {
+    "codigo": "4323101",
+    "nome": "Vicente Dutra",
+    "slug": "vicente-dutra",
+    "microrregiao": "Frederico Westphalen",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4323200",
+    "nome": "Victor Graeff",
+    "slug": "victor-graeff",
+    "microrregiao": "Não-Me-Toque",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4323309",
+    "nome": "Vila Flores",
+    "slug": "vila-flores",
+    "microrregiao": "Caxias do Sul",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4323358",
+    "nome": "Vila Lângaro",
+    "slug": "vila-langaro",
+    "microrregiao": "Passo Fundo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4323408",
+    "nome": "Vila Maria",
+    "slug": "vila-maria",
+    "microrregiao": "Passo Fundo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4323457",
+    "nome": "Vila Nova do Sul",
+    "slug": "vila-nova-do-sul",
+    "microrregiao": "Santa Maria",
+    "mesorregiao": "Centro Ocidental Rio-grandense"
+  },
+  {
+    "codigo": "4323507",
+    "nome": "Vista Alegre",
+    "slug": "vista-alegre",
+    "microrregiao": "Frederico Westphalen",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4323606",
+    "nome": "Vista Alegre do Prata",
+    "slug": "vista-alegre-do-prata",
+    "microrregiao": "Guaporé",
+    "mesorregiao": "Nordeste Rio-grandense"
+  },
+  {
+    "codigo": "4323705",
+    "nome": "Vista Gaúcha",
+    "slug": "vista-gaucha",
+    "microrregiao": "Três Passos",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4323754",
+    "nome": "Vitória das Missões",
+    "slug": "vitoria-das-missoes",
+    "microrregiao": "Santo Ângelo",
+    "mesorregiao": "Noroeste Rio-grandense"
+  },
+  {
+    "codigo": "4323770",
+    "nome": "Westfália",
+    "slug": "westfalia",
+    "microrregiao": "Lajeado-Estrela",
+    "mesorregiao": "Centro Oriental Rio-grandense"
+  },
+  {
+    "codigo": "4323804",
+    "nome": "Xangri-lá",
+    "slug": "xangri-la",
+    "microrregiao": "Osório",
+    "mesorregiao": "Metropolitana de Porto Alegre"
+  }
+]

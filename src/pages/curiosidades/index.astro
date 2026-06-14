@@ -1,0 +1,162 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const TAG_LABELS: Record<string, string> = {
+  padroeiros: "Padroeiros",
+  religiao: "Religião",
+  historia: "História",
+  geografia: "Geografia",
+  natureza: "Natureza",
+};
+
+// Filtro por tag via query string (?tag=historia)
+const tagFiltro = Astro.url.searchParams.get("tag");
+
+const todas = await getCollection("curiosidades");
+const filtradas = tagFiltro
+  ? todas.filter((c) => c.data.tags.includes(tagFiltro as any))
+  : todas;
+
+const ordenadas = [...filtradas].sort((a, b) => {
+  if (!a.data.data && !b.data.data) return 0;
+  if (!a.data.data) return 1;
+  if (!b.data.data) return -1;
+  return +b.data.data - +a.data.data;
+});
+
+// Tags com contagem
+const contagemTags = new Map<string, number>();
+for (const c of todas) {
+  for (const t of c.data.tags) {
+    contagemTags.set(t, (contagemTags.get(t) ?? 0) + 1);
+  }
+}
+
+// Resolver nomes das cidades relacionadas (para mostrar nos chips)
+async function resolveCidades(slugs: string[]) {
+  const out: { slug: string; nome: string }[] = [];
+  for (const slug of slugs) {
+    const c = await getEntry("cidades", slug);
+    if (c) out.push({ slug, nome: c.data.nome });
+  }
+  return out;
+}
+const cidadesPorCuriosidade = new Map<string, { slug: string; nome: string }[]>();
+for (const c of ordenadas) {
+  cidadesPorCuriosidade.set(c.id, await resolveCidades(c.data.cidades));
+}
+---
+
+<BaseLayout
+  title="Curiosidades — Projeto 497 RS"
+  description="Descobertas, padrões e histórias que coletamos visitando o Rio Grande do Sul."
+  image="/og/home.png"
+>
+  <main class="min-h-dvh max-w-5xl mx-auto px-6 py-10">
+    <header class="mb-10">
+      <p class="text-[var(--color-primary)] text-sm font-semibold tracking-widest uppercase mb-2">
+        Caderno de viagem
+      </p>
+      <h1 class="text-4xl md:text-5xl font-display font-semibold mb-3">
+        Curiosidades
+      </h1>
+      <p class="text-lg text-[var(--color-text-muted)] max-w-2xl leading-relaxed">
+        Descobertas, padrões e histórias que coletamos pelo caminho — uma cidade
+        de cada vez.
+      </p>
+    </header>
+
+    <!-- Filtros por tag -->
+    {contagemTags.size > 0 && (
+      <nav class="flex flex-wrap gap-2 mb-8">
+        <a
+          href="/curiosidades/"
+          class:list={[
+            "px-3 py-1.5 rounded-full border text-sm transition-colors",
+            !tagFiltro
+              ? "bg-[var(--color-primary)] text-white border-[var(--color-primary)]"
+              : "border-[var(--color-border)] text-[var(--color-text-muted)] hover:border-[var(--color-text-muted)]",
+          ]}
+        >
+          Todas ({todas.length})
+        </a>
+        {[...contagemTags.entries()]
+          .sort((a, b) => b[1] - a[1])
+          .map(([tag, n]) => (
+            <a
+              href={`/curiosidades/?tag=${tag}`}
+              class:list={[
+                "px-3 py-1.5 rounded-full border text-sm transition-colors",
+                tagFiltro === tag
+                  ? "bg-[var(--color-primary)] text-white border-[var(--color-primary)]"
+                  : "border-[var(--color-border)] text-[var(--color-text-muted)] hover:border-[var(--color-text-muted)]",
+              ]}
+            >
+              {TAG_LABELS[tag] ?? tag} ({n})
+            </a>
+          ))}
+      </nav>
+    )}
+
+    <!-- Lista de curiosidades -->
+    {ordenadas.length === 0 ? (
+      <div class="rounded-xl border border-dashed border-[var(--color-border)] bg-[var(--color-surface)] p-10 text-center">
+        <p class="text-[var(--color-text-muted)]">
+          Nenhuma curiosidade ainda{tagFiltro && ` na tag "${TAG_LABELS[tagFiltro] ?? tagFiltro}"`}.
+        </p>
+      </div>
+    ) : (
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+        {ordenadas.map((c) => {
+          const cidades = cidadesPorCuriosidade.get(c.id) ?? [];
+          return (
+            <article class="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] shadow-sm overflow-hidden">
+              {c.data.capa && (
+                <a href={`/curiosidades/${c.id}/`}>
+                  <img src={c.data.capa} alt="" class="w-full aspect-video object-cover" loading="lazy" />
+                </a>
+              )}
+              <div class="p-5">
+                <div class="flex flex-wrap gap-1.5 mb-2">
+                  {c.data.tags.map((t) => (
+                    <span class="text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-[var(--color-surface-2)] text-[var(--color-text-muted)] border border-[var(--color-border)]">
+                      {TAG_LABELS[t] ?? t}
+                    </span>
+                  ))}
+                </div>
+                <h2 class="text-xl font-display font-semibold leading-snug mb-2">
+                  <a href={`/curiosidades/${c.id}/`} class="hover:text-[var(--color-primary)] transition-colors">
+                    {c.data.titulo}
+                  </a>
+                </h2>
+                {c.data.data && (
+                  <time class="text-xs text-[var(--color-text-faint)]">
+                    {c.data.data.toLocaleDateString("pt-BR", { day: "2-digit", month: "long", year: "numeric" })}
+                  </time>
+                )}
+                {cidades.length > 0 && (
+                  <div class="mt-3 flex flex-wrap gap-1.5">
+                    {cidades.slice(0, 4).map((cd) => (
+                      <a
+                        href={`/cidades/${cd.slug}/`}
+                        class="text-xs px-2 py-0.5 rounded-full bg-[var(--color-surface-2)] text-[var(--color-text-muted)] border border-[var(--color-border)] hover:text-[var(--color-primary)] hover:border-[var(--color-primary)] transition-colors"
+                      >
+                        {cd.nome}
+                      </a>
+                    ))}
+                    {cidades.length > 4 && (
+                      <span class="text-xs text-[var(--color-text-faint)] py-0.5">
+                        +{cidades.length - 4}
+                      </span>
+                    )}
+                  </div>
+                )}
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    )}
+  </main>
+</BaseLayout>

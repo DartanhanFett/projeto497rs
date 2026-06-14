@@ -1,0 +1,226 @@
+---
+/**
+ * MapaRS — mapa interativo dos 497 municípios do RS.
+ *
+ * Renderiza polígonos coloridos por status (visitada / em-progresso / pendente),
+ * com hover, clique e tooltip. O fundo é minimalista (sem mapa base de ruas)
+ * para destacar o estado.
+ *
+ * As props recebem o status de cada cidade (vindo da content collection).
+ */
+interface CidadeStatus {
+  slug: string;
+  nome: string;
+  status: "visitada" | "em-progresso" | "pendente";
+}
+
+interface Props {
+  cidades: CidadeStatus[];
+}
+
+const { cidades } = Astro.props;
+const statusJSON = JSON.stringify(
+  Object.fromEntries(cidades.map((c) => [c.slug, c.status]))
+);
+---
+
+<div
+  id="mapa-rs"
+  class="relative w-full h-[70vh] min-h-[500px] rounded-xl overflow-hidden border border-[var(--color-border)] bg-[var(--color-surface)]"
+  data-status={statusJSON}
+>
+  <div
+    id="mapa-loading"
+    class="absolute inset-0 flex items-center justify-center text-[var(--color-text-muted)] text-sm pointer-events-none"
+  >
+    Carregando mapa…
+  </div>
+
+  <div
+    id="mapa-tooltip"
+    class="pointer-events-none absolute z-10 hidden px-3 py-1.5 rounded-md bg-[var(--color-surface)] border border-[var(--color-border-strong)] text-sm font-medium shadow-md"
+  >
+  </div>
+
+  <!-- Legenda -->
+  <div
+    class="absolute bottom-4 left-4 z-10 flex flex-wrap gap-2 px-3 py-2 rounded-lg bg-[var(--color-surface)]/95 border border-[var(--color-border)] text-xs backdrop-blur-sm shadow-sm"
+  >
+    <span class="flex items-center gap-1.5">
+      <span class="inline-block w-3 h-3 rounded-sm" style="background:#2D7A4F"></span>
+      Visitadas
+    </span>
+    <span class="flex items-center gap-1.5">
+      <span class="inline-block w-3 h-3 rounded-sm" style="background:#C99124"></span>
+      Em progresso
+    </span>
+    <span class="flex items-center gap-1.5">
+      <span class="inline-block w-3 h-3 rounded-sm" style="background:#C9C0AF"></span>
+      Pendentes
+    </span>
+  </div>
+</div>
+
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" />
+
+<script>
+  import maplibregl from "maplibre-gl";
+
+  const root = document.getElementById("mapa-rs") as HTMLElement;
+  const tooltip = document.getElementById("mapa-tooltip") as HTMLElement;
+  const loading = document.getElementById("mapa-loading") as HTMLElement;
+
+  const statusBySlug = JSON.parse(root.dataset.status || "{}") as Record<
+    string,
+    "visitada" | "em-progresso" | "pendente"
+  >;
+
+  const COLOR = {
+    visitada: "#2D7A4F",
+    "em-progresso": "#C99124",
+    pendente: "#C9C0AF",
+  };
+
+  // Mapa sem tiles base — o canvas é o próprio fundo claro.
+  const map = new maplibregl.Map({
+    container: "mapa-rs",
+    style: {
+      version: 8,
+      sources: {},
+      layers: [
+        {
+          id: "background",
+          type: "background",
+          paint: { "background-color": "#F2EDE3" },
+        },
+      ],
+      glyphs: "https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf",
+    },
+    center: [-53.5, -29.7], // centro aproximado do RS
+    zoom: 5.6,
+    minZoom: 5,
+    maxZoom: 10,
+    attributionControl: false,
+  });
+
+  map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "top-right");
+
+  map.on("load", async () => {
+    const res = await fetch("/geo/municipios-rs.geojson");
+    const geojson = await res.json();
+
+    // Anexar status a cada feature pra estilizar via expressão
+    for (const f of geojson.features) {
+      const slug = f.properties.slug;
+      f.properties.status = statusBySlug[slug] || "pendente";
+    }
+
+    map.addSource("municipios", { type: "geojson", data: geojson });
+
+    // Preenchimento por status
+    map.addLayer({
+      id: "municipios-fill",
+      type: "fill",
+      source: "municipios",
+      paint: {
+        "fill-color": [
+          "match",
+          ["get", "status"],
+          "visitada", COLOR.visitada,
+          "em-progresso", COLOR["em-progresso"],
+          /* default */ COLOR.pendente,
+        ],
+        "fill-opacity": [
+          "case",
+          ["boolean", ["feature-state", "hover"], false],
+          0.95,
+          0.75,
+        ],
+      },
+    });
+
+    // Borda dos municípios
+    map.addLayer({
+      id: "municipios-line",
+      type: "line",
+      source: "municipios",
+      paint: {
+        "line-color": "#FFFFFF",
+        "line-width": 0.6,
+      },
+    });
+
+    // Borda destacada no hover
+    map.addLayer({
+      id: "municipios-hover-line",
+      type: "line",
+      source: "municipios",
+      paint: {
+        "line-color": "#1F1611",
+        "line-width": [
+          "case",
+          ["boolean", ["feature-state", "hover"], false],
+          2,
+          0,
+        ],
+      },
+    });
+
+    // Ajustar bounds ao estado
+    const bounds = new maplibregl.LngLatBounds();
+    for (const f of geojson.features) {
+      const coords = f.geometry.type === "Polygon"
+        ? f.geometry.coordinates.flat()
+        : f.geometry.coordinates.flat(2);
+      for (const [lng, lat] of coords) bounds.extend([lng, lat]);
+    }
+    map.fitBounds(bounds, { padding: 30, duration: 0 });
+
+    loading.style.display = "none";
+
+    // Interatividade: hover, tooltip, clique
+    let hoveredId: string | number | null = null;
+
+    map.on("mousemove", "municipios-fill", (e) => {
+      if (!e.features?.length) return;
+      const f = e.features[0];
+
+      if (hoveredId !== null) {
+        map.setFeatureState({ source: "municipios", id: hoveredId }, { hover: false });
+      }
+      hoveredId = f.id ?? f.properties?.codigo ?? null;
+      if (hoveredId !== null) {
+        map.setFeatureState({ source: "municipios", id: hoveredId }, { hover: true });
+      }
+
+      map.getCanvas().style.cursor = "pointer";
+
+      tooltip.style.display = "block";
+      tooltip.style.left = `${e.point.x + 12}px`;
+      tooltip.style.top = `${e.point.y + 12}px`;
+      const status = f.properties?.status as string;
+      const statusLabel =
+        status === "visitada"
+          ? "✓ Visitada"
+          : status === "em-progresso"
+          ? "● Em progresso"
+          : "○ Pendente";
+      tooltip.innerHTML = `<span>${f.properties?.nome}</span><span class="ml-2 text-[var(--color-text-muted)]">${statusLabel}</span>`;
+    });
+
+    map.on("mouseleave", "municipios-fill", () => {
+      if (hoveredId !== null) {
+        map.setFeatureState({ source: "municipios", id: hoveredId }, { hover: false });
+      }
+      hoveredId = null;
+      map.getCanvas().style.cursor = "";
+      tooltip.style.display = "none";
+    });
+
+    map.on("click", "municipios-fill", (e) => {
+      if (!e.features?.length) return;
+      const slug = e.features[0].properties?.slug;
+      if (slug) window.location.href = `/cidades/${slug}/`;
+    });
+  });
+</script>

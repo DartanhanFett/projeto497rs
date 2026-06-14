@@ -1,0 +1,67 @@
+name: Migrar mídia pro Cloudflare R2
+
+# Roda em todo push pra main que toque public/uploads/.
+# Faz upload das fotos novas pro R2, reescreve as URLs nos arquivos
+# markdown (e em qualquer .astro/.md), remove de public/uploads/, e
+# faz commit "chore: migra mídia pro R2".
+#
+# Resultado: o repo nunca acumula mídia. As fotos ficam no R2 servidas
+# por https://cdn.projeto497rs.com.br/<arquivo>.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'public/uploads/**'
+
+  # Permite rodar manualmente também
+  workflow_dispatch: {}
+
+# Precisa permission de write no repo pra fazer o commit de retorno
+permissions:
+  contents: write
+
+concurrency:
+  group: r2-migration
+  cancel-in-progress: false
+
+jobs:
+  migrate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          # Token com write — usa o GITHUB_TOKEN padrão (write via permissions acima)
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Install only what migration needs
+        run: npm install --no-save @aws-sdk/client-s3 mime-types
+
+      - name: Run migration script
+        env:
+          R2_ACCESS_KEY_ID:     ${{ secrets.R2_ACCESS_KEY_ID }}
+          R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+          R2_ENDPOINT:          ${{ secrets.R2_ENDPOINT }}
+          R2_BUCKET:            ${{ secrets.R2_BUCKET }}
+          R2_PUBLIC_URL:        https://cdn.projeto497rs.com.br
+        run: node scripts/migrar-uploads-r2.mjs
+
+      - name: Commit changes
+        run: |
+          git config user.name  "projeto-497-r2-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nenhuma migração pendente."
+          else
+            git commit -m "chore: migra mídia pro Cloudflare R2 [skip ci]"
+            git push
+          fi

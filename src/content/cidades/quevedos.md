@@ -1,0 +1,16 @@
+---
+codigo: "4315321"
+nome: "Quevedos"
+microrregiao: "Santiago"
+mesorregiao: "Centro Ocidental Rio-grandense"
+status: pendente
+resumo: ""
+capa: ""
+fotos: []
+reels: []
+curiosidades: []
+populacao: null
+areaKm2: 543.359
+---
+
+<!-- Escreva aqui as curiosidades, histórias e relatos da visita a Quevedos. -->

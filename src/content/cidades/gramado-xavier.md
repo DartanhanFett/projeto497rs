@@ -1,0 +1,16 @@
+---
+codigo: "4309159"
+nome: "Gramado Xavier"
+microrregiao: "Santa Cruz do Sul"
+mesorregiao: "Centro Oriental Rio-grandense"
+status: pendente
+resumo: ""
+capa: ""
+fotos: []
+reels: []
+curiosidades: []
+populacao: null
+areaKm2: 131.396
+---
+
+<!-- Escreva aqui as curiosidades, histórias e relatos da visita a Gramado Xavier. -->

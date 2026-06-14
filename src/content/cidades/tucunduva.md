@@ -1,0 +1,16 @@
+---
+codigo: "4322103"
+nome: "Tucunduva"
+microrregiao: "Santa Rosa"
+mesorregiao: "Noroeste Rio-grandense"
+status: pendente
+resumo: ""
+capa: ""
+fotos: []
+reels: []
+curiosidades: []
+populacao: null
+areaKm2: 181.198
+---
+
+<!-- Escreva aqui as curiosidades, histórias e relatos da visita a Tucunduva. -->

@@ -1,0 +1,245 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import MapaRS from "../components/MapaRS.astro";
+
+const cidades = await getCollection("cidades");
+
+// Estatísticas globais
+const total = cidades.length;
+const visitadas = cidades.filter((c) => c.data.status === "visitada").length;
+const emProgresso = cidades.filter((c) => c.data.status === "em-progresso").length;
+const pendentes = total - visitadas - emProgresso;
+const pct = ((visitadas / total) * 100).toFixed(1);
+
+// Status pro mapa
+const statusList = cidades
+  .map((c) => ({
+    slug: c.id,
+    nome: c.data.nome,
+    status: c.data.status,
+  }))
+  .sort((a, b) => a.nome.localeCompare(b.nome, "pt-BR"));
+
+// Últimas visitadas (com data) — empate por data → ordem alfabética
+const ultimasVisitadas = cidades
+  .filter((c) => c.data.status === "visitada" && c.data.dataVisita)
+  .sort((a, b) => {
+    const diff = +b.data.dataVisita! - +a.data.dataVisita!;
+    if (diff !== 0) return diff;
+    return a.data.nome.localeCompare(b.data.nome, "pt-BR");
+  })
+  .slice(0, 9);
+
+// Curiosidade em destaque (a mais recente marcada como destaque,
+// ou a mais recente em geral se nenhuma estiver marcada)
+const curiosidades = await getCollection("curiosidades");
+const destaqueCuriosidade =
+  curiosidades
+    .filter((c) => c.data.destaque)
+    .sort((a, b) => +(b.data.data ?? 0) - +(a.data.data ?? 0))[0] ??
+  curiosidades.sort((a, b) => +(b.data.data ?? 0) - +(a.data.data ?? 0))[0];
+
+// Padroeiros mais comuns — eixo cultural do projeto
+function normalizaPadroeiro(s: string): string {
+  // Remove "Igreja", "Paróquia", "Matriz", artigos, e padroniza acentos
+  return s
+    .replace(/^(Igreja|Paróquia|Matriz)\s+(de\s+|do\s+|da\s+|dos\s+|das\s+)?/i, "")
+    .trim();
+}
+
+const contagemPadroeiros = new Map<string, number>();
+for (const c of cidades) {
+  if (c.data.padroeiro) {
+    const nome = normalizaPadroeiro(c.data.padroeiro);
+    contagemPadroeiros.set(nome, (contagemPadroeiros.get(nome) ?? 0) + 1);
+  }
+}
+const topPadroeiros = [...contagemPadroeiros.entries()]
+  .filter(([, n]) => n >= 3)
+  .sort((a, b) => b[1] - a[1])
+  .slice(0, 8);
+const totalComPadroeiro = cidades.filter((c) => c.data.padroeiro).length;
+---
+
+<BaseLayout image="/og/home.png">
+  <main class="min-h-dvh">
+    <!-- Hero -->
+    <section class="px-6 pt-12 pb-8 max-w-6xl mx-auto">
+      <p class="text-[var(--color-primary)] text-sm font-semibold tracking-widest uppercase mb-3">
+        Projeto 497 RS
+      </p>
+      <h1 class="text-5xl md:text-7xl font-display font-semibold leading-[1.05] mb-5">
+        Cada cidade do<br />
+        <span class="text-[var(--color-primary)]">Rio Grande do Sul</span>
+      </h1>
+      <p class="text-lg md:text-xl text-[var(--color-text-muted)] max-w-2xl leading-relaxed">
+        Uma jornada por todos os 497 municípios gaúchos. Fotos, curiosidades e
+        histórias de cada parada — clique no mapa pra explorar.
+      </p>
+    </section>
+
+    <!-- Stats -->
+    <section class="px-6 pb-8 max-w-6xl mx-auto">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+        <div class="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 shadow-sm">
+          <div class="text-3xl md:text-4xl font-display font-semibold text-[var(--color-accent)]">
+            {visitadas}
+          </div>
+          <div class="text-sm text-[var(--color-text-muted)] mt-1">Visitadas</div>
+        </div>
+        <div class="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 shadow-sm">
+          <div class="text-3xl md:text-4xl font-display font-semibold text-[var(--color-highlight)]">
+            {emProgresso}
+          </div>
+          <div class="text-sm text-[var(--color-text-muted)] mt-1">Em progresso</div>
+        </div>
+        <div class="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 shadow-sm">
+          <div class="text-3xl md:text-4xl font-display font-semibold text-[var(--color-text-muted)]">
+            {pendentes}
+          </div>
+          <div class="text-sm text-[var(--color-text-muted)] mt-1">Pendentes</div>
+        </div>
+        <div class="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 shadow-sm">
+          <div class="text-3xl md:text-4xl font-display font-semibold text-[var(--color-primary)]">
+            {pct}%
+          </div>
+          <div class="text-sm text-[var(--color-text-muted)] mt-1">Concluído</div>
+        </div>
+      </div>
+
+      <!-- Barra de progresso -->
+      <div class="mt-4 h-2 rounded-full bg-[var(--color-surface-2)] overflow-hidden border border-[var(--color-border)]">
+        <div
+          class="h-full bg-gradient-to-r from-[var(--color-accent)] to-[var(--color-accent-hover)]"
+          style={`width: ${pct}%`}
+        >
+        </div>
+      </div>
+    </section>
+
+    <!-- Mapa -->
+    <section class="px-6 pb-8 max-w-6xl mx-auto">
+      <MapaRS cidades={statusList} />
+      <p class="mt-3 text-sm text-[var(--color-text-faint)]">
+        Passe o mouse para ver o nome da cidade. Clique para abrir a página dela.
+      </p>
+    </section>
+
+    <!-- Curiosidade em destaque -->
+    {destaqueCuriosidade && (
+      <section class="px-6 pb-8 max-w-6xl mx-auto">
+        <a
+          href={`/curiosidades/${destaqueCuriosidade.id}/`}
+          class="group block rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 md:p-8 shadow-sm hover:border-[var(--color-primary)] hover:shadow-md transition-all"
+        >
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-[10px] uppercase tracking-widest text-[var(--color-primary)] font-semibold">
+              ✦ Caderno de viagem
+            </span>
+            <span class="text-xs text-[var(--color-text-faint)]">
+              {destaqueCuriosidade.data.data?.toLocaleDateString("pt-BR", { day: "2-digit", month: "long" })}
+            </span>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-display font-semibold leading-snug mb-2 group-hover:text-[var(--color-primary)] transition-colors">
+            {destaqueCuriosidade.data.titulo}
+          </h2>
+          <p class="text-sm text-[var(--color-text-muted)]">
+            Ler curiosidade →
+          </p>
+        </a>
+      </section>
+    )}
+
+    <!-- Últimas visitas -->
+    {ultimasVisitadas.length > 0 && (
+      <section class="px-6 py-12 max-w-6xl mx-auto">
+        <h2 class="text-3xl font-display font-semibold mb-6">Últimas visitas</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {ultimasVisitadas.map((c) => (
+            <a
+              href={`/cidades/${c.id}/`}
+              class="group rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 shadow-sm hover:border-[var(--color-primary)] hover:shadow-md transition-all"
+            >
+              <div class="flex items-baseline justify-between gap-3 mb-1">
+                <h3 class="text-xl font-display font-semibold group-hover:text-[var(--color-primary)] transition-colors">
+                  {c.data.nome}
+                </h3>
+                <time class="text-xs text-[var(--color-text-faint)] shrink-0">
+                  {c.data.dataVisita?.toLocaleDateString("pt-BR")}
+                </time>
+              </div>
+              <p class="text-sm text-[var(--color-text-muted)]">
+                {c.data.mesorregiao}
+              </p>
+              {c.data.padroeiro && (
+                <p class="text-sm text-[var(--color-text-faint)] mt-1">
+                  ✟ {c.data.padroeiro}
+                </p>
+              )}
+              {c.data.resumo && (
+                <p class="text-sm text-[var(--color-text-muted)] mt-2 line-clamp-2">
+                  {c.data.resumo}
+                </p>
+              )}
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Padroeiros — eixo cultural do projeto -->
+    {topPadroeiros.length > 0 && (
+      <section class="px-6 py-12 max-w-6xl mx-auto border-t border-[var(--color-border)]">
+        <div class="mb-6">
+          <p class="text-[var(--color-primary)] text-sm font-semibold tracking-widest uppercase mb-2">
+            Eixo do projeto
+          </p>
+          <h2 class="text-3xl md:text-4xl font-display font-semibold mb-3">
+            Padroeiros do Rio Grande
+          </h2>
+          <p class="text-[var(--color-text-muted)] max-w-2xl leading-relaxed">
+            Quase toda cidade gaúcha nasceu ao redor de uma igreja. Documentamos
+            o padroeiro de cada uma — {totalComPadroeiro} já catalogados de {visitadas} visitas.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3">
+          {topPadroeiros.map(([nome, n]) => (
+            <div class="rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4 shadow-sm">
+              <div class="text-xs text-[var(--color-text-faint)] mb-1">Padroeiro</div>
+              <div class="font-display text-base leading-snug">✟ {nome}</div>
+              <div class="text-sm text-[var(--color-accent)] mt-2 font-medium">
+                {n} cidades
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Footer -->
+    <footer class="px-6 py-12 max-w-6xl mx-auto border-t border-[var(--color-border)] mt-12">
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div class="text-sm text-[var(--color-text-muted)]">
+          <p>© {new Date().getFullYear()} Projeto 497 RS — Uma jornada documentada.</p>
+          <p class="mt-1 text-[var(--color-text-faint)]">
+            Parte de
+            <a
+              href="https://conhecendoobrasil.com.br"
+              class="text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors underline decoration-dotted underline-offset-2"
+            >Conhecendo o Brasil</a> — documentando todas as cidades do país.
+          </p>
+        </div>
+        <a
+          href="https://instagram.com/projeto497rs"
+          target="_blank"
+          rel="noopener"
+          class="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors"
+        >
+          @projeto497rs no Instagram →
+        </a>
+      </div>
+    </footer>
+  </main>
+</BaseLayout>

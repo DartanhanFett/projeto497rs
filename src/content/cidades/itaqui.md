@@ -1,0 +1,16 @@
+---
+codigo: "4310603"
+nome: "Itaqui"
+microrregiao: "Campanha Ocidental"
+mesorregiao: "Sudoeste Rio-grandense"
+status: pendente
+resumo: ""
+capa: ""
+fotos: []
+reels: []
+curiosidades: []
+populacao: null
+areaKm2: 3406.606
+---
+
+<!-- Escreva aqui as curiosidades, histórias e relatos da visita a Itaqui. -->

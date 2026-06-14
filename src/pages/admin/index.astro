@@ -1,0 +1,44 @@
+---
+/**
+ * Painel de edição (Decap CMS) — rota /admin/
+ *
+ * Renderiza diretamente como rota Astro pra funcionar tanto em dev
+ * quanto em produção. O config.yml fica em /public/admin/config.yml
+ * e o Decap busca no path padrão.
+ *
+ * - Em desenvolvimento (localhost), o Decap se conecta no proxy local
+ *   rodando na porta 8081 (`npm run cms`).
+ * - Em produção (Netlify), usa Netlify Identity + Git Gateway.
+ */
+
+// Esta rota é puro HTML — sem layout (Decap monta a UI inteira).
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projeto 497 RS — Painel de Edição</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <!--
+      Netlify Identity Widget — só carrega em produção.
+      Em desenvolvimento local, o Decap conecta direto no proxy local
+      (porta 8081) e dispensa Identity.
+    -->
+    <script is:inline>
+      if (
+        window.location.hostname !== "localhost" &&
+        window.location.hostname !== "127.0.0.1"
+      ) {
+        var s = document.createElement("script");
+        s.src = "https://identity.netlify.com/v1/netlify-identity-widget.js";
+        document.head.appendChild(s);
+      }
+    </script>
+  </head>
+  <body>
+    <!-- Decap CMS UI -->
+    <script is:inline src="https://unpkg.com/decap-cms@^3.3.0/dist/decap-cms.js"></script>
+  </body>
+</html>
