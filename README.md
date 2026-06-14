@@ -116,10 +116,10 @@ mesorregiao: "Metropolitana de Porto Alegre"
 status: visitada              # pendente | em-progresso | visitada
 dataVisita: 2025-08-15
 resumo: "Capital, ponto de partida e chegada de toda viagem."
-capa: "/uploads/poa-orla.jpg"
+capa: "https://cdn.projeto497rs.com.br/poa-orla.jpg"
 fotos:
-  - "/uploads/poa-1.jpg"
-  - "/uploads/poa-2.jpg"
+  - "https://cdn.projeto497rs.com.br/poa-1.jpg"
+  - "https://cdn.projeto497rs.com.br/poa-2.jpg"
 reels:
   - "https://www.instagram.com/reel/ABC123/"
 curiosidades:

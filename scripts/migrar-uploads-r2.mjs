@@ -1,7 +1,7 @@
 // scripts/migrar-uploads-r2.mjs
 //
 // Sobe arquivos de public/uploads/ pro Cloudflare R2 e reescreve
-// referências (de "/uploads/foo.jpg" para "https://cdn.../foo.jpg")
+// referências (de "https://cdn.projeto497rs.com.br/foo.jpg" para "https://cdn.../foo.jpg")
 // em todos os markdowns/astro do projeto.
 //
 // Pensado pra rodar dentro de uma GitHub Action — depende das envs:
@@ -14,6 +14,7 @@
 import { S3Client, PutObjectCommand, HeadObjectCommand } from "@aws-sdk/client-s3";
 import { lookup as lookupMime } from "mime-types";
 import { readFile, writeFile, readdir, stat, unlink, rm } from "node:fs/promises";
+import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { dirname, resolve, join, relative } from "node:path";
 
@@ -22,6 +23,24 @@ const ROOT = resolve(__dirname, "..");
 const UPLOADS_DIR = resolve(ROOT, "public/uploads");
 
 const DRY_RUN = process.argv.includes("--dry-run");
+
+// Carrega .env local automaticamente quando não estiver em CI (GitHub Actions
+// já injeta as envs via secrets). Suporta o formato simples KEY=value, ignora
+// linhas em branco e comentários (#).
+if (!process.env.GITHUB_ACTIONS) {
+  const envPath = resolve(ROOT, ".env");
+  if (existsSync(envPath)) {
+    for (const linha of readFileSync(envPath, "utf8").split(/\r?\n/)) {
+      const trimmed = linha.trim();
+      if (!trimmed || trimmed.startsWith("#")) continue;
+      const eq = trimmed.indexOf("=");
+      if (eq === -1) continue;
+      const k = trimmed.slice(0, eq).trim();
+      const v = trimmed.slice(eq + 1).trim().replace(/^"(.*)"$/, "$1");
+      if (!process.env[k]) process.env[k] = v;
+    }
+  }
+}
 
 const {
   R2_ACCESS_KEY_ID,
@@ -99,7 +118,7 @@ async function uploadArquivo({ path, key }) {
   );
 }
 
-/** Lista arquivos de texto onde podem aparecer referências a /uploads/. */
+/** Lista arquivos de texto onde podem aparecer referências a https://cdn.projeto497rs.com.br/. */
 async function listarTextos(dir = ROOT, ignorar = new Set([".git", "node_modules", "dist", ".astro", ".netlify", "public"])) {
   const arquivos = [];
   const entradas = await readdir(dir, { withFileTypes: true });
@@ -118,11 +137,11 @@ async function listarTextos(dir = ROOT, ignorar = new Set([".git", "node_modules
 }
 
 /**
- * Reescreve "/uploads/foo.jpg" → "https://cdn.projeto497rs.com.br/foo.jpg"
+ * Reescreve "https://cdn.projeto497rs.com.br/foo.jpg" → "https://cdn.projeto497rs.com.br/foo.jpg"
  * Suporta caminhos com aspas, em listas YAML, etc.
  */
 function reescreverConteudo(texto, publicUrl) {
-  // Match simples: /uploads/<algo-sem-espaço-ou-aspas>
+  // Match simples: https://cdn.projeto497rs.com.br/<algo-sem-espaço-ou-aspas>
   return texto.replace(/(?<![:/\w])\/uploads\/([^\s"'`]+)/g, (_, file) => {
     return `${publicUrl}/${file}`;
   });
