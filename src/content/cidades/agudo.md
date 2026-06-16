@@ -7,6 +7,7 @@ status: visitada
 dataVisita: 2024-08-28
 padroeiro: São Bonifácio
 fundacao: 16/02/1959
+gentilico: "Agudense "
 populacao: null
 areaKm2: 534.624
 resumo: ""
