@@ -18,6 +18,8 @@
     "data:import": "node scripts/import-planilha.mjs",
     "data:wikipedia": "node scripts/fetch-wikipedia.mjs",
     "data:limpar-padroeiros": "node scripts/limpar-padroeiros.mjs",
+    "data:zerar": "node scripts/zerar-conteudo.mjs",
+    "data:fix-datas": "node scripts/fix-datas.mjs",
     "media:migrate-r2": "node scripts/migrar-uploads-r2.mjs"
   },
   "dependencies": {

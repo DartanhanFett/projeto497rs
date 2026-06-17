@@ -80,13 +80,13 @@ collections:
           - { label: '● Em progresso — passamos mas não documentamos', value: em-progresso }
           - { label: '✓ Visitada — documentada', value: visitada }
 
-      - { label: 'Data da visita', name: dataVisita, widget: datetime, required: false, date_format: 'DD/MM/YYYY', time_format: false, picker_utc: false, hint: 'Quando vocês estiveram lá.' }
+      - { label: 'Data da visita', name: dataVisita, widget: datetime, required: false, format: 'YYYY-MM-DD', date_format: 'DD/MM/YYYY', time_format: false, picker_utc: false, hint: 'Quando vocês estiveram lá.' }
 
       - { label: 'Padroeiro / Igreja matriz', name: padroeiro, widget: string, required: false, hint: 'Eixo cultural do projeto. Ex: "São José", "Nossa Senhora da Conceição".' }
 
       # ── Sobre a cidade (auto-populado, mas editável) ──
       - { label: 'Resumo histórico', name: historiaResumo, widget: text, required: false, hint: 'Texto auto-preenchido pela Wikipedia. Pode ajustar.' }
-      - { label: 'Data de fundação', name: fundacao, widget: datetime, required: false, date_format: 'DD/MM/YYYY', time_format: false, picker_utc: false }
+      - { label: 'Data de fundação', name: fundacao, widget: datetime, required: false, format: 'YYYY-MM-DD', date_format: 'DD/MM/YYYY', time_format: false, picker_utc: false }
       - { label: 'Aniversário (dia/mês)', name: aniversario, widget: string, required: false, hint: 'Ex: "20 de setembro"' }
       - { label: 'Origem do nome (toponímia)', name: toponimia, widget: text, required: false }
       - { label: 'Gentílico', name: gentilico, widget: string, required: false, hint: 'Ex: "porto-alegrense"' }
@@ -188,7 +188,7 @@ collections:
 
     fields:
       - { label: 'Título', name: titulo, widget: string, required: true, hint: 'Ex: "São José é o padroeiro mais comum no RS"' }
-      - { label: 'Data', name: data, widget: datetime, required: false, date_format: 'DD/MM/YYYY', time_format: false, picker_utc: false, hint: 'Quando essa curiosidade foi descoberta/registrada.' }
+      - { label: 'Data', name: data, widget: datetime, required: false, format: 'YYYY-MM-DD', date_format: 'DD/MM/YYYY', time_format: false, picker_utc: false, hint: 'Quando essa curiosidade foi descoberta/registrada.' }
 
       - label: 'Tags'
         name: tags
