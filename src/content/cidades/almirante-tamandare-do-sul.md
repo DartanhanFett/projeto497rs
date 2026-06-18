@@ -11,6 +11,10 @@ historiaResumo: "Conhecida como a cidade do Gaitaço, aqui  ocorre um encontro d
   . "
 fundacao: 1996-04-16
 aniversario: "Abril  16 "
+toponimia: "A localidade recebeu este nome por sugestão de um expedicionário da
+  Guerra do Paraguai, que esteve por aquelas terras, e em reconhecimento ao
+  patrono da Marinha de Guerra do Brasil, Joaquim Marques Lisboa, o Almirante
+  Tamandaré. "
 gentilico: "Tamadarense "
 populacao: 1935
 areaKm2: 265.327
