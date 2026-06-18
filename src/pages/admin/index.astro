@@ -38,7 +38,18 @@
     </script>
   </head>
   <body>
-    <!-- Decap CMS UI -->
-    <script is:inline src="https://unpkg.com/decap-cms@^3.3.0/dist/decap-cms.js"></script>
+    <!--
+      Decap CMS UI — versão pinada com Subresource Integrity (SRI).
+
+      Pra atualizar: troque a versão na URL E recompute o hash:
+        curl -sL https://unpkg.com/decap-cms@<NOVA_VERSAO>/dist/decap-cms.js \
+          | openssl dgst -sha384 -binary | openssl base64 -A
+    -->
+    <script
+      is:inline
+      src="https://unpkg.com/decap-cms@3.3.0/dist/decap-cms.js"
+      integrity="sha384-elY3fxCPWtGg1F7Cv9ByaaZmlhLZAFv3Yd4n5f4J/UTAS6uV3nwobC3BvUesXKqe"
+      crossorigin="anonymous"
+    ></script>
   </body>
 </html>

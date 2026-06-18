@@ -32,11 +32,22 @@ const dataVisitaFmt = d.dataVisita?.toLocaleDateString("pt-BR", {
   year: "numeric",
 });
 
-/** Extrai o ID de um Reel do Instagram (aceita URL completa ou só o código). */
-function reelEmbedUrl(url: string) {
-  const m = url.match(/\/reel\/([^/?]+)/) || url.match(/\/p\/([^/?]+)/);
-  const id = m?.[1] ?? url;
-  return `https://www.instagram.com/reel/${id}/embed/`;
+/**
+ * Constrói a URL de embed segura a partir de uma URL de Reel/Post do
+ * Instagram. Aceita apenas formatos oficiais do instagram.com — qualquer
+ * outra coisa retorna "about:blank" (iframe vazio, não-explorável).
+ *
+ * Aceita: https://www.instagram.com/reel/ABC123/
+ *         https://www.instagram.com/p/ABC123/
+ *         (com ou sem query string, com ou sem trailing slash)
+ */
+function reelEmbedUrl(url: string): string {
+  if (typeof url !== "string") return "about:blank";
+  const m = url.match(
+    /^https:\/\/(?:www\.)?instagram\.com\/(reel|p)\/([A-Za-z0-9_-]+)/
+  );
+  if (!m) return "about:blank";
+  return `https://www.instagram.com/${m[1]}/${m[2]}/embed/`;
 }
 ---
 
@@ -320,6 +331,10 @@ function reelEmbedUrl(url: string) {
               <iframe
                 src={reelEmbedUrl(r)}
                 class="w-full h-full"
+                title="Reel do Instagram"
+                loading="lazy"
+                referrerpolicy="no-referrer"
+                sandbox="allow-scripts allow-same-origin allow-presentation allow-popups allow-popups-to-escape-sandbox"
                 frameborder="0"
                 scrolling="no"
                 allowtransparency="true"

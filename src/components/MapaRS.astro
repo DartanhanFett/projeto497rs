@@ -40,6 +40,8 @@ const statusJSON = JSON.stringify(
     id="mapa-tooltip"
     class="pointer-events-none absolute z-10 hidden px-3 py-1.5 rounded-md bg-[var(--color-surface)] border border-[var(--color-border-strong)] text-sm font-medium shadow-md"
   >
+    <span id="mapa-tooltip-nome"></span>
+    <span id="mapa-tooltip-status" class="ml-2 text-[var(--color-text-muted)]"></span>
   </div>
 
   <!-- Legenda -->
@@ -68,6 +70,8 @@ const statusJSON = JSON.stringify(
 
   const root = document.getElementById("mapa-rs") as HTMLElement;
   const tooltip = document.getElementById("mapa-tooltip") as HTMLElement;
+  const tooltipNome = document.getElementById("mapa-tooltip-nome") as HTMLElement;
+  const tooltipStatus = document.getElementById("mapa-tooltip-status") as HTMLElement;
   const loading = document.getElementById("mapa-loading") as HTMLElement;
 
   const statusBySlug = JSON.parse(root.dataset.status || "{}") as Record<
@@ -205,7 +209,11 @@ const statusJSON = JSON.stringify(
           : status === "em-progresso"
           ? "● Em progresso"
           : "○ Pendente";
-      tooltip.innerHTML = `<span>${f.properties?.nome}</span><span class="ml-2 text-[var(--color-text-muted)]">${statusLabel}</span>`;
+      // Usar textContent (não innerHTML) — entradas vindas do GeoJSON
+      // são tratadas como dados não-confiáveis, prevenindo XSS caso
+      // algum nome de cidade seja editado pra um payload malicioso.
+      tooltipNome.textContent = f.properties?.nome ?? "";
+      tooltipStatus.textContent = statusLabel;
     });
 
     map.on("mouseleave", "municipios-fill", () => {

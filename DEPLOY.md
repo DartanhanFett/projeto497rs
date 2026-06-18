@@ -149,6 +149,70 @@ Quando vocês começarem a subir muitas fotos pelo CMS, vale conectar o Cloudina
 
 ---
 
+## 🔐 Segurança — Rotina de manutenção
+
+### Rotação de credenciais R2 (a cada 6 meses)
+
+O API Token do Cloudflare R2 dá acesso de leitura/escrita ao bucket. Se vazar (commit acidental, log esquecido, máquina comprometida), atacante pode subir/sobrescrever/apagar mídia. **Boa prática:** rotacionar a cada 6 meses ou imediatamente em caso de suspeita.
+
+**Quando rotacionar:**
+- 📅 A cada 6 meses (calendário fixo — última rotação: ____/____/____)
+- 🚨 Imediatamente se: secret apareceu em commit, log, screenshot público, ou máquina foi comprometida
+- 🔄 Quando ex-colaborador tinha acesso
+
+**Como rotacionar (passo a passo, ~5 min):**
+
+1. **Cloudflare → R2 → Manage API tokens**
+2. Clica nos 3 pontinhos do token atual → **Roll** (gera novo Secret, mantém o Access Key ID)
+   - **Ou** **Revoke** + **Create API token** novo
+3. Copia os novos valores
+4. **GitHub → Settings → Secrets and variables → Actions:**
+   - Atualiza `R2_ACCESS_KEY_ID` (se mudou)
+   - Atualiza `R2_SECRET_ACCESS_KEY`
+5. **`.env` local** (na sua máquina):
+   - Atualiza os mesmos valores
+6. **Roda diagnóstico** pra confirmar:
+   ```sh
+   node scripts/r2-diagnose.mjs
+   ```
+   Deve listar o bucket `projeto497rs-midia`.
+
+### Atualizar Decap CMS
+
+A versão do Decap CMS está pinada com SRI em [src/pages/admin/index.astro](src/pages/admin/index.astro). **Nunca atualize sem recomputar o hash** — caso contrário o browser bloqueia o script.
+
+```sh
+# 1. Achar a versão atual
+grep "decap-cms@" src/pages/admin/index.astro
+
+# 2. Computar hash da nova versão
+curl -sL https://unpkg.com/decap-cms@<NOVA_VERSAO>/dist/decap-cms.js \
+  | openssl dgst -sha384 -binary | openssl base64 -A
+
+# 3. Atualizar versão E hash em src/pages/admin/index.astro
+```
+
+### Monitorar Content Security Policy
+
+CSP está em modo **Report-Only** ([netlify.toml](netlify.toml)). Após 1-2 semanas no ar:
+
+1. Abre o site em modo dev (F12 → Console)
+2. Se não tiver mensagens "Refused to load..." em cidades reais (não em developer tools), é seguro ativar
+3. Em [netlify.toml](netlify.toml), troca:
+   ```
+   Content-Security-Policy-Report-Only = "..."
+   ```
+   por:
+   ```
+   Content-Security-Policy = "..."
+   ```
+
+### Atualização de dependências
+
+Dependabot está habilitado em [.github/dependabot.yml](.github/dependabot.yml). PRs aparecem automaticamente. **Sempre revisar antes de fazer merge** — minor/patch geralmente seguros, major pode quebrar build.
+
+---
+
 ## Resumo visual do fluxo
 
 ```
