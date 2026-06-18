@@ -1,6 +1,45 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 
+/**
+ * Helper de schema tolerante pra datas vindas de fontes heterogêneas.
+ *
+ * Aceita (e converte pra Date):
+ *   - "1959-02-16"             — ISO sem hora (formato canônico)
+ *   - "1959-02-16T10:30:00Z"   — ISO com hora (Decap CMS às vezes salva assim)
+ *   - "16/02/1959"             — DD/MM/YYYY (fallback se alguém salvar manualmente)
+ *   - "16-02-1959"             — DD-MM-YYYY (raro mas possível)
+ *   - Date | número            — pass-through
+ *
+ * Rejeita (mantém o erro original do Zod) qualquer outra coisa,
+ * preservando feedback útil. Strings vazias e null viram undefined.
+ *
+ * Por que isso? Postel's Law aplicado ao build pipeline: o site não
+ * deve quebrar porque alguém digitou data num formato regional que
+ * humanos consideram correto. Normalizamos no parse, não no commit.
+ */
+const dataFlexivel = z.preprocess((val) => {
+  if (val === null || val === undefined || val === "") return undefined;
+  if (val instanceof Date || typeof val === "number") return val;
+  if (typeof val !== "string") return val;
+
+  const s = val.trim();
+  if (!s || s === "null") return undefined;
+
+  // Já parseável pelo construtor Date (ISO com ou sem hora) → deixa o coerce trabalhar
+  if (/^\d{4}-\d{2}-\d{2}/.test(s)) return s;
+
+  // DD/MM/YYYY ou DD-MM-YYYY
+  const m = s.match(/^(\d{1,2})[/-](\d{1,2})[/-](\d{4})$/);
+  if (m) {
+    const [, dd, mm, yyyy] = m;
+    return `${yyyy}-${mm.padStart(2, "0")}-${dd.padStart(2, "0")}`;
+  }
+
+  // Devolve original — Zod vai rejeitar e mostrar erro amigável
+  return s;
+}, z.coerce.date().optional());
+
 const cidades = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/cidades" }),
   schema: z.object({
@@ -16,13 +55,13 @@ const cidades = defineCollection({
 
     // Status da visita
     status: z.enum(["visitada", "em-progresso", "pendente"]).default("pendente"),
-    dataVisita: z.coerce.date().optional(),
+    dataVisita: dataFlexivel,
 
     // Padroeiro / igreja matriz — eixo cultural do projeto
     padroeiro: z.string().optional(),
 
     // ─── Sobre a cidade (auto-populado de Wikipedia / preenchido manualmente) ──
-    fundacao: z.coerce.date().optional(),         // data de fundação
+    fundacao: dataFlexivel,                       // data de fundação
     aniversario: z.string().optional(),           // dia/mês do aniversário (ex: "20 de setembro")
     toponimia: z.string().optional(),             // origem do nome
     historiaResumo: z.string().optional(),        // 1-2 parágrafos
@@ -66,7 +105,7 @@ const curiosidades = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/curiosidades" }),
   schema: z.object({
     titulo: z.string(),
-    data: z.coerce.date().optional(),       // quando foi descoberta/registrada
+    data: dataFlexivel,                     // quando foi descoberta/registrada
     tags: z.array(z.enum(TAGS_CURIOSIDADES)).default([]),
     capa: z.string().optional(),            // foto opcional
     cidades: z.array(z.string()).default([]), // slugs de cidades relacionadas
