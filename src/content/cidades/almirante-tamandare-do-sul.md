@@ -16,7 +16,8 @@ populacao: 1935
 areaKm2: 265.327
 resumo: ""
 capa: /uploads/img_4554.jpeg
-fotos: []
+fotos:
+  - /uploads/img_4550.jpeg
 reels: []
 curiosidades: []
 ---
