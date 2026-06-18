@@ -4,6 +4,7 @@ nome: "São José do Norte"
 microrregiao: "Litoral Lagunar"
 mesorregiao: "Sudeste Rio-grandense"
 status: visitada
+atualizadoEm: 2026-06-14
 resumo: ""
 capa: ""
 fotos: []

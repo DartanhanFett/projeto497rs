@@ -4,6 +4,7 @@ nome: "Maratá"
 microrregiao: "Montenegro"
 mesorregiao: "Metropolitana de Porto Alegre"
 status: visitada
+atualizadoEm: 2026-06-14
 resumo: ""
 capa: ""
 fotos: []

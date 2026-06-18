@@ -1,0 +1,265 @@
+---
+/**
+ * BuscaCidades — buscador de cidade com autocomplete fuzzy.
+ *
+ * Renderiza um input no header. Ao focar, abre dropdown com sugestões
+ * filtradas conforme o usuário digita. Match é fuzzy e ignora acentos.
+ *
+ * Atalho: tecla "/" foca o input em qualquer página.
+ *
+ * Dados: carrega /search-index.json sob demanda (no primeiro foco)
+ * pra não pesar o initial load.
+ */
+---
+
+<div id="busca-root" class="relative w-full sm:w-72">
+  <label for="busca-input" class="sr-only">Buscar cidade</label>
+  <div class="relative">
+    <span
+      class="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--color-text-faint)] pointer-events-none"
+      aria-hidden="true"
+    >🔍</span>
+    <input
+      id="busca-input"
+      type="search"
+      autocomplete="off"
+      placeholder="Buscar cidade…"
+      class="w-full pl-9 pr-10 py-2 rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] text-sm text-[var(--color-text)] placeholder:text-[var(--color-text-faint)] focus:outline-none focus:border-[var(--color-primary)] transition-colors"
+    />
+    <kbd
+      id="busca-atalho"
+      class="hidden sm:inline-block absolute right-3 top-1/2 -translate-y-1/2 text-[10px] text-[var(--color-text-faint)] border border-[var(--color-border)] rounded px-1 py-0.5 pointer-events-none font-mono"
+    >/</kbd>
+  </div>
+
+  <div
+    id="busca-resultados"
+    class="hidden absolute top-full left-0 right-0 mt-1 max-h-96 overflow-y-auto rounded-lg bg-[var(--color-surface)] border border-[var(--color-border)] shadow-lg z-50"
+    role="listbox"
+  >
+  </div>
+</div>
+
+<script>
+  // ─── Tipos e estado ────────────────────────────────────────────────
+  type Cidade = {
+    slug: string;
+    nome: string;
+    mesorregiao: string | null;
+    status: "visitada" | "em-progresso" | "pendente";
+  };
+
+  let cidades: Cidade[] | null = null;
+  let cidadesNormalizadas: { c: Cidade; tokens: string }[] = [];
+  let activeIndex = -1;
+  let resultadosAtuais: Cidade[] = [];
+
+  const STATUS_LABEL = {
+    visitada: "✓ Visitada",
+    "em-progresso": "● Em progresso",
+    pendente: "○ Pendente",
+  } as const;
+
+  const input = document.getElementById("busca-input") as HTMLInputElement;
+  const resultados = document.getElementById("busca-resultados") as HTMLElement;
+  const atalho = document.getElementById("busca-atalho") as HTMLElement;
+
+  // ─── Helpers ───────────────────────────────────────────────────────
+
+  /** Remove acentos e normaliza pra lowercase. */
+  function normalizar(s: string): string {
+    return s
+      .normalize("NFD")
+      .replace(/[̀-ͯ]/g, "")
+      .toLowerCase()
+      .trim();
+  }
+
+  /**
+   * Fuzzy match simples: retorna true se todos os caracteres da query
+   * aparecem na ordem no texto. "grm" → "gramado" ✓, "gramax" ✗.
+   * Pra ranking, calcula um score baseado em proximidade.
+   */
+  function fuzzyMatch(texto: string, query: string): { match: boolean; score: number } {
+    if (!query) return { match: true, score: 0 };
+    if (texto.includes(query)) {
+      // Match contínuo — score alto, bônus se começar com a query
+      return { match: true, score: texto.startsWith(query) ? 1000 : 500 + (100 - texto.indexOf(query)) };
+    }
+    let qi = 0;
+    let lastIndex = -1;
+    let score = 0;
+    for (let i = 0; i < texto.length && qi < query.length; i++) {
+      if (texto[i] === query[qi]) {
+        // Penaliza distância entre matches consecutivos
+        if (lastIndex >= 0) score -= (i - lastIndex - 1) * 2;
+        score += 10;
+        lastIndex = i;
+        qi++;
+      }
+    }
+    return { match: qi === query.length, score };
+  }
+
+  // ─── Carregamento sob demanda do índice ────────────────────────────
+
+  let loading: Promise<void> | null = null;
+  async function carregarIndice(): Promise<void> {
+    if (cidades) return;
+    if (loading) return loading;
+    loading = (async () => {
+      const res = await fetch("/search-index.json");
+      cidades = await res.json();
+      cidadesNormalizadas = cidades!.map((c) => ({
+        c,
+        tokens: normalizar(`${c.nome} ${c.mesorregiao ?? ""}`),
+      }));
+    })();
+    return loading;
+  }
+
+  // ─── Renderização dos resultados ───────────────────────────────────
+
+  function buscar(query: string): Cidade[] {
+    const q = normalizar(query);
+    if (!q) return [];
+
+    const matched = cidadesNormalizadas
+      .map(({ c, tokens }) => {
+        const r = fuzzyMatch(tokens, q);
+        return r.match ? { c, score: r.score } : null;
+      })
+      .filter((x): x is { c: Cidade; score: number } => x !== null)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 10);
+
+    return matched.map((m) => m.c);
+  }
+
+  function statusClasses(status: Cidade["status"]): string {
+    if (status === "visitada") return "text-[var(--color-accent)]";
+    if (status === "em-progresso") return "text-[var(--color-highlight-hover)]";
+    return "text-[var(--color-text-faint)]";
+  }
+
+  function renderResultados(items: Cidade[]) {
+    resultadosAtuais = items;
+    if (items.length === 0) {
+      resultados.replaceChildren(
+        Object.assign(document.createElement("div"), {
+          className: "px-4 py-3 text-sm text-[var(--color-text-faint)]",
+          textContent: "Nenhuma cidade encontrada.",
+        })
+      );
+      return;
+    }
+    resultados.replaceChildren(
+      ...items.map((c, i) => {
+        const link = document.createElement("a");
+        link.href = `/cidades/${c.slug}/`;
+        link.role = "option";
+        link.dataset.index = String(i);
+        link.className = [
+          "flex items-baseline justify-between gap-3 px-4 py-2.5",
+          "text-sm border-b border-[var(--color-border)] last:border-b-0",
+          "hover:bg-[var(--color-surface-2)] transition-colors",
+          i === activeIndex ? "bg-[var(--color-surface-2)]" : "",
+        ].join(" ");
+
+        const left = document.createElement("div");
+        left.className = "flex flex-col min-w-0";
+        const nome = document.createElement("span");
+        nome.className = "font-medium text-[var(--color-text)] truncate";
+        nome.textContent = c.nome;
+        const meso = document.createElement("span");
+        meso.className = "text-xs text-[var(--color-text-faint)] truncate";
+        meso.textContent = c.mesorregiao ?? "";
+        left.appendChild(nome);
+        left.appendChild(meso);
+
+        const right = document.createElement("span");
+        right.className = `text-xs whitespace-nowrap ${statusClasses(c.status)}`;
+        right.textContent = STATUS_LABEL[c.status];
+
+        link.appendChild(left);
+        link.appendChild(right);
+        return link;
+      })
+    );
+  }
+
+  function abrir() {
+    resultados.classList.remove("hidden");
+    atalho.classList.add("opacity-0");
+  }
+  function fechar() {
+    resultados.classList.add("hidden");
+    atalho.classList.remove("opacity-0");
+    activeIndex = -1;
+  }
+  function atualizarHover() {
+    const links = resultados.querySelectorAll<HTMLAnchorElement>("a");
+    links.forEach((el, i) => {
+      el.classList.toggle("bg-[var(--color-surface-2)]", i === activeIndex);
+      if (i === activeIndex) el.scrollIntoView({ block: "nearest" });
+    });
+  }
+
+  // ─── Eventos ───────────────────────────────────────────────────────
+
+  input.addEventListener("focus", async () => {
+    await carregarIndice();
+    if (input.value) {
+      renderResultados(buscar(input.value));
+      abrir();
+    }
+  });
+
+  input.addEventListener("input", async () => {
+    await carregarIndice();
+    activeIndex = -1;
+    const r = buscar(input.value);
+    renderResultados(r);
+    if (input.value) abrir();
+    else fechar();
+  });
+
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      input.blur();
+      fechar();
+      return;
+    }
+    if (resultadosAtuais.length === 0) return;
+    if (e.key === "ArrowDown") {
+      e.preventDefault();
+      activeIndex = Math.min(activeIndex + 1, resultadosAtuais.length - 1);
+      atualizarHover();
+    } else if (e.key === "ArrowUp") {
+      e.preventDefault();
+      activeIndex = Math.max(activeIndex - 1, 0);
+      atualizarHover();
+    } else if (e.key === "Enter") {
+      e.preventDefault();
+      const idx = activeIndex >= 0 ? activeIndex : 0;
+      const c = resultadosAtuais[idx];
+      if (c) window.location.href = `/cidades/${c.slug}/`;
+    }
+  });
+
+  // Fecha ao clicar fora
+  document.addEventListener("click", (e) => {
+    const root = document.getElementById("busca-root");
+    if (root && !root.contains(e.target as Node)) fechar();
+  });
+
+  // Atalho global "/" pra focar o input (padrão Vercel/GitHub)
+  document.addEventListener("keydown", (e) => {
+    const target = e.target as HTMLElement;
+    const isTyping = target.matches("input, textarea, [contenteditable]");
+    if (e.key === "/" && !isTyping && !e.metaKey && !e.ctrlKey && !e.altKey) {
+      e.preventDefault();
+      input.focus();
+    }
+  });
+</script>

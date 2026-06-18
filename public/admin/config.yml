@@ -52,12 +52,14 @@ collections:
     delete: false       # não permite apagar
     slug: '{{slug}}'
     identifier_field: nome
-    summary: '{{nome}} — {{status}} · {{padroeiro}}'
-    sortable_fields: ['nome', 'dataVisita', 'status', 'padroeiro']
+    summary: '{{nome}} — {{status}} · {{padroeiro}}  ·  ed. {{atualizadoEm}}'
+    sortable_fields: ['atualizadoEm', 'nome', 'dataVisita', 'status', 'padroeiro']
     view_filters:
       - { label: 'Visitadas', field: status, pattern: visitada }
       - { label: 'Em progresso', field: status, pattern: em-progresso }
       - { label: 'Pendentes', field: status, pattern: pendente }
+      - { label: 'Editadas em 2026', field: atualizadoEm, pattern: '2026' }
+      - { label: 'Editadas em 2027', field: atualizadoEm, pattern: '2027' }
     view_groups:
       - { label: 'Por região', field: mesorregiao }
       - { label: 'Por status', field: status }
@@ -81,6 +83,10 @@ collections:
           - { label: '✓ Visitada — documentada', value: visitada }
 
       - { label: 'Data da visita', name: dataVisita, widget: datetime, required: false, format: 'YYYY-MM-DD', date_format: 'DD/MM/YYYY', time_format: false, picker_utc: false, hint: 'Quando vocês estiveram lá.' }
+
+      # Campo automático — gerenciado pela GitHub Action update-timestamps.yml
+      # Aparece na lista pra ordenação/filtragem. Pai não precisa preencher.
+      - { label: 'Última edição', name: atualizadoEm, widget: hidden, required: false }
 
       - { label: 'Padroeiro / Igreja matriz', name: padroeiro, widget: string, required: false, hint: 'Eixo cultural do projeto. Ex: "São José", "Nossa Senhora da Conceição".' }
 
@@ -183,12 +189,14 @@ collections:
     delete: true
     slug: '{{slug}}'
     identifier_field: titulo
-    summary: '{{titulo}}'
-    sortable_fields: ['data', 'titulo']
+    summary: '{{titulo}}  ·  ed. {{atualizadoEm}}'
+    sortable_fields: ['atualizadoEm', 'data', 'titulo']
 
     fields:
       - { label: 'Título', name: titulo, widget: string, required: true, hint: 'Ex: "São José é o padroeiro mais comum no RS"' }
       - { label: 'Data', name: data, widget: datetime, required: false, format: 'YYYY-MM-DD', date_format: 'DD/MM/YYYY', time_format: false, picker_utc: false, hint: 'Quando essa curiosidade foi descoberta/registrada.' }
+      # Campo automático — gerenciado pela GitHub Action update-timestamps.yml
+      - { label: 'Última edição', name: atualizadoEm, widget: hidden, required: false }
 
       - label: 'Tags'
         name: tags

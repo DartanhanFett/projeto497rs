@@ -4,6 +4,7 @@ nome: "Riozinho"
 microrregiao: "Gramado-Canela"
 mesorregiao: "Metropolitana de Porto Alegre"
 status: visitada
+atualizadoEm: 2026-06-14
 resumo: ""
 capa: ""
 fotos: []

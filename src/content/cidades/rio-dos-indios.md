@@ -4,6 +4,7 @@ nome: "Rio dos Índios"
 microrregiao: "Frederico Westphalen"
 mesorregiao: "Noroeste Rio-grandense"
 status: visitada
+atualizadoEm: 2026-06-14
 resumo: ""
 capa: ""
 fotos: []

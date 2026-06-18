@@ -4,6 +4,7 @@ nome: "Santo Antônio das Missões"
 microrregiao: "Santo Ângelo"
 mesorregiao: "Noroeste Rio-grandense"
 status: pendente
+atualizadoEm: 2026-06-14
 resumo: ""
 capa: ""
 fotos: []

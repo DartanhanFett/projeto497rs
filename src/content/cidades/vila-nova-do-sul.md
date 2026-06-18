@@ -4,6 +4,7 @@ nome: "Vila Nova do Sul"
 microrregiao: "Santa Maria"
 mesorregiao: "Centro Ocidental Rio-grandense"
 status: pendente
+atualizadoEm: 2026-06-14
 resumo: ""
 capa: ""
 fotos: []

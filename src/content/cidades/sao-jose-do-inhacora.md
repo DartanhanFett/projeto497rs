@@ -4,6 +4,7 @@ nome: "São José do Inhacorá"
 microrregiao: "Santa Rosa"
 mesorregiao: "Noroeste Rio-grandense"
 status: pendente
+atualizadoEm: 2026-06-14
 resumo: ""
 capa: ""
 fotos: []

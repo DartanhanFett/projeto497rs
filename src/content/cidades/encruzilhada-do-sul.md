@@ -4,6 +4,7 @@ nome: "Encruzilhada do Sul"
 microrregiao: "Serras de Sudeste"
 mesorregiao: "Sudeste Rio-grandense"
 status: pendente
+atualizadoEm: 2026-06-14
 resumo: ""
 capa: ""
 fotos: []

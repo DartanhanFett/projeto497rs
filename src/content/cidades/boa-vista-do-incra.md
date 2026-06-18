@@ -4,6 +4,7 @@ nome: "Boa Vista do Incra"
 microrregiao: "Cruz Alta"
 mesorregiao: "Noroeste Rio-grandense"
 status: pendente
+atualizadoEm: 2026-06-14
 resumo: ""
 capa: ""
 fotos: []

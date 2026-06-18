@@ -8,6 +8,7 @@ cidades:
   - charqueadas
   - rodeio-bonito
   - ronda-alta
+atualizadoEm: 2026-06-14
 ---
 
 Sete cidades do RS têm **Nossa Senhora dos Navegantes** como padroeira — e

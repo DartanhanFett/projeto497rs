@@ -57,6 +57,10 @@ const cidades = defineCollection({
     status: z.enum(["visitada", "em-progresso", "pendente"]).default("pendente"),
     dataVisita: dataFlexivel,
 
+    // Última edição — gerenciado automaticamente pela GitHub Action
+    // .github/workflows/update-timestamps.yml. Não editar manualmente.
+    atualizadoEm: dataFlexivel,
+
     // Padroeiro / igreja matriz — eixo cultural do projeto
     padroeiro: z.string().optional(),
 
@@ -106,6 +110,7 @@ const curiosidades = defineCollection({
   schema: z.object({
     titulo: z.string(),
     data: dataFlexivel,                     // quando foi descoberta/registrada
+    atualizadoEm: dataFlexivel,             // gerenciado pela GH Action
     tags: z.array(z.enum(TAGS_CURIOSIDADES)).default([]),
     capa: z.string().optional(),            // foto opcional
     cidades: z.array(z.string()).default([]), // slugs de cidades relacionadas
