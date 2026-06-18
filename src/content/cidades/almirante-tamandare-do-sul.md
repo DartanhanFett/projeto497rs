@@ -11,6 +11,7 @@ historiaResumo: "Conhecida como a cidade do Gaitaço, aqui  ocorre um encontro d
   . "
 fundacao: 1996-04-16
 aniversario: "Abril  16 "
+gentilico: "Tamadarense "
 populacao: null
 areaKm2: 265.327
 resumo: ""
