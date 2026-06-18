@@ -1,18 +1,21 @@
 ---
+nome: Almirante Tamandaré do Sul
 codigo: "4300471"
-nome: "Almirante Tamandaré do Sul"
-microrregiao: "Carazinho"
-mesorregiao: "Noroeste Rio-grandense"
+microrregiao: Carazinho
+mesorregiao: Noroeste Rio-grandense
 status: visitada
+dataVisita: 2026-06-07
+padroeiro: São João Batista
+historiaResumo: "Conhecida como a cidade do Gaitaço, aqui  ocorre um encontro de
+  gaiteiros do Brasil  inteiro reunindo músicos e admiradores deste instrumento
+  . "
+populacao: null
+areaKm2: 265.327
 resumo: ""
 capa: ""
 fotos: []
 reels: []
 curiosidades: []
-populacao: null
-areaKm2: 265.327
-dataVisita: 2026-06-07
-padroeiro: "São João Batista"
 ---
 
 <!-- Escreva aqui as curiosidades, histórias e relatos da visita a Almirante Tamandaré do Sul. -->
