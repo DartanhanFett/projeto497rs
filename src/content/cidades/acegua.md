@@ -3,7 +3,7 @@ nome: Aceguá
 codigo: "4300034"
 microrregiao: Campanha Meridional
 mesorregiao: Sudoeste Rio-grandense
-status: em-progresso
+status: visitada
 populacao: null
 areaKm2: 1551.339
 resumo: ""
