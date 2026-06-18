@@ -15,7 +15,7 @@ gentilico: "Tamadarense "
 populacao: null
 areaKm2: 265.327
 resumo: ""
-capa: ""
+capa: /uploads/img_4554.jpeg
 fotos: []
 reels: []
 curiosidades: []
