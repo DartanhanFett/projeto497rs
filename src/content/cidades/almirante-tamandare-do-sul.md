@@ -9,6 +9,8 @@ padroeiro: São João Batista
 historiaResumo: "Conhecida como a cidade do Gaitaço, aqui  ocorre um encontro de
   gaiteiros do Brasil  inteiro reunindo músicos e admiradores deste instrumento
   . "
+fundacao: 1996-04-16
+aniversario: "Abril  16 "
 populacao: null
 areaKm2: 265.327
 resumo: ""
