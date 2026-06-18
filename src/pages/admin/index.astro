@@ -51,5 +51,104 @@
       integrity="sha384-elY3fxCPWtGg1F7Cv9ByaaZmlhLZAFv3Yd4n5f4J/UTAS6uV3nwobC3BvUesXKqe"
       crossorigin="anonymous"
     ></script>
+
+    <!--
+      Compressão automática de imagens no upload.
+
+      Intercepta TODO <input type=file> que aceita imagem dentro do
+      Decap CMS e comprime automaticamente: máx 1600px do lado maior,
+      qualidade 80%, formato JPEG. Fotos modernas de smartphone (3-8 MB)
+      caem pra ~200-400 KB sem perda visível.
+
+      Roda só no /admin/ — não afeta o site público.
+
+      Estratégia: substitui FileReader.readAsDataURL e redireciona
+      pra fluxo que comprime antes de devolver. Captura o input no
+      bubble da árvore inteira (event delegation).
+    -->
+    <script is:inline>
+      (function () {
+        const MAX_DIM = 1600;
+        const QUALITY = 0.8;
+        const THRESHOLD_BYTES = 500 * 1024; // não comprime se já tá pequeno
+
+        async function comprimir(file) {
+          if (!file.type.startsWith("image/")) return file;
+          if (file.size < THRESHOLD_BYTES) return file;
+          if (file.type === "image/svg+xml" || file.type === "image/gif") return file;
+
+          try {
+            const bitmap = await createImageBitmap(file);
+            const ratio = Math.min(1, MAX_DIM / Math.max(bitmap.width, bitmap.height));
+            const w = Math.round(bitmap.width * ratio);
+            const h = Math.round(bitmap.height * ratio);
+            const canvas = document.createElement("canvas");
+            canvas.width = w;
+            canvas.height = h;
+            const ctx = canvas.getContext("2d");
+            if (!ctx) return file;
+            ctx.drawImage(bitmap, 0, 0, w, h);
+
+            const blob = await new Promise((r) =>
+              canvas.toBlob(r, "image/jpeg", QUALITY)
+            );
+            if (!blob || blob.size >= file.size) return file;
+
+            const novoNome = file.name.replace(/\.(png|webp|tiff|heic|heif|bmp)$/i, ".jpg");
+            const comprimido = new File([blob], novoNome, {
+              type: "image/jpeg",
+              lastModified: Date.now(),
+            });
+            console.info(
+              `[admin] Comprimido: ${file.name} ${(file.size / 1024).toFixed(0)}KB → ${(comprimido.size / 1024).toFixed(0)}KB`
+            );
+            return comprimido;
+          } catch (err) {
+            console.warn("[admin] Falha ao comprimir, mantendo original:", err);
+            return file;
+          }
+        }
+
+        // Intercepta o file picker do Decap. Decap usa <input type=file>
+        // dentro do shadow DOM em algumas versões — usamos delegation no
+        // document pra cobrir todos os casos.
+        document.addEventListener("change", async (e) => {
+          const target = e.target;
+          if (
+            !target ||
+            target.tagName !== "INPUT" ||
+            target.type !== "file" ||
+            !target.files ||
+            target.files.length === 0
+          ) {
+            return;
+          }
+          // Se nenhum arquivo é imagem, não mexe
+          const files = Array.from(target.files);
+          const temImagem = files.some((f) => f.type.startsWith("image/"));
+          if (!temImagem) return;
+
+          // Já processado? (evita loop infinito ao re-emitir o evento)
+          if (target.dataset.compressed === "1") {
+            target.dataset.compressed = "";
+            return;
+          }
+
+          // Pausa propagação do evento original
+          e.stopImmediatePropagation();
+          e.preventDefault();
+
+          const comprimidos = await Promise.all(files.map(comprimir));
+          // Reescreve o FileList do input (DataTransfer truque)
+          const dt = new DataTransfer();
+          for (const f of comprimidos) dt.items.add(f);
+          target.files = dt.files;
+          target.dataset.compressed = "1";
+
+          // Re-dispara o change pro Decap pegar a versão comprimida
+          target.dispatchEvent(new Event("change", { bubbles: true }));
+        }, true); // capture phase pra interceptar antes do Decap
+      })();
+    </script>
   </body>
 </html>

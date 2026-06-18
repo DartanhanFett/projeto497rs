@@ -149,13 +149,17 @@ collections:
         hint: 'Frase curta no topo da página. Ex: "Capital do chimarrão, conhecida por…"'
         pattern: ['^.{0,280}$', 'Máximo de 280 caracteres']
 
-      - { label: 'Foto de capa', name: capa, widget: image, required: false, media_library: { config: { multiple: false } }, hint: 'Foto principal no topo da página.' }
+      - { label: 'Foto de capa', name: capa, widget: image, required: false, media_library: { config: { multiple: false } }, hint: 'A foto principal da cidade — aparece grande no topo da página e nas redes sociais. Tamanho ideal: paisagem (16:9 ou 4:3). Será comprimida automaticamente.' }
+
       - label: 'Galeria de fotos'
         name: fotos
-        widget: list
+        widget: image
         required: false
-        field: { label: 'Foto', name: url, widget: image }
-        hint: 'Arraste suas fotos — formato vertical (9:16) fica melhor.'
+        media_library:
+          config:
+            multiple: true
+        allow_multiple: true
+        hint: '✨ Selecione VÁRIAS fotos de uma vez. Como: clique aqui → no modal use "Upload" e segure Ctrl (ou Cmd no Mac) ao escolher os arquivos pra selecionar múltiplos. Ou arraste todas pra dentro do modal. Formato vertical (9:16) fica melhor. Compressão automática ativada — fotos grandes do celular ficam ~200KB sem perda visual.'
 
       - label: 'Reels do Instagram'
         name: reels
