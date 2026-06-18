@@ -6,6 +6,9 @@ mesorregiao: Centro Ocidental Rio-grandense
 status: visitada
 dataVisita: 2024-08-28
 padroeiro: São Bonifácio
+historiaResumo: "Cidade conhecida como Berço Nacional dos Dinossauros.  Aqui foi
+  descoberto vestígios do maior dinossauro das Américas, carinhosamente batizado
+  de BAGUALOSSAURO.  "
 fundacao: 1959-02-16
 gentilico: "Agudense "
 populacao: 16344
