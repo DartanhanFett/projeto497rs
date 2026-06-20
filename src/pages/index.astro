@@ -32,14 +32,15 @@ const ultimasVisitadas = cidades
   })
   .slice(0, 9);
 
-// Curiosidade em destaque (a mais recente marcada como destaque,
-// ou a mais recente em geral se nenhuma estiver marcada)
+// Curiosidades ordenadas por data (mais recente primeiro).
+// A primeira vira card grande de destaque. As próximas 3 ficam na
+// linha "Mais curiosidades" abaixo.
 const curiosidades = await getCollection("curiosidades");
-const destaqueCuriosidade =
-  curiosidades
-    .filter((c) => c.data.destaque)
-    .sort((a, b) => +(b.data.data ?? 0) - +(a.data.data ?? 0))[0] ??
-  curiosidades.sort((a, b) => +(b.data.data ?? 0) - +(a.data.data ?? 0))[0];
+const curiosidadesOrdenadas = curiosidades.sort(
+  (a, b) => +(b.data.data ?? 0) - +(a.data.data ?? 0)
+);
+const destaqueCuriosidade = curiosidadesOrdenadas[0];
+const outrasCuriosidades = curiosidadesOrdenadas.slice(1, 4); // 3 secundárias
 
 // Padroeiros mais comuns — eixo cultural do projeto
 function normalizaPadroeiro(s: string): string {
@@ -132,9 +133,10 @@ const totalComPadroeiro = cidades.filter((c) => c.data.padroeiro).length;
       </p>
     </section>
 
-    <!-- Curiosidade em destaque -->
+    <!-- Caderno de viagem: 1 destaque + 3 secundárias (cronológico, + recentes) -->
     {destaqueCuriosidade && (
       <section class="px-6 pb-8 max-w-6xl mx-auto">
+        <!-- Card grande de destaque (curiosidade mais recente) -->
         <a
           href={`/curiosidades/${destaqueCuriosidade.id}/`}
           class="group block rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-6 md:p-8 shadow-sm hover:border-[var(--color-primary)] hover:shadow-md transition-all"
@@ -154,6 +156,39 @@ const totalComPadroeiro = cidades.filter((c) => c.data.padroeiro).length;
             Ler curiosidade →
           </p>
         </a>
+
+        <!-- Linha de 3 secundárias (próximas mais recentes) -->
+        {outrasCuriosidades.length > 0 && (
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-3">
+            {outrasCuriosidades.map((c) => (
+              <a
+                href={`/curiosidades/${c.id}/`}
+                class="group block rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-4 shadow-sm hover:border-[var(--color-primary)] hover:shadow-md transition-all"
+              >
+                {c.data.data && (
+                  <div class="text-xs text-[var(--color-text-faint)] mb-1.5">
+                    {c.data.data.toLocaleDateString("pt-BR", { day: "2-digit", month: "long" })}
+                  </div>
+                )}
+                <h3 class="text-base font-display font-semibold leading-snug group-hover:text-[var(--color-primary)] transition-colors line-clamp-3">
+                  {c.data.titulo}
+                </h3>
+              </a>
+            ))}
+          </div>
+        )}
+
+        <!-- Link "ver todas" se tiver mais que 4 -->
+        {curiosidadesOrdenadas.length > 4 && (
+          <p class="mt-4 text-sm">
+            <a
+              href="/curiosidades/"
+              class="text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors"
+            >
+              Ver todas as curiosidades →
+            </a>
+          </p>
+        )}
       </section>
     )}
 

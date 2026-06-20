@@ -261,6 +261,4 @@ collections:
         max: 20
         hint: 'Comece a digitar o nome da cidade — vai aparecer sugestão. Pode escolher quantas quiser.'
 
-      - { label: 'Destaque na home?', name: destaque, widget: boolean, default: false, required: false, hint: 'Se marcado, aparece no card de destaque da home.' }
-
       - { label: 'Texto da curiosidade', name: body, widget: markdown, required: true }

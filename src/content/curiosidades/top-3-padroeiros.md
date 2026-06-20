@@ -2,7 +2,6 @@
 titulo: "O top 3: três padroeiros, 57 cidades"
 data: 2026-06-12
 tags: [padroeiros, religiao, historia]
-destaque: false
 cidades:
   - erechim
   - canoas
