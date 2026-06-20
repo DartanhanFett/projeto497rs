@@ -1,6 +1,9 @@
 ---
 import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Compartilhar from "../../components/Compartilhar.astro";
+import { placeSchema, breadcrumbSchema } from "../../lib/seo";
+import { vizinhas } from "../../lib/vizinhas";
 
 export async function getStaticPaths() {
   const cidades = await getCollection("cidades");
@@ -13,6 +16,41 @@ export async function getStaticPaths() {
 const { cidade } = Astro.props;
 const { Content } = await render(cidade);
 const d = cidade.data;
+
+// Slug da mesorregião pra link
+function slugifyMeso(s: string) {
+  return s
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+const mesoSlug = d.mesorregiao ? slugifyMeso(d.mesorregiao) : null;
+
+// Schemas estruturados (Place + breadcrumbs)
+const jsonLd = [
+  placeSchema({
+    slug: cidade.id,
+    nome: d.nome,
+    resumo: d.resumo,
+    populacao: d.populacao,
+    areaKm2: d.areaKm2,
+    microrregiao: d.microrregiao,
+    mesorregiao: d.mesorregiao,
+    capa: d.capa,
+    fundacao: d.fundacao,
+  }),
+  breadcrumbSchema(
+    [
+      { nome: "Início", url: "/" },
+      ...(d.mesorregiao && mesoSlug
+        ? [{ nome: d.mesorregiao, url: `/regioes/${mesoSlug}/` }]
+        : []),
+      { nome: d.nome },
+    ]
+  ),
+];
 
 const statusLabel = {
   visitada: "✓ Visitada",
@@ -49,21 +87,39 @@ function reelEmbedUrl(url: string): string {
   if (!m) return "about:blank";
   return `https://www.instagram.com/${m[1]}/${m[2]}/embed/`;
 }
+
+// Cidades vizinhas (calculadas por proximidade lat/lng)
+const cidadesVizinhas = vizinhas(cidade.id, 6);
 ---
 
 <BaseLayout
   title={`${d.nome} — Projeto 497 RS`}
   description={d.resumo || `${d.nome}, ${d.mesorregiao || "Rio Grande do Sul"} — uma das 497 cidades do RS documentadas pelo Projeto 497.`}
   image={d.capa || `/og/cidades/${cidade.id}.png`}
+  ogType="place"
+  jsonLd={jsonLd}
 >
   <main class="min-h-dvh max-w-4xl mx-auto px-6 py-10">
-    <!-- Voltar -->
-    <a
-      href="/"
-      class="inline-flex items-center gap-1.5 text-sm text-[var(--color-text-muted)] hover:text-[var(--color-primary)] transition-colors mb-8"
+    <!-- Breadcrumbs -->
+    <nav
+      aria-label="Breadcrumbs"
+      class="flex items-center gap-1.5 text-sm text-[var(--color-text-muted)] mb-6 flex-wrap"
     >
-      ← Voltar ao mapa
-    </a>
+      <a href="/" class="hover:text-[var(--color-primary)] transition-colors">Início</a>
+      <span class="text-[var(--color-text-faint)]">/</span>
+      {d.mesorregiao && mesoSlug && (
+        <>
+          <a
+            href={`/regioes/${mesoSlug}/`}
+            class="hover:text-[var(--color-primary)] transition-colors"
+          >
+            {d.mesorregiao}
+          </a>
+          <span class="text-[var(--color-text-faint)]">/</span>
+        </>
+      )}
+      <span class="text-[var(--color-text)]" aria-current="page">{d.nome}</span>
+    </nav>
 
     <!-- Header -->
     <header class="mb-8">
@@ -344,6 +400,39 @@ function reelEmbedUrl(url: string): string {
         </div>
       </section>
     )}
+
+    <!-- Cidades vizinhas — internal linking + descoberta -->
+    {cidadesVizinhas.length > 0 && (
+      <section class="mb-12">
+        <h2 class="text-2xl font-display font-semibold mb-4">Cidades vizinhas</h2>
+        <p class="text-sm text-[var(--color-text-muted)] mb-4">
+          As cidades mais próximas geograficamente — bom pra planejar uma rota.
+        </p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+          {cidadesVizinhas.map((v) => (
+            <a
+              href={`/cidades/${v.slug}/`}
+              class="group flex items-center justify-between gap-3 px-4 py-3 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] transition-colors"
+            >
+              <span class="font-display text-sm text-[var(--color-text)] group-hover:text-[var(--color-primary)] transition-colors truncate">
+                {v.nome}
+              </span>
+              <span class="text-xs text-[var(--color-text-faint)] shrink-0">
+                {v.distanciaKm} km
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Compartilhar -->
+    <section class="mb-10">
+      <Compartilhar
+        url={new URL(Astro.url.pathname, Astro.site).toString()}
+        texto={`${d.nome} — ${d.mesorregiao ?? "RS"} | Projeto 497 RS`}
+      />
+    </section>
 
     <!-- Footer da cidade -->
     <footer class="border-t border-[var(--color-border)] pt-6 mt-12 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 text-sm text-[var(--color-text-muted)]">

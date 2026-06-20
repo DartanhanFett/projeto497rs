@@ -1,6 +1,8 @@
 ---
 import { getCollection, getEntry, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
+import Compartilhar from "../../components/Compartilhar.astro";
+import { articleSchema, breadcrumbSchema } from "../../lib/seo";
 
 export async function getStaticPaths() {
   const todas = await getCollection("curiosidades");
@@ -28,12 +30,29 @@ for (const slug of d.cidades) {
   const c = await getEntry("cidades", slug);
   if (c) cidadesRelacionadas.push({ slug, nome: c.data.nome });
 }
+
+const jsonLd = [
+  articleSchema({
+    slug: curiosidade.id,
+    titulo: d.titulo,
+    data: d.data,
+    atualizadoEm: d.atualizadoEm,
+    capa: d.capa,
+  }),
+  breadcrumbSchema([
+    { nome: "Início", url: "/" },
+    { nome: "Curiosidades", url: "/curiosidades/" },
+    { nome: d.titulo },
+  ]),
+];
 ---
 
 <BaseLayout
   title={`${d.titulo} — Projeto 497 RS`}
   description={`Curiosidade do Rio Grande do Sul: ${d.titulo}`}
   image={d.capa || `/og/curiosidades/${curiosidade.id}.png`}
+  ogType="article"
+  jsonLd={jsonLd}
 >
   <main class="min-h-dvh max-w-3xl mx-auto px-6 py-10">
     <a
@@ -88,5 +107,13 @@ for (const slug of d.cidades) {
         </div>
       </section>
     )}
+
+    <!-- Compartilhar -->
+    <section class="mt-10 pt-6 border-t border-[var(--color-border)]">
+      <Compartilhar
+        url={new URL(Astro.url.pathname, Astro.site).toString()}
+        texto={`${d.titulo} — Projeto 497 RS`}
+      />
+    </section>
   </main>
 </BaseLayout>

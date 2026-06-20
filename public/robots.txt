@@ -1,0 +1,13 @@
+# Projeto 497 RS — robots.txt
+# https://projeto497rs.com.br
+
+User-agent: *
+Allow: /
+
+# Painel de edição não deve ser indexado
+Disallow: /admin/
+
+# Endpoints internos
+Disallow: /api/
+
+Sitemap: https://projeto497rs.com.br/sitemap-index.xml

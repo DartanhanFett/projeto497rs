@@ -1,0 +1,99 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { breadcrumbSchema } from "../../lib/seo";
+
+function slugifyMeso(s: string) {
+  return s
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
+const cidades = await getCollection("cidades");
+
+// Agrupa por mesorregião com contagem
+type Stats = { total: number; visitadas: number };
+const byMeso = new Map<string, Stats>();
+for (const c of cidades) {
+  const meso = c.data.mesorregiao;
+  if (!meso) continue;
+  const s = byMeso.get(meso) ?? { total: 0, visitadas: 0 };
+  s.total++;
+  if (c.data.status === "visitada") s.visitadas++;
+  byMeso.set(meso, s);
+}
+
+const regioes = [...byMeso.entries()]
+  .map(([nome, stats]) => ({
+    nome,
+    slug: slugifyMeso(nome),
+    ...stats,
+    pct: Math.round((stats.visitadas / stats.total) * 100),
+  }))
+  .sort((a, b) => a.nome.localeCompare(b.nome, "pt-BR"));
+
+const jsonLd = breadcrumbSchema([
+  { nome: "Início", url: "/" },
+  { nome: "Regiões" },
+]);
+---
+
+<BaseLayout
+  title="Regiões do Rio Grande do Sul — Projeto 497 RS"
+  description="As 7 mesorregiões do Rio Grande do Sul e todas as cidades de cada uma. Explore o RS por região: Serra Gaúcha, Pampa, Litoral, Missões, Vale do Sinos e mais."
+  jsonLd={jsonLd}
+>
+  <main class="min-h-dvh max-w-5xl mx-auto px-6 py-10">
+    <nav
+      aria-label="Breadcrumbs"
+      class="flex items-center gap-1.5 text-sm text-[var(--color-text-muted)] mb-6"
+    >
+      <a href="/" class="hover:text-[var(--color-primary)] transition-colors">Início</a>
+      <span class="text-[var(--color-text-faint)]">/</span>
+      <span class="text-[var(--color-text)]" aria-current="page">Regiões</span>
+    </nav>
+
+    <header class="mb-10">
+      <p class="text-[var(--color-primary)] text-sm font-semibold tracking-widest uppercase mb-2">
+        Por região
+      </p>
+      <h1 class="text-4xl md:text-5xl font-display font-semibold leading-tight mb-3">
+        Regiões do Rio Grande do Sul
+      </h1>
+      <p class="text-lg text-[var(--color-text-muted)] max-w-2xl leading-relaxed">
+        O IBGE divide o RS em 7 mesorregiões. Aqui tu encontra as cidades agrupadas
+        por área geográfica.
+      </p>
+    </header>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {regioes.map((r) => (
+        <a
+          href={`/regioes/${r.slug}/`}
+          class="group rounded-xl border border-[var(--color-border)] bg-[var(--color-surface)] p-5 shadow-sm hover:border-[var(--color-primary)] hover:shadow-md transition-all"
+        >
+          <h2 class="text-xl font-display font-semibold mb-2 group-hover:text-[var(--color-primary)] transition-colors">
+            {r.nome}
+          </h2>
+          <p class="text-sm text-[var(--color-text-muted)] mb-3">
+            {r.total} cidades
+          </p>
+          <div class="flex items-center gap-2 text-xs">
+            <span class="text-[var(--color-accent)] font-medium">{r.visitadas} visitadas</span>
+            <span class="text-[var(--color-text-faint)]">·</span>
+            <span class="text-[var(--color-text-muted)]">{r.pct}%</span>
+          </div>
+          <div class="mt-3 h-1.5 rounded-full bg-[var(--color-surface-2)] overflow-hidden">
+            <div
+              class="h-full bg-[var(--color-accent)]"
+              style={`width: ${r.pct}%`}
+            ></div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </main>
+</BaseLayout>
