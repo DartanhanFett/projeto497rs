@@ -149,12 +149,24 @@ collections:
         hint: 'Frase curta no topo da página. Ex: "Capital do chimarrão, conhecida por…"'
         pattern: ['^.{0,280}$', 'Máximo de 280 caracteres']
 
-      - { label: 'Foto de capa', name: capa, widget: image, required: false, media_library: { config: { multiple: false } }, hint: 'A foto principal da cidade — aparece grande no topo da página e nas redes sociais. Tamanho ideal: paisagem (16:9 ou 4:3). Será comprimida automaticamente.' }
+      - label: 'Foto de capa'
+        name: capa
+        widget: image
+        required: false
+        # Cada cidade tem sua própria pasta — Media Library fica isolada.
+        # Quando o usuário clica em "Choose an image" só vê fotos DESTA cidade.
+        media_folder: '/public/uploads/{{slug}}'
+        public_folder: '/uploads/{{slug}}'
+        media_library:
+          config: { multiple: false }
+        hint: 'A foto principal da cidade — aparece grande no topo da página e nas redes sociais. Tamanho ideal: paisagem (16:9 ou 4:3). Será comprimida automaticamente.'
 
       - label: 'Galeria de fotos'
         name: fotos
         widget: image
         required: false
+        media_folder: '/public/uploads/{{slug}}'
+        public_folder: '/uploads/{{slug}}'
         media_library:
           config:
             multiple: true
@@ -214,7 +226,15 @@ collections:
           - { label: 'Geografia', value: geografia }
           - { label: 'Natureza', value: natureza }
 
-      - { label: 'Foto de capa (opcional)', name: capa, widget: image, required: false, media_library: { config: { multiple: false } } }
+      - label: 'Foto de capa (opcional)'
+        name: capa
+        widget: image
+        required: false
+        # Subpasta isolada por curiosidade (mesmo padrão de cidades)
+        media_folder: '/public/uploads/curiosidades/{{slug}}'
+        public_folder: '/uploads/curiosidades/{{slug}}'
+        media_library:
+          config: { multiple: false }
 
       - label: 'Cidades relacionadas (slugs)'
         name: cidades

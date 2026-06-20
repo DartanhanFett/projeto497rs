@@ -21,7 +21,8 @@
     "data:zerar": "node scripts/zerar-conteudo.mjs",
     "data:fix-datas": "node scripts/fix-datas.mjs",
     "data:timestamps": "node scripts/atualizar-timestamps.mjs",
-    "media:migrate-r2": "node scripts/migrar-uploads-r2.mjs"
+    "media:migrate-r2": "node scripts/migrar-uploads-r2.mjs",
+    "media:limpar-r2": "node scripts/limpar-r2.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",
