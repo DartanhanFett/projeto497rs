@@ -1,0 +1,113 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import { breadcrumbSchema } from "../../lib/seo";
+
+export async function getStaticPaths() {
+  // Inline pra Astro conseguir avaliar isolado em getStaticPaths
+  const slugifyMeso = (s: string) =>
+    s
+      .normalize("NFD")
+      .replace(/[̀-ͯ]/g, "")
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+
+  const cidades = await getCollection("cidades");
+  // Agrupa por mesorregião
+  const buckets = new Map<string, typeof cidades>();
+  for (const c of cidades) {
+    const meso = c.data.mesorregiao;
+    if (!meso) continue;
+    if (!buckets.has(meso)) buckets.set(meso, []);
+    buckets.get(meso)!.push(c);
+  }
+
+  return [...buckets.entries()].map(([meso, lista]) => ({
+    params: { meso: slugifyMeso(meso) },
+    props: { meso, cidades: lista },
+  }));
+}
+
+const { meso, cidades } = Astro.props;
+
+const ordenadas = [...cidades].sort((a, b) =>
+  a.data.nome.localeCompare(b.data.nome, "pt-BR")
+);
+
+const visitadas = ordenadas.filter((c) => c.data.status === "visitada").length;
+const total = ordenadas.length;
+const pct = ((visitadas / total) * 100).toFixed(0);
+
+const jsonLd = breadcrumbSchema([
+  { nome: "Início", url: "/" },
+  { nome: "Regiões", url: "/regioes/" },
+  { nome: meso },
+]);
+
+const statusClasses = (s: string) =>
+  s === "visitada"
+    ? "text-[var(--color-accent)]"
+    : s === "em-progresso"
+    ? "text-[var(--color-highlight-hover)]"
+    : "text-[var(--color-text-faint)]";
+
+const statusEmoji = (s: string) =>
+  s === "visitada" ? "✓" : s === "em-progresso" ? "●" : "○";
+---
+
+<BaseLayout
+  title={`${meso} — ${total} cidades | Projeto 497 RS`}
+  description={`Conheça as ${total} cidades da mesorregião ${meso} no Rio Grande do Sul. ${visitadas} já documentadas com fotos, padroeiros e curiosidades.`}
+  jsonLd={jsonLd}
+>
+  <main class="min-h-dvh max-w-5xl mx-auto px-6 py-10">
+    <!-- Breadcrumbs -->
+    <nav
+      aria-label="Breadcrumbs"
+      class="flex items-center gap-1.5 text-sm text-[var(--color-text-muted)] mb-6 flex-wrap"
+    >
+      <a href="/" class="hover:text-[var(--color-primary)] transition-colors">Início</a>
+      <span class="text-[var(--color-text-faint)]">/</span>
+      <a href="/regioes/" class="hover:text-[var(--color-primary)] transition-colors">Regiões</a>
+      <span class="text-[var(--color-text-faint)]">/</span>
+      <span class="text-[var(--color-text)]" aria-current="page">{meso}</span>
+    </nav>
+
+    <header class="mb-8">
+      <p class="text-[var(--color-primary)] text-sm font-semibold tracking-widest uppercase mb-2">
+        Mesorregião do Rio Grande do Sul
+      </p>
+      <h1 class="text-4xl md:text-5xl font-display font-semibold leading-tight mb-3">
+        {meso}
+      </h1>
+      <p class="text-lg text-[var(--color-text-muted)]">
+        {total} cidades — {visitadas} já documentadas ({pct}%)
+      </p>
+    </header>
+
+    <!-- Lista de cidades -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
+      {ordenadas.map((c) => (
+        <a
+          href={`/cidades/${c.id}/`}
+          class="group flex items-center justify-between gap-3 px-4 py-3 rounded-lg border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] transition-colors"
+        >
+          <div class="min-w-0">
+            <h2 class="font-display font-medium text-[var(--color-text)] group-hover:text-[var(--color-primary)] transition-colors truncate">
+              {c.data.nome}
+            </h2>
+            {c.data.padroeiro && (
+              <p class="text-xs text-[var(--color-text-faint)] truncate">
+                ✟ {c.data.padroeiro}
+              </p>
+            )}
+          </div>
+          <span class={`text-sm shrink-0 ${statusClasses(c.data.status)}`}>
+            {statusEmoji(c.data.status)}
+          </span>
+        </a>
+      ))}
+    </div>
+  </main>
+</BaseLayout>

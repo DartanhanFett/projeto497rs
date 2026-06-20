@@ -1,0 +1,91 @@
+---
+/**
+ * Botões de compartilhar — WhatsApp, X (Twitter), copiar link.
+ *
+ * Renderizados HTML estático (sem JS pra WhatsApp/X — usam URL scheme
+ * nativo). Botão "copiar link" usa Clipboard API com fallback.
+ */
+
+interface Props {
+  /** URL absoluta da página atual */
+  url: string;
+  /** Texto sugerido pra compartilhar */
+  texto: string;
+}
+
+const { url, texto } = Astro.props;
+
+// URLs padrão de compartilhamento
+const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(`${texto}\n${url}`)}`;
+const xUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(texto)}&url=${encodeURIComponent(url)}`;
+---
+
+<div
+  class="flex items-center gap-2 flex-wrap"
+  data-share
+  data-share-url={url}
+>
+  <span class="text-xs uppercase tracking-wider text-[var(--color-text-faint)] mr-1">
+    Compartilhar
+  </span>
+
+  <a
+    href={whatsappUrl}
+    target="_blank"
+    rel="noopener"
+    class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors"
+    aria-label="Compartilhar no WhatsApp"
+  >
+    WhatsApp
+  </a>
+
+  <a
+    href={xUrl}
+    target="_blank"
+    rel="noopener"
+    class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors"
+    aria-label="Compartilhar no X"
+  >
+    X
+  </a>
+
+  <button
+    type="button"
+    data-share-copy
+    class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm border border-[var(--color-border)] bg-[var(--color-surface)] hover:border-[var(--color-primary)] hover:text-[var(--color-primary)] transition-colors cursor-pointer"
+    aria-label="Copiar link"
+  >
+    <span data-share-copy-default>Copiar link</span>
+    <span data-share-copy-done class="hidden text-[var(--color-accent)]">✓ Copiado</span>
+  </button>
+</div>
+
+<script>
+  document.querySelectorAll<HTMLElement>("[data-share]").forEach((root) => {
+    const url = root.dataset.shareUrl ?? window.location.href;
+    const btn = root.querySelector<HTMLButtonElement>("[data-share-copy]");
+    const def = root.querySelector<HTMLElement>("[data-share-copy-default]");
+    const done = root.querySelector<HTMLElement>("[data-share-copy-done]");
+    if (!btn || !def || !done) return;
+
+    btn.addEventListener("click", async () => {
+      try {
+        await navigator.clipboard.writeText(url);
+      } catch {
+        // Fallback: cria input temporário pra navegadores antigos
+        const input = document.createElement("input");
+        input.value = url;
+        document.body.appendChild(input);
+        input.select();
+        document.execCommand("copy");
+        input.remove();
+      }
+      def.classList.add("hidden");
+      done.classList.remove("hidden");
+      setTimeout(() => {
+        def.classList.remove("hidden");
+        done.classList.add("hidden");
+      }, 2000);
+    });
+  });
+</script>

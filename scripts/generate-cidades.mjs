@@ -1,14 +1,18 @@
 // scripts/generate-cidades.mjs
 //
-// Gera (ou atualiza) os 497 arquivos markdown em src/content/cidades/,
+// Gera ou atualiza os 497 arquivos markdown em src/content/cidades/,
 // um por município, a partir de src/data/municipios-rs.json.
 //
-// Por padrão, NÃO sobrescreve arquivos existentes — só preserva e
-// atualiza os campos identificadores do frontmatter (codigo, nome,
-// microrregiao, mesorregiao). Isso permite rodar o script de novo
-// sem perder conteúdo já editado.
+// Modo padrão (sem flag): cria APENAS arquivos que não existem, e
+// atualiza os campos identificadores (codigo, nome, microrregiao,
+// mesorregiao) dos que já existem. Conteúdo manual fica preservado.
 //
-// Use --force para regenerar tudo do zero (apaga conteúdo).
+// Modo --force --confirmar: regenera TODOS os arquivos do zero,
+// destruindo qualquer conteúdo manual. Pra reset completo.
+//
+// USO:
+//   node scripts/generate-cidades.mjs                    # cria faltantes + sync identificadores
+//   node scripts/generate-cidades.mjs --force --confirmar # regenera TUDO (destrutivo)
 
 import { readFile, writeFile, mkdir, readdir } from "node:fs/promises";
 import { existsSync } from "node:fs";
@@ -20,9 +24,17 @@ const ROOT = resolve(__dirname, "..");
 const CIDADES_DIR = resolve(ROOT, "src/content/cidades");
 const DATA_FILE = resolve(ROOT, "src/data/municipios-rs.json");
 
-const FORCE = process.argv.includes("--force");
+const args = process.argv.slice(2);
+const FORCE = args.includes("--force");
+const CONFIRMAR = args.includes("--confirmar");
 
-/** Renderiza o frontmatter do zero (cidade nova ou --force). */
+if (FORCE && !CONFIRMAR) {
+  console.error("✘ --force é destrutivo. Adicione --confirmar pra confirmar.");
+  console.error("   node scripts/generate-cidades.mjs --force --confirmar");
+  process.exit(1);
+}
+
+/** Frontmatter inicial canônico — alinhado com src/content.config.ts */
 function novoArquivo(m) {
   return `---
 codigo: "${m.codigo}"
@@ -35,6 +47,10 @@ capa: ""
 fotos: []
 reels: []
 curiosidades: []
+atracoes: []
+ondeComer: []
+ondeDormir: []
+festas: []
 ---
 
 <!-- Escreva aqui as curiosidades, histórias e relatos da visita a ${m.nome}. -->
@@ -42,9 +58,8 @@ curiosidades: []
 }
 
 /**
- * Atualiza apenas os campos identificadores em um arquivo existente,
- * preservando todo o resto. Usa regex linha-a-linha para não depender
- * de parser YAML.
+ * Atualiza só os campos identificadores num arquivo existente,
+ * preservando o resto. Regex linha-a-linha — sem parser YAML.
  */
 function atualizarFrontmatter(conteudo, m) {
   const setLine = (texto, chave, valor) => {

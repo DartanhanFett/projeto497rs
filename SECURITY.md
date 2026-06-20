@@ -1,65 +1,28 @@
-# Política de Segurança — Projeto 497 RS
+# Security Policy
 
-## 📬 Reportando uma vulnerabilidade
+## Reporting a vulnerability
 
-Se você encontrou uma vulnerabilidade de segurança neste projeto:
+**Private:** [GitHub Security Advisory](https://github.com/DartanhanFett/projeto497rs/security/advisories/new)
 
-### Use o canal privado preferencialmente
+**Email:** `contato@projeto497rs.com.br`
 
-**[GitHub Security Advisory](https://github.com/DartanhanFett/projeto497rs/security/advisories/new)** — relatório privado, só os mantenedores veem.
+Include description, reproduction steps and impact. Reply within 7 working days.
 
-### Por email
-Se preferir email: **contato@projeto497rs.com.br**
+## Scope
 
-### O que incluir
-- Descrição da vulnerabilidade
-- Passos pra reproduzir (de preferência com proof-of-concept não-destrutivo)
-- Impacto potencial
-- Se aplicável, sugestão de correção
+**In:** public site, `cdn.` and `www.` subdomains, `/admin/` panel, repository.
 
-### O que esperar
-- Confirmação de recebimento em até **3 dias úteis**
-- Análise inicial em até **7 dias úteis**
-- Correção priorizada por severidade
-- Crédito público (se você quiser) após o patch
+**Out:** Cloudflare/Netlify/GitHub (report directly), social engineering, DDoS.
 
-## 🚫 Por favor NÃO
+## Active hardenings
 
-- Tente exploração ativa em produção (`projeto497rs.com.br`)
-- Faça pentests automatizados sem aviso prévio (vai parecer ataque real)
-- Teste vulnerabilidades em volume de tráfego que afete usuários reais
-- Acesse, modifique ou exfiltre dados que não sejam públicos
+- HTTPS enforced (HSTS preload)
+- Content Security Policy (Report-Only during initial observation)
+- Subresource Integrity on external scripts (Decap CMS pinned)
+- Sandboxed iframes
+- Identity in invite-only mode
+- Secrets in GitHub Secrets, never in code
+- Six-month rotation cycle for R2 credentials
+- Dependabot + CI blocking broken builds
 
-## ✅ Tudo bem
-
-- Reportar findings em ambiente isolado/local
-- Análise estática de código
-- Análise de configuração (headers, DNS, etc)
-- Reportar dependências vulneráveis
-
-## 🔭 Escopo
-
-### In-scope
-- Site público em `https://projeto497rs.com.br`
-- Subdomínios oficiais (`cdn.projeto497rs.com.br`, `www.projeto497rs.com.br`)
-- Painel admin em `/admin/`
-- Repositório `github.com/DartanhanFett/projeto497rs`
-
-### Out-of-scope
-- Cloudflare, Netlify, GitHub (reporte direto a eles)
-- Engenharia social contra mantenedores ou usuários
-- Ataques físicos
-- DoS / DDoS
-
-## 🛡️ Hardenings já implementados
-
-- HTTPS forçado (HSTS preload)
-- Content Security Policy (em modo Report-Only durante observação)
-- Subresource Integrity em scripts externos (Decap CMS)
-- iframes em sandbox restrito
-- Identity em modo invite-only (sem registro público)
-- Secrets em GitHub Secrets (nunca em código)
-- Rotação periódica de credenciais R2 (cada 6 meses)
-- Dependabot habilitado pra atualizações de dependências
-
-Veja [DEPLOY.md](DEPLOY.md#-segurança--rotina-de-manutenção) pra detalhes operacionais.
+Operational details in [docs/operations.md](docs/operations.md).

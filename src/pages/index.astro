@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import MapaRS from "../components/MapaRS.astro";
+import { websiteSchema } from "../lib/seo";
 
 const cidades = await getCollection("cidades");
 
@@ -62,7 +63,12 @@ const topPadroeiros = [...contagemPadroeiros.entries()]
 const totalComPadroeiro = cidades.filter((c) => c.data.padroeiro).length;
 ---
 
-<BaseLayout image="/og/home.png">
+<BaseLayout
+  title="Projeto 497 RS — todas as 497 cidades do Rio Grande do Sul"
+  description={`Mapa interativo e guia das 497 cidades do RS: ${visitadas} já documentadas com fotos, padroeiros e histórias. Conheça o Rio Grande do Sul município por município.`}
+  image="/og/home.png"
+  jsonLd={websiteSchema()}
+>
   <main class="min-h-dvh">
     <!-- Hero -->
     <section class="px-6 pt-12 pb-8 max-w-6xl mx-auto">
@@ -70,12 +76,12 @@ const totalComPadroeiro = cidades.filter((c) => c.data.padroeiro).length;
         Projeto 497 RS
       </p>
       <h1 class="text-5xl md:text-7xl font-display font-semibold leading-[1.05] mb-5">
-        Cada cidade do<br />
-        <span class="text-[var(--color-primary)]">Rio Grande do Sul</span>
+        Todas as <span class="text-[var(--color-primary)]">497 cidades</span><br />
+        do Rio Grande do Sul
       </h1>
       <p class="text-lg md:text-xl text-[var(--color-text-muted)] max-w-2xl leading-relaxed">
-        Uma jornada por todos os 497 municípios gaúchos. Fotos, curiosidades e
-        histórias de cada parada — clique no mapa pra explorar.
+        Mapa interativo e guia dos municípios gaúchos. Fotos, padroeiros,
+        curiosidades e histórias de cada parada — clique no mapa pra explorar.
       </p>
     </section>
 
