@@ -101,7 +101,7 @@ try {
   if (err.$metadata?.httpStatusCode === 401) {
     console.error("  • 401 Unauthorized = credenciais inválidas.");
     console.error("    → Access Key ID ou Secret Access Key estão errados.");
-    console.error("    → Verifique se copiou os valores certos da etapa 4 do SETUP-R2.md");
+    console.error("    → Verifique se copiou os valores certos da etapa 4 do docs/setup-r2.md");
     console.error("    → Pode ter vindo um espaço ou caractere extra na cópia.");
     console.error("    → Se persistir, gera um novo API Token e tenta de novo.");
   } else if (err.$metadata?.httpStatusCode === 403) {
