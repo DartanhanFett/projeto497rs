@@ -2,6 +2,32 @@ import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 
 /**
+ * Helper de schema tolerante pra arrays de strings vindos do CMS.
+ *
+ * Por que isso? O Decap CMS, quando o widget `image` com `multiple: true`
+ * tem só 1 item, salva como string solta no frontmatter:
+ *
+ *     fotos: /uploads/sapiranga/foto.jpg     # ← ERRO: schema espera array
+ *
+ * em vez de:
+ *
+ *     fotos:
+ *       - /uploads/sapiranga/foto.jpg
+ *
+ * Mesma coisa pode acontecer com listas de strings em geral. Em vez de
+ * deixar o build quebrar (e culpar o pai por isso), normalizamos no
+ * parse: string vira [string], array vira array, undefined vira [].
+ */
+const arrayDeStrings = z.preprocess((val) => {
+  if (val === null || val === undefined || val === "") return [];
+  if (Array.isArray(val)) {
+    // Filtra entradas vazias defensivamente
+    return val.filter((v) => v !== null && v !== undefined && v !== "");
+  }
+  if (typeof val === "string") return [val];
+  return val; // deixa Zod errar com mensagem útil
+}, z.array(z.string()).default([]));
+/**
  * Helper de schema tolerante pra datas vindas de fontes heterogêneas.
  *
  * Aceita (e converte pra Date):
@@ -11,12 +37,7 @@ import { glob } from "astro/loaders";
  *   - "16-02-1959"             — DD-MM-YYYY (raro mas possível)
  *   - Date | número            — pass-through
  *
- * Rejeita (mantém o erro original do Zod) qualquer outra coisa,
- * preservando feedback útil. Strings vazias e null viram undefined.
- *
- * Por que isso? Postel's Law aplicado ao build pipeline: o site não
- * deve quebrar porque alguém digitou data num formato regional que
- * humanos consideram correto. Normalizamos no parse, não no commit.
+ * Postel's Law aplicado ao build: site não quebra com formato regional.
  */
 const dataFlexivel = z.preprocess((val) => {
   if (val === null || val === undefined || val === "") return undefined;
@@ -73,10 +94,10 @@ const cidades = defineCollection({
     gentilico: z.string().optional(),             // ex: "porto-alegrense"
 
     // ─── O que vimos / experiência (preenchido manualmente) ────────────────────
-    atracoes: z.array(z.string()).default([]),    // o que ver
-    ondeComer: z.array(z.string()).default([]),
-    ondeDormir: z.array(z.string()).default([]),
-    festas: z.array(z.string()).default([]),      // festas tradicionais
+    atracoes: arrayDeStrings,
+    ondeComer: arrayDeStrings,
+    ondeDormir: arrayDeStrings,
+    festas: arrayDeStrings,                    // festas tradicionais
     secretariaTurismo: z
       .object({
         endereco: z.string().optional(),
@@ -89,11 +110,11 @@ const cidades = defineCollection({
     // Conteúdo editorial
     resumo: z.string().optional(),
     capa: z.string().optional(),         // URL da foto de capa
-    fotos: z.array(z.string()).default([]),
-    reels: z.array(z.string()).default([]), // URLs de Reels do Instagram
+    fotos: arrayDeStrings,
+    reels: arrayDeStrings,               // URLs de Reels do Instagram
 
     // Curiosidades como bullets rápidos (opcional, além do corpo MD)
-    curiosidades: z.array(z.string()).default([]),
+    curiosidades: arrayDeStrings,
   }),
 });
 
@@ -120,7 +141,7 @@ const curiosidades = defineCollection({
     atualizadoEm: dataFlexivel,             // gerenciado pela GH Action
     tags: z.array(z.enum(TAGS_CURIOSIDADES)).default([]),
     capa: z.string().optional(),            // foto opcional
-    cidades: z.array(z.string()).default([]), // slugs de cidades relacionadas
+    cidades: arrayDeStrings,                // slugs de cidades relacionadas
   }),
 });
 
