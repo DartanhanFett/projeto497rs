@@ -1,19 +1,29 @@
 ---
+nome: Almirante Tamandaré do Sul
 codigo: "4300471"
-nome: "Almirante Tamandaré do Sul"
-microrregiao: "Carazinho"
-mesorregiao: "Noroeste Rio-grandense"
+microrregiao: Carazinho
+mesorregiao: Noroeste Rio-grandense
 status: visitada
-atualizadoEm: 2026-06-14
+dataVisita: 2026-06-07
+padroeiro: São João Batista
+historiaResumo: "Conhecida como a cidade do Gaitaço, aqui  ocorre um encontro de
+  gaiteiros do Brasil  inteiro reunindo músicos e admiradores deste instrumento
+  . "
+fundacao: 1996-04-16
+aniversario: "Abril  16 "
+toponimia: "A localidade recebeu este nome por sugestão de um expedicionário da
+  Guerra do Paraguai, que esteve por aquelas terras, e em reconhecimento ao
+  patrono da Marinha de Guerra do Brasil, Joaquim Marques Lisboa, o Almirante
+  Tamandaré. "
+gentilico: "Tamadarense "
+populacao: 1935
+areaKm2: 265.327
 resumo: ""
-capa: ""
-fotos: []
+capa: /uploads/img_4554.jpeg
+fotos:
+  - /uploads/img_4550.jpeg
 reels: []
 curiosidades: []
-populacao: null
-areaKm2: 265.327
-dataVisita: 2026-06-07
-padroeiro: "São João Batista"
 ---
 
 <!-- Escreva aqui as curiosidades, histórias e relatos da visita a Almirante Tamandaré do Sul. -->

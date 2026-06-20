@@ -1,7 +1,9 @@
 ---
 titulo: Teste de curiosidades
-data: 16/06/2026
+data: 2026-06-18
+tags:
+  - geografia
 capa: /uploads/mapa-projeto-viagem-frederico-1-.jpg
 destaque: true
 ---
-Testando 1 2 3
+Você sabia que Osório é a única dentre 497 cidades gaúchas que inicia com a letra “0”.
