@@ -10,10 +10,8 @@ padroeiro: Sagrado Coração de Jesus
 populacao: null
 areaKm2: 137.624
 resumo: ""
-capa: https://cdn.projeto497rs.com.br/sapiranga/wallpaper.jpg
-fotos:
-  - https://cdn.projeto497rs.com.br/sapiranga/captura-de-tela-2026-06-06-220840.png
-  - https://cdn.projeto497rs.com.br/sapiranga/captura-de-tela-2026-06-06-084457.png
+capa: ""
+fotos: ""
 reels: []
 curiosidades: []
 ---
