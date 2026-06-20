@@ -4,7 +4,7 @@ nome: "Estrela Velha"
 microrregiao: "Santa Cruz do Sul"
 mesorregiao: "Centro Oriental Rio-grandense"
 status: pendente
-atualizadoEm: 2026-06-14
+atualizadoEm: 2026-06-17
 resumo: ""
 capa: ""
 fotos: []

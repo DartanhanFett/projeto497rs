@@ -4,7 +4,7 @@ nome: "Brochier"
 microrregiao: "Montenegro"
 mesorregiao: "Metropolitana de Porto Alegre"
 status: visitada
-atualizadoEm: 2026-06-14
+atualizadoEm: 2026-06-17
 resumo: ""
 capa: ""
 fotos: []

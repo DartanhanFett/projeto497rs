@@ -4,6 +4,7 @@ codigo: "4300109"
 microrregiao: Restinga Seca
 mesorregiao: Centro Ocidental Rio-grandense
 status: visitada
+atualizadoEm: 2026-06-18
 dataVisita: 2024-08-28
 padroeiro: São Bonifácio
 historiaResumo: "Cidade conhecida como Berço Nacional dos Dinossauros.  Aqui foi
