@@ -61,7 +61,20 @@ jobs:
           git add -A
           if git diff --cached --quiet; then
             echo "Nenhuma migração pendente."
-          else
-            git commit -m "chore: migra mídia pro Cloudflare R2 [skip ci]"
-            git push
+            exit 0
           fi
+          git commit -m "chore: migra mídia pro Cloudflare R2 [skip ci]"
+
+          # Race-condition guard: outro workflow (ex: update-timestamps)
+          # pode ter commitado em main enquanto este rodava. Tentamos
+          # push até 5x, fazendo rebase + retry quando o remoto mudou.
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "Push OK na tentativa $i"
+              exit 0
+            fi
+            echo "Push rejeitado (tentativa $i). Fazendo pull --rebase…"
+            git pull --rebase origin main
+          done
+          echo "Falhou após 5 tentativas"
+          exit 1

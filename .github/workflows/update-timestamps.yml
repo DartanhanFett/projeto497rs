@@ -49,7 +49,19 @@ jobs:
           git add -A
           if git diff --cached --quiet; then
             echo "Nada a commitar."
-          else
-            git commit -m "chore: atualiza timestamps [skip ci]"
-            git push
+            exit 0
           fi
+          git commit -m "chore: atualiza timestamps [skip ci]"
+
+          # Race-condition guard: o workflow migrate-media pode estar
+          # commitando em paralelo. Push com retry + rebase.
+          for i in 1 2 3 4 5; do
+            if git push; then
+              echo "Push OK na tentativa $i"
+              exit 0
+            fi
+            echo "Push rejeitado (tentativa $i). Fazendo pull --rebase…"
+            git pull --rebase origin main
+          done
+          echo "Falhou após 5 tentativas"
+          exit 1
