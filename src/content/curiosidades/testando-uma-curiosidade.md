@@ -3,7 +3,7 @@ titulo: Testando uma curiosidade
 tags:
   - geografia
   - historia
-capa: /uploads/curiosidades/testando-uma-curiosidade/wallpaper.jpg
+capa: https://cdn.projeto497rs.com.br/curiosidades/testando-uma-curiosidade/wallpaper.jpg
 cidades:
   - Ararica
   - Sapiranga
