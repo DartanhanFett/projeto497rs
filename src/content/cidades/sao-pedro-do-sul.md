@@ -4,6 +4,7 @@ nome: "São Pedro do Sul"
 microrregiao: "Santa Maria"
 mesorregiao: "Centro Ocidental Rio-grandense"
 status: visitada
+atualizadoEm: 2026-06-14
 resumo: ""
 capa: ""
 fotos: []

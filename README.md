@@ -93,6 +93,9 @@ Sempre que atualizar `reference/Municípios RS visitados.xlsx` (datas novas,
 padroeiros corrigidos, etc), basta:
 
 ```sh
+# Se ainda não instalou xlsx (é optional dep, ver nota abaixo)
+npm install xlsx
+
 npm run data:import -- --dry-run    # simula, mostra o que vai mudar
 npm run data:import                 # aplica
 ```
@@ -100,6 +103,12 @@ npm run data:import                 # aplica
 O script preserva todo conteúdo manual (fotos, resumo, body, curiosidades)
 e atualiza apenas os campos vindos da planilha (status, data, padroeiro,
 população, área).
+
+> **⚠️ Nota de segurança sobre `xlsx`:** o pacote tem CVEs sem patch oficial
+> (Prototype Pollution + ReDoS). Por isso está em `optionalDependencies` em
+> vez de `devDependencies` — não é instalado por padrão. Como é usado apenas
+> nesse script local com input controlado (a planilha do projeto), o risco é
+> mínimo. **Nunca rode esse script com planilha vinda de fonte não-confiável.**
 
 ## ✏️ Como editar uma cidade (para o editor)
 

@@ -1,0 +1,50 @@
+# Dependabot — atualizações automáticas de dependências
+# https://docs.github.com/en/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
+
+version: 2
+
+updates:
+  # ─── npm (package.json) ──────────────────────────────────────────
+  - package-ecosystem: npm
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: "08:00"
+      timezone: America/Sao_Paulo
+    open-pull-requests-limit: 5
+    groups:
+      # Patches/minors agrupados em 1 PR só (menos ruído)
+      patches-and-minors:
+        applies-to: version-updates
+        update-types:
+          - patch
+          - minor
+      # Major fica isolado pra revisão cuidadosa
+      majors:
+        applies-to: version-updates
+        update-types:
+          - major
+    # Anota PRs com label de segurança quando for fix de CVE
+    labels:
+      - dependencies
+    # Mantém commit message conciso
+    commit-message:
+      prefix: chore
+      include: scope
+    # Ignora xlsx — está em optionalDependencies por motivo conhecido
+    # (CVEs sem fix oficial, uso isolado em script local)
+    ignore:
+      - dependency-name: xlsx
+
+  # ─── GitHub Actions ──────────────────────────────────────────────
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    open-pull-requests-limit: 3
+    labels:
+      - dependencies
+      - github-actions
+    commit-message:
+      prefix: ci

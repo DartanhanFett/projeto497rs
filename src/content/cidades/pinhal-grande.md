@@ -4,6 +4,7 @@ nome: "Pinhal Grande"
 microrregiao: "Santiago"
 mesorregiao: "Centro Ocidental Rio-grandense"
 status: pendente
+atualizadoEm: 2026-06-14
 resumo: ""
 capa: ""
 fotos: []

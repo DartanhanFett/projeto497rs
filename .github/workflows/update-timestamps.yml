@@ -1,0 +1,55 @@
+name: Atualizar timestamps de edição
+
+# Roda em todo push pra main que toque arquivos de conteúdo.
+# Pega cada .md modificado, pega a data do último commit que tocou
+# nele, e escreve no campo `atualizadoEm` do frontmatter.
+#
+# Resultado: o CMS pode ordenar/filtrar por data de última edição
+# sem o pai precisar lembrar de marcar nada manualmente.
+#
+# Pula commits do próprio bot pra evitar loops infinitos.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'src/content/**/*.md'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: timestamps
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    # Não roda nos próprios commits do bot (evita loop)
+    if: "!contains(github.event.head_commit.message, '[skip ci]')"
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0          # precisa do histórico pra git log
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Atualizar campo atualizadoEm nos arquivos modificados
+        run: node scripts/atualizar-timestamps.mjs
+
+      - name: Commit e push
+        run: |
+          git config user.name  "projeto-497-timestamps-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nada a commitar."
+          else
+            git commit -m "chore: atualiza timestamps [skip ci]"
+            git push
+          fi

@@ -4,6 +4,7 @@ nome: "Arroio dos Ratos"
 microrregiao: "São Jerônimo"
 mesorregiao: "Metropolitana de Porto Alegre"
 status: pendente
+atualizadoEm: 2026-06-14
 resumo: ""
 capa: ""
 fotos: []

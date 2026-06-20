@@ -20,6 +20,7 @@
     "data:limpar-padroeiros": "node scripts/limpar-padroeiros.mjs",
     "data:zerar": "node scripts/zerar-conteudo.mjs",
     "data:fix-datas": "node scripts/fix-datas.mjs",
+    "data:timestamps": "node scripts/atualizar-timestamps.mjs",
     "media:migrate-r2": "node scripts/migrar-uploads-r2.mjs"
   },
   "dependencies": {
@@ -35,7 +36,9 @@
     "@types/node": "^22.10.0",
     "decap-server": "^3.2.0",
     "mime-types": "^3.0.2",
-    "tailwindcss": "^4.3.1",
+    "tailwindcss": "^4.3.1"
+  },
+  "optionalDependencies": {
     "xlsx": "^0.18.5"
   }
 }

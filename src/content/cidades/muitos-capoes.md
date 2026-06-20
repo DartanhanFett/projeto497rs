@@ -4,6 +4,7 @@ nome: "Muitos Capões"
 microrregiao: "Vacaria"
 mesorregiao: "Nordeste Rio-grandense"
 status: visitada
+atualizadoEm: 2026-06-14
 resumo: ""
 capa: ""
 fotos: []

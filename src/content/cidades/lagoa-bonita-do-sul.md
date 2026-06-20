@@ -4,6 +4,7 @@ nome: "Lagoa Bonita do Sul"
 microrregiao: "Santa Cruz do Sul"
 mesorregiao: "Centro Oriental Rio-grandense"
 status: pendente
+atualizadoEm: 2026-06-14
 resumo: ""
 capa: ""
 fotos: []

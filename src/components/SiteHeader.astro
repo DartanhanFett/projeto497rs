@@ -2,9 +2,11 @@
 /**
  * Header global — navegação simples e discreta.
  *
- * Aparece em todas as páginas do site. Em mobile, vira ícones simples
- * (Instagram permanece como link externo).
+ * Aparece em todas as páginas do site. O buscador inline aparece em
+ * telas md+ (escondido em mobile pra não competir com a navegação).
+ * Mobile pode focar via tecla "/" também.
  */
+import BuscaCidades from "./BuscaCidades.astro";
 
 const path = Astro.url.pathname;
 const isHome = path === "/" || path === "";
@@ -12,15 +14,20 @@ const isCuriosidades = path.startsWith("/curiosidades");
 ---
 
 <header class="border-b border-[var(--color-border)] bg-[var(--color-bg)]/90 backdrop-blur-sm sticky top-0 z-30">
-  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between gap-4">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex items-center gap-3 sm:gap-4">
     <a
       href="/"
-      class="font-display text-lg font-semibold tracking-tight hover:text-[var(--color-primary)] transition-colors"
+      class="font-display text-lg font-semibold tracking-tight hover:text-[var(--color-primary)] transition-colors shrink-0"
     >
       <span class="text-[var(--color-primary)]">Projeto</span> 497 RS
     </a>
 
-    <nav class="flex items-center gap-1 sm:gap-2 text-sm">
+    <!-- Buscador (md+) — atalho "/" foca em qualquer tela -->
+    <div class="hidden md:block flex-1 max-w-xs ml-auto">
+      <BuscaCidades />
+    </div>
+
+    <nav class="flex items-center gap-1 sm:gap-2 text-sm ml-auto md:ml-0">
       <a
         href="/"
         class:list={[
@@ -54,5 +61,10 @@ const isCuriosidades = path.startsWith("/curiosidades");
         <span class="hidden sm:inline">↗</span>
       </a>
     </nav>
+  </div>
+
+  <!-- Buscador (mobile) — abaixo do header -->
+  <div class="md:hidden border-t border-[var(--color-border)] px-4 py-2">
+    <BuscaCidades />
   </div>
 </header>

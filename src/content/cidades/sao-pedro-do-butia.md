@@ -4,6 +4,7 @@ nome: "São Pedro do Butiá"
 microrregiao: "Cerro Largo"
 mesorregiao: "Noroeste Rio-grandense"
 status: pendente
+atualizadoEm: 2026-06-14
 resumo: ""
 capa: ""
 fotos: []
