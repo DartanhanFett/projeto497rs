@@ -8,5 +8,6 @@ cidades:
   - Ararica
   - Sapiranga
 destaque: false
+atualizadoEm: 2026-06-20
 ---
 Aqui estamos testando uma curiosidade
