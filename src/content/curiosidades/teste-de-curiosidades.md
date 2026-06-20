@@ -3,7 +3,7 @@ titulo: Teste de curiosidades
 data: 2026-06-18
 tags:
   - geografia
-capa: /uploads/mapa-projeto-viagem-frederico-1-.jpg
+capa: https://cdn.projeto497rs.com.br/mapa-projeto-viagem-frederico-1-.jpg
 destaque: true
 atualizadoEm: 2026-06-20
 ---

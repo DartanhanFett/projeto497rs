@@ -20,9 +20,9 @@ gentilico: "Tamadarense "
 populacao: 1935
 areaKm2: 265.327
 resumo: ""
-capa: /uploads/img_4554.jpeg
+capa: https://cdn.projeto497rs.com.br/img_4554.jpeg
 fotos:
-  - /uploads/img_4550.jpeg
+  - https://cdn.projeto497rs.com.br/img_4550.jpeg
 reels: []
 curiosidades: []
 ---
