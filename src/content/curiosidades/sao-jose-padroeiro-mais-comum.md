@@ -10,7 +10,7 @@ cidades:
   - coqueiros-do-sul
   - erechim
   - ernestina
-atualizadoEm: 2026-06-17
+atualizadoEm: 2026-06-20
 ---
 
 Em todas as cidades que documentamos até agora, **São José** é disparado o

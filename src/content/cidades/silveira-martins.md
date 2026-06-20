@@ -4,7 +4,7 @@ nome: "Silveira Martins"
 microrregiao: "Restinga Seca"
 mesorregiao: "Centro Ocidental Rio-grandense"
 status: visitada
-atualizadoEm: 2026-06-17
+atualizadoEm: 2026-06-20
 resumo: ""
 capa: ""
 fotos: []

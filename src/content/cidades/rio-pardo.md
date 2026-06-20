@@ -4,7 +4,7 @@ nome: "Rio Pardo"
 microrregiao: "Cachoeira do Sul"
 mesorregiao: "Centro Oriental Rio-grandense"
 status: pendente
-atualizadoEm: 2026-06-17
+atualizadoEm: 2026-06-20
 resumo: ""
 capa: ""
 fotos: []

@@ -4,7 +4,7 @@ nome: "Santa Maria do Herval"
 microrregiao: "Gramado-Canela"
 mesorregiao: "Metropolitana de Porto Alegre"
 status: visitada
-atualizadoEm: 2026-06-17
+atualizadoEm: 2026-06-20
 resumo: ""
 capa: ""
 fotos: []

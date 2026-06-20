@@ -4,7 +4,7 @@ codigo: "4300034"
 microrregiao: Campanha Meridional
 mesorregiao: Sudoeste Rio-grandense
 status: visitada
-atualizadoEm: 2026-06-18
+atualizadoEm: 2026-06-20
 populacao: null
 areaKm2: 1551.339
 resumo: ""

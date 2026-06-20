@@ -9,7 +9,7 @@ cidades:
   - alvorada
   - estrela
   - camaqua
-atualizadoEm: 2026-06-17
+atualizadoEm: 2026-06-20
 ---
 
 Se somarmos as cidades dedicadas aos **três padroeiros mais comuns** —

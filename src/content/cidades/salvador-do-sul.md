@@ -4,7 +4,7 @@ nome: "Salvador do Sul"
 microrregiao: "Montenegro"
 mesorregiao: "Metropolitana de Porto Alegre"
 status: visitada
-atualizadoEm: 2026-06-17
+atualizadoEm: 2026-06-20
 resumo: ""
 capa: ""
 fotos: []

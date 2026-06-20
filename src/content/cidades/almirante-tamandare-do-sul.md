@@ -4,7 +4,7 @@ codigo: "4300471"
 microrregiao: Carazinho
 mesorregiao: Noroeste Rio-grandense
 status: visitada
-atualizadoEm: 2026-06-18
+atualizadoEm: 2026-06-20
 dataVisita: 2026-06-07
 padroeiro: São João Batista
 historiaResumo: "Conhecida como a cidade do Gaitaço, aqui  ocorre um encontro de

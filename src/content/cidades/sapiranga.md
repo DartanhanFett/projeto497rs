@@ -5,7 +5,7 @@ microrregiao: Porto Alegre
 mesorregiao: Metropolitana de Porto Alegre
 status: visitada
 dataVisita: 2020-03-29
-atualizadoEm: 2026-06-17
+atualizadoEm: 2026-06-20
 padroeiro: Sagrado Coração de Jesus
 populacao: null
 areaKm2: 137.624

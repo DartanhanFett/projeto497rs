@@ -4,7 +4,7 @@ nome: "Canguçu"
 microrregiao: "Pelotas"
 mesorregiao: "Sudeste Rio-grandense"
 status: pendente
-atualizadoEm: 2026-06-17
+atualizadoEm: 2026-06-20
 resumo: ""
 capa: ""
 fotos: []

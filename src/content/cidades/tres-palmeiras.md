@@ -4,7 +4,7 @@ nome: "Três Palmeiras"
 microrregiao: "Frederico Westphalen"
 mesorregiao: "Noroeste Rio-grandense"
 status: visitada
-atualizadoEm: 2026-06-17
+atualizadoEm: 2026-06-20
 resumo: ""
 capa: ""
 fotos: []
