@@ -103,6 +103,13 @@ const TAGS_CURIOSIDADES = [
   "historia",
   "geografia",
   "natureza",
+  "festas",
+  "gastronomia",
+  "imigracao",
+  "arquitetura",
+  "musica-cultura",
+  "estatisticas",
+  "pontos-turisticos",
 ] as const;
 
 const curiosidades = defineCollection({

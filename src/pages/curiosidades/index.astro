@@ -1,14 +1,7 @@
 ---
 import { getCollection, getEntry } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
-
-const TAG_LABELS: Record<string, string> = {
-  padroeiros: "Padroeiros",
-  religiao: "Religião",
-  historia: "História",
-  geografia: "Geografia",
-  natureza: "Natureza",
-};
+import { TAG_LABELS } from "../../lib/tags";
 
 // Filtro por tag via query string (?tag=historia)
 const tagFiltro = Astro.url.searchParams.get("tag");

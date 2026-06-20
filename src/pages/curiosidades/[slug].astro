@@ -3,6 +3,7 @@ import { getCollection, getEntry, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Compartilhar from "../../components/Compartilhar.astro";
 import { articleSchema, breadcrumbSchema } from "../../lib/seo";
+import { TAG_LABELS } from "../../lib/tags";
 
 export async function getStaticPaths() {
   const todas = await getCollection("curiosidades");
@@ -11,14 +12,6 @@ export async function getStaticPaths() {
     props: { curiosidade: c },
   }));
 }
-
-const TAG_LABELS: Record<string, string> = {
-  padroeiros: "Padroeiros",
-  religiao: "Religião",
-  historia: "História",
-  geografia: "Geografia",
-  natureza: "Natureza",
-};
 
 const { curiosidade } = Astro.props;
 const { Content } = await render(curiosidade);
