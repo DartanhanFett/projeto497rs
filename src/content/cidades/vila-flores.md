@@ -4,7 +4,7 @@ nome: "Vila Flores"
 microrregiao: "Caxias do Sul"
 mesorregiao: "Nordeste Rio-grandense"
 status: visitada
-atualizadoEm: 2026-06-14
+atualizadoEm: 2026-06-17
 resumo: ""
 capa: ""
 fotos: []

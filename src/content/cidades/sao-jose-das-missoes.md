@@ -4,7 +4,7 @@ nome: "São José das Missões"
 microrregiao: "Carazinho"
 mesorregiao: "Noroeste Rio-grandense"
 status: pendente
-atualizadoEm: 2026-06-14
+atualizadoEm: 2026-06-17
 resumo: ""
 capa: ""
 fotos: []

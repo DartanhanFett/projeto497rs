@@ -4,7 +4,7 @@ nome: "São Borja"
 microrregiao: "Campanha Ocidental"
 mesorregiao: "Sudoeste Rio-grandense"
 status: pendente
-atualizadoEm: 2026-06-14
+atualizadoEm: 2026-06-17
 resumo: ""
 capa: ""
 fotos: []

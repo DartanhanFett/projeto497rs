@@ -4,7 +4,7 @@ nome: "Nova Palma"
 microrregiao: "Restinga Seca"
 mesorregiao: "Centro Ocidental Rio-grandense"
 status: pendente
-atualizadoEm: 2026-06-14
+atualizadoEm: 2026-06-17
 resumo: ""
 capa: ""
 fotos: []

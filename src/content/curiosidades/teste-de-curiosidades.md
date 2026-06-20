@@ -5,5 +5,6 @@ tags:
   - geografia
 capa: /uploads/mapa-projeto-viagem-frederico-1-.jpg
 destaque: true
+atualizadoEm: 2026-06-18
 ---
 Você sabia que Osório é a única dentre 497 cidades gaúchas que inicia com a letra “0”.
