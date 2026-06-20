@@ -2,7 +2,6 @@
 titulo: "Nossa Senhora dos Navegantes — onde a água manda"
 data: 2026-06-10
 tags: [padroeiros, geografia, natureza]
-destaque: false
 cidades:
   - arambare
   - charqueadas

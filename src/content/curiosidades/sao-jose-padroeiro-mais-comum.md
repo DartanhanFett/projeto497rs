@@ -2,7 +2,6 @@
 titulo: "São José é o padroeiro mais comum no RS"
 data: 2026-06-13
 tags: [padroeiros, religiao]
-destaque: true
 cidades:
   - barao
   - cambara-do-sul

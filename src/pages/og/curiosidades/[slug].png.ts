@@ -2,14 +2,7 @@ import type { APIRoute, GetStaticPaths } from "astro";
 import { getCollection } from "astro:content";
 import { renderOgImage } from "../../../lib/og.js";
 import { ogCuriosidade } from "../../../lib/og-layouts.js";
-
-const TAG_LABELS: Record<string, string> = {
-  padroeiros: "Padroeiros",
-  religiao: "Religião",
-  historia: "História",
-  geografia: "Geografia",
-  natureza: "Natureza",
-};
+import { TAG_LABELS } from "../../../lib/tags.js";
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const todas = await getCollection("curiosidades");

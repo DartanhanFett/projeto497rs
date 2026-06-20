@@ -219,12 +219,20 @@ collections:
         widget: select
         multiple: true
         required: false
+        hint: 'Marque as categorias relevantes — facilita filtrar curiosidades por tema.'
         options:
           - { label: 'Padroeiros', value: padroeiros }
           - { label: 'Religião', value: religiao }
           - { label: 'História', value: historia }
           - { label: 'Geografia', value: geografia }
           - { label: 'Natureza', value: natureza }
+          - { label: 'Festas e eventos', value: festas }
+          - { label: 'Gastronomia', value: gastronomia }
+          - { label: 'Imigração', value: imigracao }
+          - { label: 'Arquitetura', value: arquitetura }
+          - { label: 'Música e cultura', value: 'musica-cultura' }
+          - { label: 'Estatísticas', value: estatisticas }
+          - { label: 'Pontos turísticos', value: 'pontos-turisticos' }
 
       - label: 'Foto de capa (opcional)'
         name: capa
@@ -236,13 +244,21 @@ collections:
         media_library:
           config: { multiple: false }
 
-      - label: 'Cidades relacionadas (slugs)'
+      - label: 'Cidades relacionadas'
         name: cidades
-        widget: list
+        widget: relation
         required: false
-        field: { label: 'Slug', name: slug, widget: string, hint: 'Ex: "porto-alegre", "gramado". Veja o final da URL da cidade.' }
-        hint: 'Liste os slugs das cidades relacionadas — aparecem como links na curiosidade.'
-
-      - { label: 'Destaque na home?', name: destaque, widget: boolean, default: false, required: false, hint: 'Se marcado, aparece no card de destaque da home.' }
+        # Busca dentro da collection 'cidades' — pai digita "porto" e vê
+        # Porto Alegre, Porto Lucena, etc. Múltipla seleção.
+        collection: cidades
+        # search_fields: campos onde a busca procura. Display: o que mostra.
+        # value_field: o que salva no .md (slug = ID do entry).
+        search_fields: ['nome', 'mesorregiao', 'microrregiao']
+        display_fields: ['nome', 'mesorregiao']
+        value_field: '{{slug}}'
+        multiple: true
+        min: 0
+        max: 20
+        hint: 'Comece a digitar o nome da cidade — vai aparecer sugestão. Pode escolher quantas quiser.'
 
       - { label: 'Texto da curiosidade', name: body, widget: markdown, required: true }

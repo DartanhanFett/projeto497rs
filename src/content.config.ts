@@ -103,6 +103,13 @@ const TAGS_CURIOSIDADES = [
   "historia",
   "geografia",
   "natureza",
+  "festas",
+  "gastronomia",
+  "imigracao",
+  "arquitetura",
+  "musica-cultura",
+  "estatisticas",
+  "pontos-turisticos",
 ] as const;
 
 const curiosidades = defineCollection({
@@ -114,7 +121,6 @@ const curiosidades = defineCollection({
     tags: z.array(z.enum(TAGS_CURIOSIDADES)).default([]),
     capa: z.string().optional(),            // foto opcional
     cidades: z.array(z.string()).default([]), // slugs de cidades relacionadas
-    destaque: z.boolean().default(false),   // pode aparecer como card de destaque na home
   }),
 });
 
