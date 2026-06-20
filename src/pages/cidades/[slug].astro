@@ -2,6 +2,7 @@
 import { getCollection, render } from "astro:content";
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import Compartilhar from "../../components/Compartilhar.astro";
+import Galeria from "../../components/Galeria.astro";
 import { placeSchema, breadcrumbSchema } from "../../lib/seo";
 import { vizinhas } from "../../lib/vizinhas";
 
@@ -353,27 +354,11 @@ const cidadesVizinhas = vizinhas(cidade.id, 6);
       <Content />
     </article>
 
-    <!-- Galeria vertical (formato Stories) -->
+    <!-- Galeria com lightbox interativo -->
     {d.fotos.length > 0 && (
       <section class="mb-12">
         <h2 class="text-2xl font-display font-semibold mb-4">Galeria</h2>
-        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
-          {d.fotos.map((f, i) => (
-            <a
-              href={f}
-              target="_blank"
-              rel="noopener"
-              class="aspect-[9/16] rounded-xl overflow-hidden border border-[var(--color-border)] hover:border-[var(--color-primary)] transition-colors block bg-[var(--color-surface)]"
-            >
-              <img
-                src={f}
-                alt={`${d.nome} — foto ${i + 1}`}
-                loading="lazy"
-                class="w-full h-full object-cover"
-              />
-            </a>
-          ))}
-        </div>
+        <Galeria fotos={d.fotos} legenda={d.nome} />
       </section>
     )}
 
