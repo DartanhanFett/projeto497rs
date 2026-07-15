@@ -5,7 +5,7 @@ microrregiao: Passo Fundo
 mesorregiao: Noroeste Rio-grandense
 status: visitada
 dataVisita: 2020-07-15
-atualizadoEm: 2026-06-20
+atualizadoEm: 2026-07-15
 padroeiro: Santo Antônio
 gentilico: Água-santenses
 siteOficial: https://aguasanta.rs.gov.br/
