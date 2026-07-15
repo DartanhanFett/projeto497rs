@@ -7,12 +7,12 @@ import { glob } from "astro/loaders";
  * Por que isso? O Decap CMS, quando o widget `image` com `multiple: true`
  * tem só 1 item, salva como string solta no frontmatter:
  *
- *     fotos: /uploads/sapiranga/foto.jpg     # ← ERRO: schema espera array
+ *     fotos: https://cdn.projeto497rs.com.br/sapiranga/foto.jpg     # ← ERRO: schema espera array
  *
  * em vez de:
  *
  *     fotos:
- *       - /uploads/sapiranga/foto.jpg
+ *       - https://cdn.projeto497rs.com.br/sapiranga/foto.jpg
  *
  * Mesma coisa pode acontecer com listas de strings em geral. Em vez de
  * deixar o build quebrar (e culpar o pai por isso), normalizamos no
